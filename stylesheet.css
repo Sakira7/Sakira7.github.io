@@ -62,12 +62,12 @@ body{
 
 }
 .input{
-    width:40%;
-		height:30%;
+    width:60%;
+		height:50%;
 }
 .button{
-    width:40%;
-		height:30%;
+    width:60%;
+		height:50%;
     border-radius: 0.2em;
     border:none;
     background-color: #96f;
