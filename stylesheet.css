@@ -56,31 +56,22 @@ body{
     font-family: "Montserrat", sans-serif;
 }
 #container{
-<<<<<<< HEAD
 		padding-top:25%;
     width:100%;
     height:100%;
-=======
     width:50%;
     height:50%;
->>>>>>> parent of d4442c2... Update stylesheet.css
     text-align: center;
 
 }
 .input{
-<<<<<<< HEAD
-    width:1em;
-		height:0.5em;
+    width:50%;
+		height:40%;
 }
+
 .button{
-    width:1em;
-		height:0.5em;
-=======
-    width:40%;
-}
-.button{
-    width:40%;
->>>>>>> parent of d4442c2... Update stylesheet.css
+    width:50%;
+		height:40%;
     border-radius: 0.2em;
     border:none;
     background-color: #96f;
