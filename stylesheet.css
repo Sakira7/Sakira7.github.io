@@ -54,7 +54,7 @@ table {
 ****************************/
 body{
     font-family: "Montserrat", sans-serif;
-		background-image: url("bakgrund2.jpg");//Image by Pexels from Pixabay 
+		background-image: url("bakgrund2.jpg");//Image by Pexels from Pixabay
 }
 .container{
     padding-top:10%;
@@ -97,5 +97,5 @@ body{
 #cButton{
     text-decoration: none;
     font-weight: 300;
-    font-size:4em;
+    font-size:5em;
 }
