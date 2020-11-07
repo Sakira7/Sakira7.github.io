@@ -60,6 +60,7 @@ body{
     width:100%;
     height:100%;
     text-align: center;
+		background-image: url("bakgrund.jpg");
 }
 .input{
     width:80%;
