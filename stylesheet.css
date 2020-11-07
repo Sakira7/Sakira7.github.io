@@ -55,34 +55,42 @@ table {
 body{
     font-family: "Montserrat", sans-serif;
 }
-#container{
-		padding-top:25%;
+.container{
+    padding-top:10%;
     width:100%;
     height:100%;
     text-align: center;
-
 }
 .input{
-    width:50%;
-		height:40%;
+    width:80%;
+    font-size: 3em;
 }
-
 .button{
-    width:50%;
-		height:40%;
+    width:80%;
     border-radius: 0.2em;
     border: none;
-    background-color: #96f;
+    background-color: #5ead5e;
     outline: 0;
     color:#fff;
-    font-size: 1.5em;
+    font-size: 4em;
     margin:5px 5px;
     padding:10px;
     font-family: "Montserrat", sans-serif;
+    box-shadow: inset 0 0 10px #000000;
 }
 .selected{
-    background-color: #92f;
+    background-color: #428042;
 }
 #p1{
     margin-top:10px;
+    font-size: 3em;
+}
+#p2{
+    font-size: 3em;
+}
+
+#cButton{
+    text-decoration: none;
+    font-weight: 300;
+    font-size:3em;
 }
