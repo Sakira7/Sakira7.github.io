@@ -63,7 +63,7 @@ body{
 }
 .input{
     width:80%;
-    font-size: 3em;
+    font-size: 4em;
 }
 .button{
     width:80%;
@@ -72,7 +72,7 @@ body{
     background-color: #5ead5e;
     outline: 0;
     color:#fff;
-    font-size: 4em;
+    font-size: 5em;
     margin:5px 5px;
     padding:10px;
     font-family: "Montserrat", sans-serif;
@@ -83,14 +83,14 @@ body{
 }
 #p1{
     margin-top:10px;
-    font-size: 3em;
+    font-size: 4em;
 }
 #p2{
-    font-size: 3em;
+    font-size: 4em;
 }
 
 #cButton{
     text-decoration: none;
     font-weight: 300;
-    font-size:3em;
+    font-size:4em;
 }
