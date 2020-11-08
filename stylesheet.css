@@ -79,7 +79,7 @@ body{
     width:80%;
     border-radius: 0.2em;
     border: none;
-    background-color: #1f4d34;
+    background-color: #4c6e5a;
     outline: 0;
     color:#fff;
     font-size: 5em;
@@ -91,7 +91,7 @@ body{
 		cursor:pointer;
 }
 .selected{
-    background-color: #112b1d;
+    background-color: #2e4236;
 }
 #p1{
     margin-top:10px;
