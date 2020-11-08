@@ -56,12 +56,12 @@ table {
 body{
 	font-family: "Montserrat", sans-serif;
 }
-@media(min-height:2000px){
+@media(min-width:600px) and (min-height:2000px){
 	body{
 		background-image: url(bakgrund.jpg);//Image by Pexels from Pixabay
 	}
 }
-@media(min-width:1025px){
+@media(min-width:1680px) and (min-height:1024){
 	body{
 		background-image: url(bakgrund2.jpg);//Image by Pexels from Pixabay
 	}
