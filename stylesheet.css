@@ -55,6 +55,7 @@ table {
 
 body{
 	font-family: "Montserrat", sans-serif;
+	background-size:fill;
 }
 @media only screen and (min-width: 600px){
 	body{
