@@ -60,6 +60,7 @@ table {
 }
 @media (max-width:600px){
 	body{
+		font-family: "Montserrat", sans-serif;
 			background-image: url("bakgrund.jpg");//Image by Pexels from Pixabay
 	}
 }
