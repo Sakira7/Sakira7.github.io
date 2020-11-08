@@ -57,16 +57,12 @@ body{
 	font-family: "Montserrat", sans-serif;
 
 }
-@media(max-width:600px){
+@media(min-height:2000px){
 	body{
 		background-image: url(bakgrund.jpg);//Image by Pexels from Pixabay
 	}
 }
-@media (min-width: 601px) and (max-width: 1024px) {
-  body {
-    background-image: url(bakgrund2.jpg);
-  }
-}
+
 @media(min-width:1025px){
 	body{
 		background-image: url(bakgrund2.jpg);//Image by Pexels from Pixabay
