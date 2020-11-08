@@ -61,7 +61,7 @@ body{
 		background-image: url(bakgrund.jpg);//Image by Pexels from Pixabay
 	}
 }
-@media(min-width:1040px) and (min-height:600px){
+@media(min-width: 1025px) and (max-width: 1280px){
 	body{
 		background-image: url(bakgrund2.jpg);//Image by Pexels from Pixabay
 	}
