@@ -57,7 +57,7 @@ body{
 	font-family: "Montserrat", sans-serif;
 	background-size:fill;
 }
-@media only screen and (min-width: 600px){
+@media only screen and (min-width: 300px){
 	body{
 		background-image: url(bakgrund.jpg);//Image by Pexels from Pixabay
 	}
