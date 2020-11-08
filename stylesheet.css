@@ -52,7 +52,7 @@ table {
 /***************************
         END CSS RESET
 ****************************/
-@media only screen and(max-width:300px){
+@media only screen and(max-width:500px){
 	body{
 		background-image: url("bakgrund.jpg");//Image by Pexels from Pixabay
 	}
