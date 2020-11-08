@@ -56,7 +56,7 @@ table {
 body{
 	font-family: "Montserrat", sans-serif;
 }
-@media(min-width:600px) and (min-height:2000px){
+@media(width:1080px) and (height:2340px){
 	body{
 		background-image: url(bakgrund.jpg);//Image by Pexels from Pixabay
 	}
