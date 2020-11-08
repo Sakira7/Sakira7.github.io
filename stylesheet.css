@@ -55,27 +55,22 @@ table {
 
 body{
 	font-family: "Montserrat", sans-serif;
-
 }
 @media(min-height:2000px){
 	body{
 		background-image: url(bakgrund.jpg);//Image by Pexels from Pixabay
 	}
 }
-
 @media(min-width:1025px){
 	body{
 		background-image: url(bakgrund2.jpg);//Image by Pexels from Pixabay
 	}
 }
-
-
 .container{
     padding-top:10%;
     width:100%;
     height:100%;
     text-align: center;
-
 }
 .input{
     width:80%;
