@@ -224,3 +224,11 @@ body{
     font-weight: 300;
     font-size:5em;
 }
+h1{
+    font-family: "Sacramento", sans-serif;
+    font-size: 6em;
+    color: #fff;
+    text-shadow: -1px 1px 0 #000;
+    margin-top:20px;
+    text-align: center;
+}
