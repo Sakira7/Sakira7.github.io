@@ -60,15 +60,7 @@ body{
     padding:0;
     margin:0;
 }
-@media only screen and (min-width: 300px){
-	body{
-		background-image: url(bakgrund.jpg);
-	}
-}
-@media only screen and (min-width: 992px){
-	body{
-		background-image: url(bakgrund2.jpg);
-	}
+
     .navbar{
         text-align: center;
     }
@@ -155,7 +147,7 @@ body{
     #menu{
       position: absolute;
       width: 100px;
-        border-radius: 5%;
+      border-radius: 5%;
       margin: -100px 0 0 -50px;
       padding: 50px;
       padding-top: 125px;
@@ -177,7 +169,7 @@ body{
     #menuToggle input:checked ~ ul{
       transform: none;
     }
-}
+
 /*****************************************
 *****************************************/
 
@@ -231,5 +223,25 @@ h1{
     color: #fff;
     text-shadow: -1px 1px 0 #000;
     margin-top:20px;
-    text-align: center;
+}
+@media only screen and (min-width: 300px){
+	body{
+		background-image: url(bakgrund.jpg);
+	}
+    #menuToggle{
+        left:20px;
+    }
+    h1{
+        text-align: right;
+    }
+
+
+}
+@media only screen and (min-width: 992px){
+	body{
+		background-image: url(bakgrund2.jpg);
+	}
+    h1{
+        text-align: center;
+    }
 }
