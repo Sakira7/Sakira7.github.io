@@ -10,7 +10,7 @@
         <meta name="msapplication-TileColor" content="#222">
         <meta name="msapplication-TileImage" content="Sara_icon.png">
         <link href="Sara_icon.png" rel="shortcut icon">
-                <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
     </head>
     <body>
         <div id="navbar">
@@ -34,5 +34,16 @@
         <div class="container">
         </div>
         <script src="index.js"></script>
+        <script type="text/javascript">
+  if ('serviceWorker' in navigator) {
+    console.log("Will the service worker register?");
+    navigator.serviceWorker.register('service-worker.js')
+     .then(function(reg){
+       console.log("Yes, it did.");
+    }).catch(function(err) {
+       console.log("No it didn't. This happened:", err)
+    });
+  }
+</script>
     </body>
 </html>
