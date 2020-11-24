@@ -52,7 +52,6 @@ table {
 /***************************
         END CSS RESET
 ****************************/
-
 body{
 	font-family: "Montserrat", sans-serif;
 	background-size:cover;
@@ -104,14 +103,14 @@ body{
     /** Just a quick hamburger **/
     #menuToggle span{
       display: block;
-      width: 33px;
-      height: 4px;
-      margin-bottom: 5px;
+      width: 3em;
+      height: 0.4em;
+      margin-bottom: 10px;
       position: relative;
       background: #fff;
       border-radius: 3px;
       z-index: 1;
-      transform-origin: 4px 0px;
+      transform-origin: 2px 0px;
       transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
                   background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
                   opacity 0.55s ease;
@@ -128,7 +127,7 @@ body{
     /*Transform all the slices of hamburger into a crossmark.*/
     #menuToggle input:checked ~ span{
       opacity: 1;
-      transform: rotate(45deg) translate(-2px, -1px);
+      transform: rotate(45deg) translate(-2px, 2px);
       background: #222;
     }
 
@@ -146,7 +145,6 @@ body{
     /*Make this absolute positioned at the top left of the screen*/
     #menu{
       position: absolute;
-      width: 100px;
       border-radius: 5%;
       margin: -100px 0 0 -50px;
       padding: 50px;
@@ -162,7 +160,7 @@ body{
 
     #menu li{
       padding: 10px 0;
-      font-size: 22px;
+
     }
 
     /*And let's slide it in from the left*/
@@ -205,11 +203,11 @@ body{
 #p1{
     margin-top:10px;
     font-size: 4em;
-		color:#fff;
+	color:#fff;
 }
 #p2{
     font-size: 4em;
-		color:#fff;
+	color:#fff;
 }
 
 #cButton{
@@ -219,10 +217,10 @@ body{
 }
 h1{
     font-family: "Sacramento", sans-serif;
-    font-size: 6em;
     color: #fff;
     text-shadow: -1px 1px 0 #000;
     margin-top:20px;
+
 }
 @media only screen and (min-width: 300px){
 	body{
@@ -232,7 +230,14 @@ h1{
         left:20px;
     }
     h1{
+        font-size: 9em;
         text-align: right;
+    }
+        #menu{
+        width: 15em;
+    }
+        #menu li{
+        font-size: 3em;
     }
 
 
@@ -243,5 +248,12 @@ h1{
 	}
     h1{
         text-align: center;
+        font-size: 6em;
+    }
+    #menu{
+        width: 20em;
+    }
+    #menu li{
+        font-size: 4em;
     }
 }
