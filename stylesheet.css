@@ -237,7 +237,7 @@ h1{
         width: 40em;
     }
         #menu li{
-        font-size: 3em;
+        font-size: 5em;
     }
 
 
@@ -251,9 +251,9 @@ h1{
         font-size: 6em;
     }
     #menu{
-        width: 30em;
+        width: 40em;
     }
     #menu li{
-        font-size: 4em;
+        font-size: 5em;
     }
 }
