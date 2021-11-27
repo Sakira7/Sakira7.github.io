@@ -1,213 +1,213 @@
 let cards = [
 
     {
-        "face" : "deck/hearts_ace.png",
+        "face" : "hearts_ace.png",
         "value": 1
     },
     {
-        "face" : "deck/hearts_2.png",
+        "face" : "hearts_2.png",
         "value": 2
     },
     {
-        "face" : "deck/hearts_3.png",
+        "face" : "hearts_3.png",
         "value": 3
     },
     {
-        "face" : "deck/hearts_4.png",
+        "face" : "hearts_4.png",
         "value": 4
     },
     {
-        "face" : "deck/hearts_5.png",
+        "face" : "hearts_5.png",
         "value": 5
     },
     {
-        "face" : "deck/hearts_6.png",
+        "face" : "hearts_6.png",
         "value": 6
     },
     {
-        "face" : "deck/hearts_7.png",
+        "face" : "hearts_7.png",
         "value": 7
     },
     {
-        "face" : "deck/hearts_8.png",
+        "face" : "hearts_8.png",
         "value": 8
     },
     {
-        "face" : "deck/hearts_9.png",
+        "face" : "hearts_9.png",
         "value": 9
     },
     {
-        "face" : "deck/hearts_10.png",
+        "face" : "hearts_10.png",
         "value": 10
     },
     {
-        "face" : "deck/hearts_jack.png",
-        "value": 10
-    },
-    {  
-        "face" : "deck/hearts_queen.png",
+        "face" : "hearts_jack.png",
         "value": 10
     },
     {
-        "face" : "deck/hearts_king.png",
+        "face" : "hearts_queen.png",
+        "value": 10
+    },
+    {
+        "face" : "hearts_king.png",
         "value": 10
     },
 
     {
-        "face" : "deck/diamonds_ace.png",
+        "face" : "diamonds_ace.png",
         "value": 1
     },
     {
-        "face" : "deck/diamonds_2.png",
+        "face" : "diamonds_2.png",
         "value": 2
     },
     {
-        "face" : "deck/diamonds_3.png",
+        "face" : "diamonds_3.png",
         "value": 3
     },
     {
-        "face" : "deck/diamonds_4.png",
+        "face" : "diamonds_4.png",
         "value": 4
     },
     {
-        "face" : "deck/diamonds_5.png",
+        "face" : "diamonds_5.png",
         "value": 5
     },
     {
-        "face" : "deck/diamonds_6.png",
+        "face" : "diamonds_6.png",
         "value": 6
     },
     {
-        "face" : "deck/diamonds_7.png",
+        "face" : "diamonds_7.png",
         "value": 7
     },
     {
-        "face" : "deck/diamonds_8.png",
+        "face" : "diamonds_8.png",
         "value": 8
     },
     {
-        "face" : "deck/diamonds_9.png",
+        "face" : "diamonds_9.png",
         "value": 9
     },
     {
-        "face" : "deck/diamonds_10.png",
+        "face" : "diamonds_10.png",
         "value": 10
     },
     {
-        "face" : "deck/diamonds_jack.png",
+        "face" : "diamonds_jack.png",
         "value": 10
     },
     {
-        "face" : "deck/diamonds_queen.png",
+        "face" : "diamonds_queen.png",
         "value": 10
     },
-    { 
-        "face" : "deck/diamonds_king.png",
+    {
+        "face" : "diamonds_king.png",
         "value":10
     },
     {
-        "face" : "deck/clubs_ace.png",
+        "face" : "clubs_ace.png",
         "value": 1
     },
     {
-        "face" : "deck/clubs_2.png",
+        "face" : "clubs_2.png",
         "value": 2
     },
     {
-        "face" : "deck/clubs_3.png",
+        "face" : "clubs_3.png",
         "value": 3
     },
     {
-        "face" : "deck/clubs_4.png",
+        "face" : "clubs_4.png",
         "value": 4
     },
     {
-        "face" : "deck/clubs_5.png",
+        "face" : "clubs_5.png",
         "value": 5
     },
     {
-        "face" : "deck/clubs_6.png",
+        "face" : "clubs_6.png",
         "value": 6
     },
     {
-        "face" : "deck/clubs_7.png",
+        "face" : "clubs_7.png",
         "value": 7
     },
     {
-        "face" : "deck/clubs_8.png",
+        "face" : "clubs_8.png",
         "value": 8
     },
     {
-        "face" : "deck/clubs_9.png",
+        "face" : "clubs_9.png",
         "value": 9
     },
     {
-        "face" : "deck/clubs_10.png",
+        "face" : "clubs_10.png",
         "value": 10
     },
     {
-        "face" : "deck/clubs_jack.png",
+        "face" : "clubs_jack.png",
         "value": 10
     },
     {
-        "face" : "deck/clubs_queen.png",
+        "face" : "clubs_queen.png",
         "value": 10
     },
     {
-        "face" : "deck/clubs_king.png",
+        "face" : "clubs_king.png",
         "value": 10
     },
     {
-        "face" : "deck/spades_ace.png",
+        "face" : "spades_ace.png",
         "value": 1
     },
     {
-        "face" : "deck/spades_2.png",
+        "face" : "spades_2.png",
         "value":2
     },
     {
-        "face" : "deck/spades_3.png",
+        "face" : "spades_3.png",
         "value": 3
     },
     {
-        "face" : "deck/spades_4.png",
+        "face" : "spades_4.png",
         "value": 4
     },
     {
-        "face" : "deck/spades_5.png",
+        "face" : "spades_5.png",
         "value": 5
     },
     {
-        "face" : "deck/spades_6.png",
+        "face" : "spades_6.png",
         "value": 6
     },
     {
-        "face" : "deck/spades_7.png",
+        "face" : "spades_7.png",
         "value": 7
     },
     {
-        "face" : "deck/spades_8.png",
+        "face" : "spades_8.png",
         "value": 8
     },
     {
-        "face" : "deck/spades_9.png",
+        "face" : "spades_9.png",
         "value": 9
     },
     {
-        "face" : "deck/spades_10.png",
+        "face" : "spades_10.png",
         "value": 10
     },
     {
-        "face" : "deck/spades_jack.png",
+        "face" : "spades_jack.png",
         "value": 10
     },
     {
-        "face" : "deck/spades_queen.png",
+        "face" : "spades_queen.png",
         "value": 10
     },
     {
 
-        "face" : "deck/spades_king.png",
+        "face" : "spades_king.png",
         "value": 10}
 
 ];
@@ -273,11 +273,11 @@ function deal(){
         board.childNodes[50].style.marginLeft="5vw";
         board.childNodes[50].style.zIndex="-1";
         board.childNodes[49].style.top="3vw";
-        
+
         if(screen.width <= 700 || window.innerWidth <=700){
-            board.childNodes[49].style.top="5vw";   
+            board.childNodes[49].style.top="5vw";
         }
-        
+
         board.childNodes[49].style.boxShadow="-1px -1px 2px #000";
 
         if(cards[1].value === 1 && cards[2].value <= 10|| cards[2].value === 1 && cards[1].value <= 10 ){
@@ -303,11 +303,11 @@ function deal(){
         board.childNodes[48].style.marginLeft="15vw";
         board.childNodes[48].style.zIndex="2";
         board.childNodes[48].style.top="5vw";
-        
+
         if(screen.width <= 700 || window.innerWidth <=700){
-            board.childNodes[48].style.top="7vw";   
+            board.childNodes[48].style.top="7vw";
         }
-        
+
         board.childNodes[48].style.boxShadow="-1px -1px 2px #000";
 
 
@@ -332,11 +332,11 @@ function deal(){
         board.childNodes[47].style.marginLeft="20vw";
         board.childNodes[47].style.zIndex="3";
         board.childNodes[47].style.top="7vw";
-        
+
         if(screen.width <= 700 || window.innerWidth <=700){
-            board.childNodes[47].style.top="9vw";   
+            board.childNodes[47].style.top="9vw";
         }
-        
+
         board.childNodes[47].style.boxShadow="-1px -1px 2px #000";
 
         if(cards[4].value === 1 && value < 11){
@@ -356,14 +356,14 @@ function deal(){
         board.childNodes[46].style.marginLeft="25vw";
         board.childNodes[46].style.zIndex="4";
         board.childNodes[46].style.top="9vw";
-        
+
         if(screen.width <= 700 || window.innerWidth <=700){
-            board.childNodes[46].style.top="11vw";   
+            board.childNodes[46].style.top="11vw";
         }
-        
+
         board.childNodes[46].style.boxShadow="-1px -1px 2px #000";
 
- 
+
         if(cards[5].value === 1 && value < 11){
 
             value = value + cards[5].value + 10
@@ -381,11 +381,11 @@ function deal(){
         board.childNodes[45].style.marginLeft="30vw";
         board.childNodes[45].style.zIndex="4";
         board.childNodes[45].style.top="11vw";
-        
+
         if(screen.width <= 700 || window.innerWidth <=700){
-            board.childNodes[45].style.top="13vw";   
+            board.childNodes[45].style.top="13vw";
         }
-        
+
         board.childNodes[45].style.boxShadow="-1px -1px 2px #000";
 
         if(cards[6].value === 1 && value < 11){
@@ -405,11 +405,11 @@ function deal(){
         board.childNodes[44].style.marginLeft="35vw";
         board.childNodes[44].style.zIndex="4";
         board.childNodes[44].style.top="13vw";
-        
+
         if(screen.width <= 700 || window.innerWidth <=700){
-            board.childNodes[44].style.top="15vw";   
+            board.childNodes[44].style.top="15vw";
         }
-        
+
         board.childNodes[44].style.boxShadow="-1px -1px 2px #000";
 
         if(cards[7].value === 1 && value < 11){
@@ -429,11 +429,11 @@ function deal(){
         board.childNodes[43].style.marginLeft="40vw";
         board.childNodes[43].style.zIndex="4";
         board.childNodes[43].style.top="15vw";
-        
+
         if(screen.width <= 700 || window.innerWidth <=700){
-            board.childNodes[43].style.top="17vw";   
+            board.childNodes[43].style.top="17vw";
         }
-        
+
         board.childNodes[43].style.boxShadow="-1px -1px 2px #000";
 
         if(cards[8].value === 1 && value < 11){
@@ -453,11 +453,11 @@ function deal(){
         board.childNodes[42].style.marginLeft="45vw";
         board.childNodes[42].style.zIndex="4";
         board.childNodes[42].style.top="17vw";
-        
+
         if(screen.width <= 700 || window.innerWidth <=700){
-            board.childNodes[42].style.top="19vw";   
+            board.childNodes[42].style.top="19vw";
         }
-        
+
         board.childNodes[42].style.boxShadow="-1px -1px 2px #000";
 
         if(cards[9].value === 1 && value < 11){
@@ -477,11 +477,11 @@ function deal(){
         board.childNodes[41].style.marginLeft="50vw";
         board.childNodes[41].style.zIndex="4";
         board.childNodes[41].style.top="19vw";
-        
+
         if(screen.width <= 700 || window.innerWidth <=700){
-            board.childNodes[41].style.top="21vw";   
+            board.childNodes[41].style.top="21vw";
         }
-        
+
         board.childNodes[41].style.boxShadow="-1px -1px 2px #000";
 
         if(cards[10].value === 1 && value < 11){
@@ -513,4 +513,3 @@ function startOver(){
     $(".btn:nth-child(2)").css("visibility","hidden");
 
 }
-
