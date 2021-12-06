@@ -275,7 +275,10 @@ function deal(){
         board.childNodes[49].style.top="3vw";
 
         if(screen.width <= 700 || window.innerWidth <=700){
-            board.childNodes[49].style.top="5vw";
+            board.childNodes[49].style.top="48vw";
+            board.childNodes[49].style.marginLeft="39.5vw";
+            board.childNodes[50].style.top="45.3vw";
+            board.childNodes[50].style.marginLeft="34.9vw";
         }
 
         board.childNodes[49].style.boxShadow="-1px -1px 2px #000";
@@ -305,7 +308,8 @@ function deal(){
         board.childNodes[48].style.top="5vw";
 
         if(screen.width <= 700 || window.innerWidth <=700){
-            board.childNodes[48].style.top="7vw";
+            board.childNodes[48].style.top="51vw";
+            board.childNodes[48].style.marginLeft="44.5vw";
         }
 
         board.childNodes[48].style.boxShadow="-1px -1px 2px #000";
@@ -334,7 +338,8 @@ function deal(){
         board.childNodes[47].style.top="7vw";
 
         if(screen.width <= 700 || window.innerWidth <=700){
-            board.childNodes[47].style.top="9vw";
+            board.childNodes[47].style.top="54vw";
+            board.childNodes[47].style.marginLeft="49.5vw";
         }
 
         board.childNodes[47].style.boxShadow="-1px -1px 2px #000";
@@ -358,7 +363,8 @@ function deal(){
         board.childNodes[46].style.top="9vw";
 
         if(screen.width <= 700 || window.innerWidth <=700){
-            board.childNodes[46].style.top="11vw";
+            board.childNodes[46].style.top="57vw";
+            board.childNodes[46].style.marginLeft="54.5vw";
         }
 
         board.childNodes[46].style.boxShadow="-1px -1px 2px #000";
@@ -383,7 +389,8 @@ function deal(){
         board.childNodes[45].style.top="11vw";
 
         if(screen.width <= 700 || window.innerWidth <=700){
-            board.childNodes[45].style.top="13vw";
+            board.childNodes[45].style.top="60vw";
+            board.childNodes[45].style.marginLeft="59.5vw";
         }
 
         board.childNodes[45].style.boxShadow="-1px -1px 2px #000";
@@ -407,7 +414,8 @@ function deal(){
         board.childNodes[44].style.top="13vw";
 
         if(screen.width <= 700 || window.innerWidth <=700){
-            board.childNodes[44].style.top="15vw";
+            board.childNodes[44].style.top="63vw";
+            board.childNodes[44].style.marginLeft="64.5vw";
         }
 
         board.childNodes[44].style.boxShadow="-1px -1px 2px #000";
@@ -431,7 +439,8 @@ function deal(){
         board.childNodes[43].style.top="15vw";
 
         if(screen.width <= 700 || window.innerWidth <=700){
-            board.childNodes[43].style.top="17vw";
+            board.childNodes[43].style.top="66vw";
+            board.childNodes[43].style.marginLeft="69.5vw";
         }
 
         board.childNodes[43].style.boxShadow="-1px -1px 2px #000";
@@ -455,7 +464,8 @@ function deal(){
         board.childNodes[42].style.top="17vw";
 
         if(screen.width <= 700 || window.innerWidth <=700){
-            board.childNodes[42].style.top="19vw";
+            board.childNodes[42].style.top="69vw";
+            board.childNodes[42].style.marginLeft="74.5vw";
         }
 
         board.childNodes[42].style.boxShadow="-1px -1px 2px #000";
@@ -479,7 +489,8 @@ function deal(){
         board.childNodes[41].style.top="19vw";
 
         if(screen.width <= 700 || window.innerWidth <=700){
-            board.childNodes[41].style.top="21vw";
+            board.childNodes[41].style.top="72vw";
+            board.childNodes[41].style.marginLeft="79.5vw";
         }
 
         board.childNodes[41].style.boxShadow="-1px -1px 2px #000";
@@ -499,6 +510,7 @@ function deal(){
     }
 
 }
+
 
 function startOver(){
 
