@@ -385,7 +385,7 @@ function deal(){
     }else if(clicks == 5 && value < 21){
 
         board.childNodes[45].style.marginLeft="30vw";
-        board.childNodes[45].style.zIndex="4";
+        board.childNodes[45].style.zIndex="5";
         board.childNodes[45].style.top="11vw";
 
         if(screen.width <= 700 || window.innerWidth <=700){
@@ -410,7 +410,7 @@ function deal(){
     }else if(clicks == 6 && value < 21){
 
         board.childNodes[44].style.marginLeft="35vw";
-        board.childNodes[44].style.zIndex="4";
+        board.childNodes[44].style.zIndex="6";
         board.childNodes[44].style.top="13vw";
 
         if(screen.width <= 700 || window.innerWidth <=700){
@@ -435,7 +435,7 @@ function deal(){
     }else if(clicks == 7 && value < 21){
 
         board.childNodes[43].style.marginLeft="40vw";
-        board.childNodes[43].style.zIndex="4";
+        board.childNodes[43].style.zIndex="7";
         board.childNodes[43].style.top="15vw";
 
         if(screen.width <= 700 || window.innerWidth <=700){
@@ -460,7 +460,7 @@ function deal(){
     }else if(clicks == 8 && value < 21){
 
         board.childNodes[42].style.marginLeft="45vw";
-        board.childNodes[42].style.zIndex="4";
+        board.childNodes[42].style.zIndex="8";
         board.childNodes[42].style.top="17vw";
 
         if(screen.width <= 700 || window.innerWidth <=700){
@@ -485,7 +485,7 @@ function deal(){
     }else if(clicks == 9 && value < 21){
 
         board.childNodes[41].style.marginLeft="50vw";
-        board.childNodes[41].style.zIndex="4";
+        board.childNodes[41].style.zIndex="9";
         board.childNodes[41].style.top="19vw";
 
         if(screen.width <= 700 || window.innerWidth <=700){
