@@ -235,7 +235,7 @@ function create(){
 
     dealBtn.setAttribute("type", "button");
     dealBtn.setAttribute("onClick", "deal()");
-    dealBtn.setAttribute("value", "DEAL");
+    dealBtn.setAttribute("value", "DEAL CARD/S");
     dealBtn.setAttribute("class","btn");
     buttons.appendChild(dealBtn);
 
