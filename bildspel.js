@@ -15,12 +15,12 @@ function addFiles(){
             
             pic.setAttribute("src",files[i].name);
             pic.setAttribute("class","pic");
-            let db = localStorage.setItem(files[i]);
+            localStorage.setItem(files[i]);
             
             
         }
         img_viewer.append(pic);
-        console.log("ths is database" + db);
+        console.log("ths is database" + localStorage);
         
     };
     
