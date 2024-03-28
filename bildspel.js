@@ -13,11 +13,12 @@ function addFiles(){
             
             pic.setAttribute("src",files[i].name);
             pic.setAttribute("class","pic");
-
+            lcalStorage.setItem(pic);
+            
             
         }
         img_viewer.append(pic);
-        console.log(files);
+        console.log(localStorage);
         
     };
     
