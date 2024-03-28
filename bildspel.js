@@ -13,7 +13,7 @@ function addFiles(){
             
             pic.setAttribute("src",files[i].name);
             pic.setAttribute("class","pic");
-            lcalStorage.setItem(pic);
+            lcalStorage.setItem(files[i].name);
             
             
         }
