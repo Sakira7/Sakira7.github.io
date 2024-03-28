@@ -13,7 +13,7 @@ function addFiles(){
             
             pic.setAttribute("src",files[i].name);
             pic.setAttribute("class","pic");
-            localStorage.setItem(files[i]);
+            localStorage.getItem(files[i]);
             
             
         }
