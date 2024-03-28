@@ -13,12 +13,12 @@ function addFiles(){
             
             pic.setAttribute("src",files[i].name);
             pic.setAttribute("class","pic");
-            localStorage.getItem(files[i]);
+            let db = Array.localStorage.getItem(files[i]);
             
             
         }
         img_viewer.append(pic);
-        console.log(localStorage);
+        console.log(db);
         
     };
     
