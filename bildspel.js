@@ -1,10 +1,12 @@
 function addFiles(){
-    let input = document.createElement('input');
-    input.type = 'file';
     
-    let img_viewer = document.getElementById("pics");
 
     input.onchange = _ => {
+        
+        let input = document.createElement('input');
+        input.type = 'file';
+
+        let img_viewer = document.getElementById("pics");
         
         let files = Array.from(input.files);
         let pic = document.createElement("img");
