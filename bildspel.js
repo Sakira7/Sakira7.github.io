@@ -20,7 +20,7 @@ function addFiles(){
             
         }
         img_viewer.append(pic);
-        console.log(db);
+        console.log("ths is database" + db);
         
     };
     
