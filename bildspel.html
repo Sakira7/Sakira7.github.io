@@ -4,8 +4,6 @@
         <meta charset="UTF-8" />
         <title>Title</title>
         <link rel="stylesheet" href="bildspel.css" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="theme-color" content="#000">
         <script src="bildspel.js"></script>
     </head>
     <body>
@@ -15,10 +13,11 @@
         </header>
         <div id="container">
             <div id="pics"></div>
-            <div id="buttons">
-            <input type="button" id="file_picker" class="btn" onclick="addFiles()" value="Välj Bilder"><br/>
-            <input type="button" class="btn" id="begin" value="Starta Bildspel">
-            </div>
+            <form id="buttons">
+                <label for="file_picker"></label>
+                <input type="button" id="file_picker" class="btn" onclick="handleSubmit()" value="Välj Bilder"><br/>
+                <input type="button" class="btn" id="begin" value="Starta Bildspel">
+            </form>
         </div>
         <footer id="footer"></footer>
         
