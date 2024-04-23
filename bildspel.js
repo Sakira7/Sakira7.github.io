@@ -1,26 +1,34 @@
 function addFiles(){
     
+    let input = document.createElement('input');
+    input.type = 'file';
+
+    function encodeImageFileAsURL(element) {
+        var file = element.files[0];
+        var reader = new FileReader();
+        reader.onloadend = function() {
+          console.log('RESULT', reader.result)
+        }
+        reader.readAsDataURL(file); 
+    }
 
     input.onchange = _ => {
         
-        let input = document.createElement('input');
-        input.type = 'file';
-
         let img_viewer = document.getElementById("pics");
         
         let files = Array.from(input.files);
-        let pic = document.createElement("img");
+
         
         for(var i=0;i<files.length;i++){
             
-            pic.setAttribute("src",files[i].name);
+            localStorage.setItem("img"+i, files[i]);
+            let pic = document.createElement("img");
             pic.setAttribute("class","pic");
-            localStorage.setItem(files[i]);
-            
-            
+            pic.setAttribute("src", files[i].name);
+            img_viewer.append(pic);
+
         }
-        img_viewer.append(pic);
-        console.log("ths is database" + localStorage);
+        
         
     };
     
