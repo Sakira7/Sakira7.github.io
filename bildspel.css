@@ -67,6 +67,7 @@ body{
     width:100%;
     top:22%;
     position: absolute;
+
 }
 .pic{
     width:32%;
@@ -78,7 +79,24 @@ body{
     padding:0.6em;
 }
 .slider{
-    width:100%;
-    height:100%;
-    margin:0;
+  display:none;
 }
+.slider-active{
+    align-self: center;
+    width:100%;
+    margin-top:7%;
+    padding:0;
+    opacity: 0;
+    animation:fade;
+    animation-duration:10s;
+    animation-timing-function: cubic-bezier(0, 1, 5, 0);
+
+
+}
+@keyframes fade {
+    0%{opacity:0}
+    10%{opacity:1}
+    90%{opacity:1}
+    100%{opacity:0}
+}
+
