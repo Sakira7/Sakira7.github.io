@@ -2,9 +2,9 @@
 <html lang="en" id="screen">
     <head>
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Bildspel</title>
         <link rel="stylesheet" href="bildspel.css" />
-        <link rel="manifest" href="/bs-manifest.json">
         <script src="bildspel.js"></script>
     </head>
     <body>
@@ -15,9 +15,8 @@
         <div id="container">
             <div id="pics"></div>
             <form id="buttons">
-                <label for="file_picker"></label>
                 <input type="button" id="file_picker" class="btn" onclick="handleSubmit()" value="Välj Bilder"><br/>
-                <input type="button" class="btn" id="begin" onclick="slide()" value="Starta Bildspel">
+                <div id="info">Tryck F11 för att starta Bildspelet</div>
             </form>
         </div>
         <footer id="footer"></footer>

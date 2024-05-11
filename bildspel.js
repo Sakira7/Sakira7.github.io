@@ -1,43 +1,55 @@
+
+let i = 0;
+let toggle = 0;
 function logFile (event) {
   let img_viewer = document.querySelector("#pics");
   let str = event.target.result;
   let img = document.createElement('img');
   img.setAttribute("class", "pic");
-  img.setAttribute("id", "image"+i);
-  localStorage.setItem("image"+ i, str);
-  img.src = localStorage.getItem("image"+i);
+  img.setAttribute("id", "img"+i);
+  localStorage.setItem("img"+i, str);
+  img.src = localStorage.getItem("img"+i);
   img_viewer.append(img);
-  console.log(localStorage);
+
 
   img.addEventListener("click", ()=>{
     img.remove();
     let img_name = img.getAttribute("id");
-    console.log(img_name);
     localStorage.removeItem(img.id);
   
   });
   
 }
 
+window.addEventListener("keypress", (e)=>{
+  if(e.key == "o"){
+    localStorage.clear();
+    let img = document.querySelector("#pics").childNodes;
+    for(var i = 0; i<img.length;i++){
+      img[i].parentNode.removeChild(img[i]);
+    }
 
-let i = 0;
-window.addEventListener("load", ()=>{
-  console.log(localStorage);
+  }
+})
+
+window.addEventListener("load", function load(){
   let img_viewer = document.querySelector("#pics");
-  console.log(localStorage.length);
+  toggle = 1;
+
+  console.log(localStorage);
 
   for(var i = 0; i < localStorage.length; i++){
     let img = document.createElement("img");
-    img.src = localStorage.getItem("image"+ (i+1));
+    img.src = localStorage.getItem("img"+(i+1));
     img.setAttribute("class", "pic");
-    img.setAttribute("id", "image"+(i+1))
+    img.setAttribute("id", "img"+(i+1));
+  
     img_viewer.append(img);
 
     img.addEventListener("click", ()=>{
       img.remove();
-      let img_name = img.getAttribute("id");
-      console.log(img_name);
       localStorage.removeItem(img.id);
+      
     
     });
   }
@@ -62,74 +74,82 @@ function handleSubmit () {
     reader.onload = logFile;
 
     reader.readAsDataURL(file_picker.files[0]);
-    console.log(i);
 
   };
   file_picker.click();
- 
-
 
 }
-function slide(){
 
-  
+
+window.addEventListener('resize', function slide() {
+
   let pics = [];
   let img_viewer = document.getElementById("pics");
   pics = document.getElementById("pics").childNodes;
-  openFullscreen(img_viewer);
+  let to1;
+  let to2;
+  let to3;
 
-  pics.forEach((pic, i)=>{
-    pic.removeAttribute("class");
-    pic.setAttribute("class", "slider");
-    
-    setTimeout(()=>{
-      pic.setAttribute("class", "slider-active");
+
+  if (window.screenTop && window.screenY) {
+    toggle = 0;
+    pics.forEach((pic, i)=>{
+      console.log(i);
+      pic.setAttribute("class", "slider");
       
+      to1 = setTimeout(()=>{
+        pic.setAttribute("class", "slider-active");
+        
 
-      setTimeout(()=>{
-        pic.removeAttribute("class", "slider-active");
-        pic.setAttribute("class","slider");
-      },10000);
+        to2 = setTimeout(()=>{
+          pic.removeAttribute("class", "slider-active");
+          pic.setAttribute("class","slider");
+        },10000);
 
         if(i == pics.length-1){
-          setTimeout(()=>{
+          to3 = setTimeout(()=>{
             slide();
           },10000);
         };
 
-    }, i * 10000);
-    
+      }, i * 10000);
+
+    });
+    let header = document.getElementById("header");
+    let footer = document.getElementById("footer");
+    let buttons = document.getElementById("buttons");
 
 
-  })
-
-
-
-  let header = document.getElementById("header");
-  let footer = document.getElementById("footer");
-  let buttons = document.getElementById("buttons");
+    header.style.display = "none";
+    footer.style.display = "none";
+    buttons.style.display = "none";
+    img_viewer.style.top="0";
+    img_viewer.style.position="relative";
+    img_viewer.style.height="100%";
   
-  
-  header.style.display = "none";
-  footer.style.display = "none";
-  buttons.style.display = "none";
-  img_viewer.style.top="0";
-  img_viewer.style.position="relative";
-  img_viewer.style.height="100%";
+  } else if(!window.screenTop && !window.screenY && toggle === 0){
 
+    this.document.location.reload();
 
-}
-function openFullscreen(elem) {
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-  } else if (elem.webkitRequestFullscreen) { /* Safari */
-    elem.webkitRequestFullscreen();
-  } else if (elem.msRequestFullscreen) { /* IE11 */
-    elem.msRequestFullscreen();
+    /*header.style.display = "";
+    footer.style.display = "";
+    buttons.style.display = "";
+    img_viewer.style.top="20%";
+    img_viewer.style.position="absolute";
+    img_viewer.style.height="";
+
+    pics.forEach((pic)=>{
+      pic.removeAttribute("class", "slider");
+      pic.removeAttribute("class", "slider-active");
+      pic.setAttribute("class", "pic");
+    })
+
+    for(var i = 1; i < 3; i++){
+      this.clearTimeout(to + i)
+    }*/
+
   }
-}
-  
-
+  });
 
 
 
