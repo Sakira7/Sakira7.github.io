@@ -24,10 +24,8 @@ function logFile (event) {
 window.addEventListener("keypress", (e)=>{
   if(e.key == "o"){
     localStorage.clear();
-    let img = document.querySelector("#pics").childNodes;
-    for(var i = 0; i<img.length;i++){
-      img[i].parentNode.removeChild(img[i]);
-    }
+    let pics = document.querySelector("#pics");
+    pics.innerHTML="";
 
   }
 })
@@ -130,23 +128,6 @@ window.addEventListener('resize', function slide() {
   } else if(!window.screenTop && !window.screenY && toggle === 0){
 
     this.document.location.reload();
-
-    /*header.style.display = "";
-    footer.style.display = "";
-    buttons.style.display = "";
-    img_viewer.style.top="20%";
-    img_viewer.style.position="absolute";
-    img_viewer.style.height="";
-
-    pics.forEach((pic)=>{
-      pic.removeAttribute("class", "slider");
-      pic.removeAttribute("class", "slider-active");
-      pic.setAttribute("class", "pic");
-    })
-
-    for(var i = 1; i < 3; i++){
-      this.clearTimeout(to + i)
-    }*/
 
   }
   });
