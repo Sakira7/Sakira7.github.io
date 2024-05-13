@@ -16,7 +16,6 @@ function logFile (event) {
     let images = [];
     images = document.getElementById("pics").childNodes;
     if(images[0].getAttribute("class") === "pic"){
-      console.log("DELETE");
       img.remove();
       localStorage.removeItem(img.id);
     }
