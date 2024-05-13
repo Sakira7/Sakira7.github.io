@@ -13,9 +13,13 @@ function logFile (event) {
 
 
   img.addEventListener("click", ()=>{
-    img.remove();
-    let img_name = img.getAttribute("id");
-    localStorage.removeItem(img.id);
+    let images = [];
+    images = document.getElementById("pics").childNodes;
+    if(images[0].getAttribute("class") === "pic"){
+      console.log("DELETE");
+      img.remove();
+      localStorage.removeItem(img.id);
+    }
   
   });
   
