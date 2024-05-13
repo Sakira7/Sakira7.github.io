@@ -31,6 +31,9 @@ body{
     margin:0.7em;
     cursor: pointer;
 }
+.btn:hover{
+    font-size:1em;
+}
 #buttons{
     margin-top: 25em;
     width:100%;
