@@ -25,7 +25,7 @@ window.addEventListener("keypress", (e)=>{
   if(e.key == "o"){
     localStorage.clear();
     let pics = document.querySelector("#pics");
-    pics.innerHTML="";
+    pics.innerHTML=" ";
 
   }
 })
