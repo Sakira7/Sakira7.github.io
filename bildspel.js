@@ -29,6 +29,7 @@ window.addEventListener("keypress", (e)=>{
     localStorage.clear();
     let pics = document.querySelector("#pics");
     pics.innerHTML="";
+    console.log("LOISJHFIPAUFHKIJDHFs");
   }
 })
 
