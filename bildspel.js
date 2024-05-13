@@ -26,7 +26,6 @@ window.addEventListener("keypress", (e)=>{
     localStorage.clear();
     let pics = document.querySelector("#pics");
     pics.innerHTML="";
-
   }
 })
 
@@ -47,13 +46,18 @@ window.addEventListener("load", function load(){
     img.addEventListener("click", ()=>{
       img.remove();
       localStorage.removeItem(img.id);
-      
+
     
     });
   }
 });
 
-
+window.addEventListener("keypress", (e)=>{
+  if(e.key == " "){
+    e.preventDefault();
+    handleSubmit();
+  }
+});
 function handleSubmit () {
 
   //localStorage.clear();
@@ -129,8 +133,7 @@ window.addEventListener('resize', function slide() {
 
     this.document.location.reload();
 
+
   }
   });
-
-
 

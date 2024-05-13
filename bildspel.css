@@ -1,6 +1,6 @@
 html{
     background-color: #c4c7cc;
-    font-family: Tahoma-bold, arial, sans-serif;
+    font-family: Tahoma, arial, sans-serif;
     height:100%;
     width:100%;
     background-repeat:no-repeat;
@@ -19,7 +19,7 @@ body{
     font-size:3em;
 }
 .btn{
-    font-family: Georgia, arial, sans-serif;
+    font-family: Tahoma, arial, sans-serif;
     border:none;
     background-color:#ad3f8b;
     color:#e6e6e6;
@@ -32,14 +32,19 @@ body{
     cursor: pointer;
 }
 .btn:hover{
-    font-size:1em;
+   text-shadow: -1px -1px 0 #e6e6e6, 1px -1px 0 #e6e6e6, -1px 1px 0 #e6e6e6, 1px 1px 0 #e6e6e6;
+    color:#ad3f8b;
+}
+.btn:active{
+    font-size:1.3em;
+    margin:1em;
 }
 #buttons{
     margin-top: 25em;
     width:100%;
 }
 #info{
-    font-family: Tahoma-bold, arial, sans-serif;
+    font-family: Tahoma, arial, sans-serif;
     font-weight: 700;
     font-size: 1.5em;
     margin-top:2%;
