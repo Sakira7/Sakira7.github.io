@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Jackpottar</title>
+        <link href="stylesheet.css" rel="stylesheet">
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <script>
+
+        window.addEventListener("load", ()=>{            
+
+            let col = document.getElementsByTagName("input");
+            let val = col.length;
+
+
+            for(var i = 0; i < val; i++){
+                col[i].value = localStorage.getItem("value"+i);
+                
+            }
+
+        });
+
+        window.addEventListener("storage", ()=>{
+            location.reload();
+        })
+
+            
+
+        </script>
+        <div class="content">
+            <form id="jackpot1">
+                <span class="wrap"><label for="sk1">Storkovan</label>
+                    <input type="text" id="sk1" readonly></span><br>
+
+                <span class="wrap"><label for="zata1">Zäta</label>
+                    <input type="text" id="zata1" value="" readonly></span><br>
+
+                <span class="wrap"><label for="fc1">Färgchansen</label>
+                    <input type="text" id="fc1" value="" readonly></span><br>
+
+                <span class="wrap"><label for="dyna1">Dynamiten</label>
+                    <input type="text" id="dyna1" value="" readonly></span><br>
+
+                <span class="wrap"><label for="ss" >Sjöstjärnan</label>
+                    <input type="text" id="ss11" value="" readonly>
+                    <input type="text" id="ss21" value="" readonly>
+                    <input type="text" id="ss31" value="" readonly></span><br>
+
+                <span class="wrap"><label for="bygg1">Byggaren</label>
+                    <input type="text" id="bygg1" value="" readonly></span><br>
+
+                <span class="wrap"><label for="eldo1">Eldorado</label>
+                    <input type="text" id="eldo1" value="" readonly></span>
+            </form>
+        </div>
+    </body>
+</html>
