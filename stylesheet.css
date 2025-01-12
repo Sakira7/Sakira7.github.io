@@ -1,0 +1,344 @@
+stylesheet.css
+@@ -1,259 +1,83 @@
+/*********************
+       CSS RESET
+**********************/
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/***************************
+        END CSS RESET
+****************************/
+body{
+	font-family: "Montserrat", sans-serif;
+	background-size:cover;
+	background-repeat: no-repeat;
+    padding:0;
+    margin:0;
+}
+
+    .navbar{
+        text-align: center;
+    }
+/*********************************************
+    https://codepen.io/erikterwan/pen/EVzeRP
+     ****thank you, it's perfection****
+*********************************************/
+    #menuToggle{
+      display: block;
+      position:absolute;
+      top: 30px;
+      left: 50px;
+      z-index: 1;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    #menuToggle a{
+      text-decoration: none;
+      color: #222;
+      transition: color 0.3s ease;
+    }
+
+    #menuToggle a:hover{
+      color: #a6b3ae;
+    }
+
+
+    #menuToggle input{
+      display: block;
+      width: 107px;
+      height: 85px;
+      position: absolute;
+      top: -7px;
+      left: -5px;
+      cursor: pointer;
+      opacity: 0; /* hide this */
+      z-index: 2; /* and place it over the hamburger */
+      -webkit-touch-callout: none;
+    }
+    /** Just a quick hamburger **/
+    #menuToggle span{
+      display: block;
+      width: 6.5em;
+      height: 1em;
+      margin-bottom: 15px;
+      position: relative;
+      background: #fff;
+      border-radius: 3px;
+      z-index: 1;
+      transform-origin: 9px -3px;
+      transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                  background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                  opacity 0.55s ease;
+    }
+
+    #menuToggle span:first-child{
+      transform-origin: 0% 0%;
+    }
+
+    #menuToggle span:nth-last-child(2){
+      transform-origin: 0% 100%;
+    }
+
+    /*Transform all the slices of hamburger into a crossmark.*/
+    #menuToggle input:checked ~ span{
+      opacity: 1;
+      transform: rotate(45deg) translate(-2px, 2px);
+      background: #222;
+    }
+
+    /*But let's hide the middle one.*/
+    #menuToggle input:checked ~ span:nth-last-child(3){
+      opacity: 0;
+      transform: rotate(0deg) scale(0.2, 0.2);
+    }
+
+    /*Ohyeah and the last one should go the other direction*/
+    #menuToggle input:checked ~ span:nth-last-child(2){
+      transform: rotate(-45deg) translate(0, -1px);
+    }
+
+    /*Make this absolute positioned at the top left of the screen*/
+    #menu{
+      position: absolute;
+      border-radius: 5%;
+      margin: -140px 0 0 -50px;
+      padding: 50px;
+      padding-top: 175px;
+      background: #fff;
+      list-style-type: none;
+      -webkit-font-smoothing: antialiased;
+      /* to stop flickering of text in safari */
+      transform-origin: 0% 0%;
+      transform: translate(-100%, 0);
+      transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+    }
+
+    #menu li{
+      padding: 10px 0;
+
+    }
+
+    /*And let's slide it in from the left*/
+    #menuToggle input:checked ~ ul{
+      transform: none;
+    }
+
+/*****************************************
+*****************************************/
+
+.container{
+    padding-top:5%;
+    width:100%;
+    height:100%;
+    text-align: center;
+}
+.input{
+    width:80%;
+    font-size: 4em;
+    opacity:0.8;
+}
+.button{
+    width:80%;
+    border-radius: 0.2em;
+    border: none;
+    background-color: #4c6e5a;
+    outline: 0;
+    color:#fff;
+    font-size: 5em;
+    margin:5px 5px;
+    padding:10px;
+    font-family: "Montserrat", sans-serif;
+    box-shadow: inset 0 0 10px #000000;
+    opacity: 0.7;
+    cursor:pointer;
+}
+.selected{
+    background-color: #2e4236;
+}
+#p1{
+    margin-top:10px;
+    font-size: 4em;
+	color:#fff;
+}
+#p2{
+    font-size: 4em;
+	color:#fff;
+}
+
+#cButton{
+    text-decoration: none;
+    font-weight: 300;
+    font-size:5em;
+}
+h1{
+    font-family: "Sacramento", sans-serif;
+    color: #fff;
+    text-shadow: -1px 1px 0 #000;
+    margin-top:20px;
+
+}
+@media only screen and (min-width: 300px){
+	body{
+		background-image: url(bakgrund.jpg);
+	}
+    #menuToggle{
+        left:20px;
+    }
+    h1{
+        font-size: 9em;
+        text-align: right;
+    }
+        #menu{
+        width: 40em;
+    }
+        #menu li{
+        font-size: 5em;
+    }
+
+
+}
+@media only screen and (min-width: 992px){
+	body{
+		background-image: url(bakgrund2.jpg);
+	}
+    h1{
+        text-align: center;
+        font-size: 6em;
+    }
+    #menu{
+        width: 40em;
+    }
+    #menu li{
+        font-size: 5em;
+    }
+}
+html{
+    font-family:Tahoma, Arial, sans-serif;
+}
+.content{
+    width:60%;
+    height:45em;
+    margin:5% 20%;
+} 
+#jackpot, #jackpot1{
+    padding-top:10em;
+}
+.wrap{
+    display: flex;
+}
+label{
+    font-size:2em;
+    margin-left:0;
+    margin-right:auto;
+}
+input{
+    border:1px solid #222;
+    font-size:2em;
+    margin-left:auto;
+    margin-right:0;
+    text-align: center;
+}
+#sk,#zata,#fc,#dyna{
+    width:2em;
+    margin-right:3.1em;
+}
+#ss1, #ss2, #ss3{
+    width:2em;
+    margin-left:0.27em;
+    margin-right:0.3em;
+}
+#bygg{
+    width:6em;
+    margin-right:1.04em;
+}
+#eldo{
+    width:8em;
+    margin-right:0.03em;
+}
+#show_btn{
+    margin-top:2em;
+    margin-right:2em;
+    cursor: pointer;
+}
+#show_btn:hover{
+    font-size:2.1em;
+    margin-right:1.7em;
+    margin-top:1.9em;
+}
+#show_btn:active{
+    font-size:2em;
+    margin-right:2em;
+    margin-top:2em;
+}
+
+/**************************
+        show.html
+***************************/
+
+#sk1,#zata1,#fc1,#dyna1{
+    width:2em;
+    margin-right:3.1em;
+}
+#ss11, #ss21, #ss31{
+    width:2em;
+    margin-left:0.27em;
+    margin-right:0.3em;
+}
+#bygg1{
+    width:6em;
+    margin-right:1.04em;
+}
+#eldo1{
+    width:8em;
+    margin-right:0.03em;
+}
+#sk1,#zata1,#fc1,#dyna1,#ss11,#ss21,#ss31,#bygg1,#eldo1{
+    border:none;
+}
