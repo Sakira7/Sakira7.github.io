@@ -1,0 +1,83 @@
+html{
+    font-family:Tahoma, Arial, sans-serif;
+}
+.content{
+    width:60%;
+    height:45em;
+    margin:5% 20%;
+} 
+#jackpot, #jackpot1{
+    padding-top:10em;
+}
+.wrap{
+    display: flex;
+}
+label{
+    font-size:2em;
+    margin-left:0;
+    margin-right:auto;
+}
+input{
+    border:1px solid #222;
+    font-size:2em;
+    margin-left:auto;
+    margin-right:0;
+    text-align: center;
+}
+#sk,#zata,#fc,#dyna{
+    width:2em;
+    margin-right:3.1em;
+}
+#ss1, #ss2, #ss3{
+    width:2em;
+    margin-left:0.27em;
+    margin-right:0.3em;
+}
+#bygg{
+    width:6em;
+    margin-right:1.04em;
+}
+#eldo{
+    width:8em;
+    margin-right:0.03em;
+}
+#show_btn{
+    margin-top:2em;
+    margin-right:2em;
+    cursor: pointer;
+}
+#show_btn:hover{
+    font-size:2.1em;
+    margin-right:1.7em;
+    margin-top:1.9em;
+}
+#show_btn:active{
+    font-size:2em;
+    margin-right:2em;
+    margin-top:2em;
+}
+
+/**************************
+        show.html
+***************************/
+
+#sk1,#zata1,#fc1,#dyna1{
+    width:2em;
+    margin-right:3.1em;
+}
+#ss11, #ss21, #ss31{
+    width:2em;
+    margin-left:0.27em;
+    margin-right:0.3em;
+}
+#bygg1{
+    width:6em;
+    margin-right:1.04em;
+}
+#eldo1{
+    width:8em;
+    margin-right:0.03em;
+}
+#sk1,#zata1,#fc1,#dyna1,#ss11,#ss21,#ss31,#bygg1,#eldo1{
+    border:none;
+}
