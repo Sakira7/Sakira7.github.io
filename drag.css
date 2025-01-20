@@ -21,7 +21,6 @@ html, body{
 #jackpot{
     width:80%;
     height:70%;
-
     position: absolute;
     font-size:0.8em;
     margin-top:5.5em;
@@ -30,6 +29,10 @@ html, body{
 .wrap{
     display: flex;
     margin-bottom:3%;
+}
+.wrap1{
+    display: flex;
+    margin-bottom: 2%;
 }
 label{
     font-size:2em;
@@ -53,6 +56,7 @@ input{
     text-align: center;
     margin-left:2em;
     field-sizing: content;
+    padding:0.2em;
 }
 .ss{
     position: absolute;
@@ -143,8 +147,7 @@ input{
     cursor:default;
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
-    height:1em;
-    
+    height:1.3em;
 }
 #sp11, #sp21, #sp31{
     width:4.5em;
@@ -156,6 +159,7 @@ input{
     position:absolute;
     font-size:0.8em;
     margin-top:5.5em;
+    font-family:Georgia, Arial, sans-serif;
 }
 .after{
     font-size:2em;

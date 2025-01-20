@@ -10,21 +10,19 @@
     </head>
     <body>
         <script>
-            let secondWindow;
 
             window.addEventListener("load", function redirect(){
-                secondWindow = window.open("show.html");
+                window.open("show.html");
 
                 let col = document.getElementsByTagName("input");
                 let val = col.length;
 
 
-            for(var i = 0; i < val; i++){
-                if(localStorage.length > 0){
-                    col[i].value = localStorage.getItem("value"+i);   
+                for(var i = 0; i < val; i++){
+                    if(window.localStorage.length > 0){
+                        col[i].value = localStorage.getItem("value"+i);   
+                    }
                 }
-            }
-
             });
 
             window.addEventListener("keydown", (event)=>{
@@ -32,6 +30,7 @@
                 localStorage.clear();
             }
             });
+
         </script>
         <div class="content">
             <form id="jackpot">
