@@ -19,40 +19,127 @@
                 
             }
 
+            //Byggaren
+            if(col[7].value.length == 4){
+                let start = col[7].value.slice(0,1);
+                let end = col[7].value.slice(1);
+                col[7].value = start + " " + end;
+            }else if(col[7].value.length == 5){
+                let start = col[7].value.slice(0,2);
+                let end = col[7].value.slice(2);
+                col[7].value = start + " " + end;
+                
+            }
+            //Eldorado
+            if(col[8].value.length == 5){
+                let start = col[8].value.slice(0,2);
+                let end = col[8].value.slice(2);
+                col[8].value = start + " " + end;
+            }else if(col[8].value.length == 6){
+                let start = col[8].value.slice(0,3);
+                let end = col[8].value.slice(3);
+                col[8].value = start + " " + end;
+            }
+            //Atlantis
+            if(col[9].value.length == 5){
+                let start = col[9].value.slice(0,2);
+                let end = col[9].value.slice(2);
+                col[9].value = start + " " + end;
+            }else if(col[9].value.length == 6){
+                let start = col[9].value.slice(0,3);
+                let end = col[9].value.slice(3);
+                col[9].value = start + " " + end;
+            }
+            //Superpotten
+                //Rad 1
+                if(col[10].value.length == 5){
+                    let start = col[10].value.slice(0,2);
+                    let end = col[10].value.slice(2);
+                    col[10].value = start + " " + end;
+                }else if(col[10].value.length == 6){
+                    let start = col[10].value.slice(0,3);
+                    let end = col[10].value.slice(3);
+                    col[10].value = start + " " + end;
+                }
+                //Rad 2
+                if(col[11].value.length == 5){
+                    let start = col[11].value.slice(0,2);
+                    let end = col[11].value.slice(2);
+                    col[11].value = start + " " + end;
+                }else if(col[11].value.length == 6){
+                    let start = col[11].value.slice(0,3);
+                    let end = col[11].value.slice(3);
+                    col[11].value = start + " " + end;
+                }
+                //Rad 3
+                if(col[12].value.length == 5){
+                    let start = col[12].value.slice(0,2);
+                    let end = col[12].value.slice(2);
+                    col[12].value = start + " " + end;
+                }else if(col[12].value.length == 6){
+                    let start = col[12].value.slice(0,3);
+                    let end = col[12].value.slice(3);
+                    col[12].value = start + " " + end;
+                }
         });
 
         window.addEventListener("storage", ()=>{
             location.reload();
         })
 
-            
-
         </script>
         <div class="content">
             <form id="jackpot1">
-                <span class="wrap"><label for="sk1">Storkovan</label>
-                    <input type="text" id="sk1" readonly></span><br>
+                <div class="outer-border">
+                    <div class="inner-border">
+                <div id="left-row">
+                    <p id="rubrik1">Lokala Spel</p>
+                    <span class="wrap"><label for="sk">Storkovan</label>
+                        <input type="text" id="sk1" readonly><span class="after">drag</span></span>
 
-                <span class="wrap"><label for="zata1">Zäta</label>
-                    <input type="text" id="zata1" value="" readonly></span><br>
+                    <span class="wrap"><label for="zata">Zäta</label>
+                        <input type="text" id="zata1" readonly><span class="after">drag</span></span>
 
-                <span class="wrap"><label for="fc1">Färgchansen</label>
-                    <input type="text" id="fc1" value="" readonly></span><br>
+                    <span class="wrap"><label for="fc">Färgchansen</label>
+                        <input type="text" id="fc1" readonly><span class="after">drag</span></span>
 
-                <span class="wrap"><label for="dyna1">Dynamiten</label>
-                    <input type="text" id="dyna1" value="" readonly></span><br>
+                    <span class="wrap"><label for="dyna">Dynamiten</label>
+                        <input type="text" id="dyna1" readonly><span class="after">drag</span></span>
 
-                <span class="wrap"><label for="ss" >Sjöstjärnan</label>
-                    <input type="text" id="ss11" value="" readonly>
-                    <input type="text" id="ss21" value="" readonly>
-                    <input type="text" id="ss31" value="" readonly></span><br>
+                    <label for="ss1" class="ss">Sjöstjärnan</label>
+                        <span class="wrapper"><input type="text" id="ss11" readonly><span class="after">drag</span></span>
+                        <span class="wrapper"><input type="text" id="ss21" readonly><span class="after">drag</span></span>
+                        <span class="wrapper"><input type="text" id="ss31" readonly><span class="after">drag</span></span>
 
-                <span class="wrap"><label for="bygg1">Byggaren</label>
-                    <input type="text" id="bygg1" value="" readonly></span><br>
+                    <span class="wrap"><label for="bygg">Byggaren</label>
+                        <input type="text" id="bygg1" readonly><span class="after">kr</span></span>
+                </div>
 
-                <span class="wrap"><label for="eldo1">Eldorado</label>
-                    <input type="text" id="eldo1" value="" readonly></span>
+
+                <div id="right-row">
+                    <p id="rubrik2">Centrala Spel</p>
+                    <span class="wrap"><label for="eldo">Eldorado</label>
+                        <input type="text" id="eldo1" readonly><span class="after">kr</span>
+                        <p class="info">Spelas kl 14:00 och 19:00</p></span><br>
+                        <div class="space"></div>
+
+                    <span class="wrap"><label for="at">Atlantis</label>
+                        <input type="text" id="at1" readonly><span class="after">kr</span>
+                        <p class="info">Spelas efter Eldorado</p></span><br>
+                        <div class="space"></div>
+    
+                    <span class="wrap"><label for="sp" >Superpotten</label>
+                    <p class="info">Spelas sista torsdagen i månaden</p></span><br>
+                        <div class="space2"></div>
+                        <span class="wrapper"><span class="row" id="row1">Rad 1 -</span><input type="text" id="sp11" readonly><span class="after">kr</span></span>
+                        <span class="wrapper"><span class="row">Rad 2 -</span><input type="text" id="sp21" readonly><span class="after">kr</span></span>
+                        <span class="wrapper"><span class="row">Rad 3 -</span><input type="text" id="sp31" readonly><span class="after">kr</span></span>
+                        
+                </div>
+                </div>
+                </div>
             </form>
         </div>
+        <footer id="footer"><p>-www.bingoringen.se-</p></footer>
     </body>
 </html>

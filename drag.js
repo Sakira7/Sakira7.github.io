@@ -1,7 +1,7 @@
 function change(){
 
     let col = document.getElementsByTagName("input");
-    let val = col.length -1;
+    let val = col.length;
 
 
     for(var i = 0; i < val; i++){

@@ -16,12 +16,13 @@
                 secondWindow = window.open("show.html");
 
                 let col = document.getElementsByTagName("input");
-                let val = col.length-1;
+                let val = col.length;
 
 
             for(var i = 0; i < val; i++){
-                col[i].value = localStorage.getItem("value"+i);
-                
+                if(localStorage.length > 0){
+                    col[i].value = localStorage.getItem("value"+i);   
+                }
             }
 
             });
@@ -34,31 +35,52 @@
         </script>
         <div class="content">
             <form id="jackpot">
-                <span class="wrap"><label for="sk">Storkovan</label>
-                    <input type="text" id="sk" value="55"></span><br>
+                <div id="left-row">
+                    <p id="rubrik1">Lokala Spel</p>
+                    <span class="wrap"><label for="sk">Storkovan</label>
+                        <input type="text" id="sk" value="55"></span>
 
-                <span class="wrap"><label for="zata">Zäta</label>
-                    <input type="text" id="zata" value="30"></span><br>
+                    <span class="wrap"><label for="zata">Zäta</label>
+                        <input type="text" id="zata" value="30"></span>
 
-                <span class="wrap"><label for="fc">Färgchansen</label>
-                    <input type="text" id="fc" value="55"></span><br>
+                    <span class="wrap"><label for="fc">Färgchansen</label>
+                        <input type="text" id="fc" value="55"></span>
 
-                <span class="wrap"><label for="dyna">Dynamiten</label>
-                    <input type="text" id="dyna" value="55"></span><br>
+                    <span class="wrap"><label for="dyna">Dynamiten</label>
+                        <input type="text" id="dyna" value="55"></span>
 
-                <span class="wrap"><label for="ss1" >Sjöstjärnan</label>
-                    <input type="text" id="ss1" value="8">
-                    <input type="text" id="ss2" value="35">
-                    <input type="text" id="ss3" value="54"></span><br>
+                    <label for="ss1" class="ss">Sjöstjärnan</label>
+                        <span class="wrapper"><input type="text" id="ss1" value="8"></span>
+                        <span class="wrapper"><input type="text" id="ss2" value="35"></span>
+                        <span class="wrapper"><input type="text" id="ss3" value="54"></span>
 
-                <span class="wrap"><label for="bygg">Byggaren</label>
-                    <input type="text" id="bygg" value="1500"></span><br>
+                    <span class="wrap"><label for="bygg">Byggaren</label>
+                        <input type="text" id="bygg" value="1500"></span>
+                </div>
 
-                <span class="wrap"><label for="eldo">Eldorado</label>
-                    <input type="text" id="eldo" value="30000"></span>
 
-                <span class="wrap"><input type="button" id="show_btn" value="Uppdatera Drag" onclick="change()"></span>
+                <div id="right-row">
+                    <p id="rubrik2">Centrala Spel</p>
+                    <span class="wrap"><label for="eldo">Eldorado</label>
+                        <input type="text" id="eldo" value="30000"><br>
+                        <p class="info">Spelas kl 14:00 och 19:00</p></span><br>
+                        <div class="space"></div>
+
+                    <span class="wrap"><label for="at">Atlantis</label>
+                        <input type="text" id="at" value="10000"><br>
+                        <p class="info">Spelas efter Eldorado</p></span><br>
+                        <div class="space"></div>
+    
+                    <span class="wrap"><label for="sp" >Superpotten</label>
+                    <p class="info">Spelas sista torsdagen i månaden</p></span><br>
+                        <div class="space2"></div>
+                        <span class="wrapper"><span class="row">Rad 1 -</span><input type="text" id="sp1" value="10000"></span>
+                        <span class="wrapper"><span class="row">Rad 2 -</span><input type="text" id="sp2" value="20000"></span>
+                        <span class="wrapper"><span class="row">Rad 3 -</span><input type="text" id="sp3" value="30000"></span>
+                        
+                </div>
             </form>
+            <button id="show_btn" onclick="change()">Uppdatera Drag</button>
         </div>
     </body>
 </html>
