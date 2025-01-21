@@ -12,7 +12,7 @@
         <script>
 
             window.addEventListener("load", function redirect(){
-                window.open("show.html");
+
 
                 let col = document.getElementsByTagName("input");
                 let val = col.length;
@@ -35,7 +35,7 @@
         <div class="content">
             <form id="jackpot">
                 <div id="left-row">
-                    <p id="rubrik1">Lokala Spel</p>
+                    <p id="rubrik1">Lokala spel</p>
                     <span class="wrap"><label for="sk">Storkovan</label>
                         <input type="text" id="sk" placeholder="55"></span>
 
@@ -59,10 +59,10 @@
 
 
                 <div id="right-row">
-                    <p id="rubrik2">Centrala Spel</p>
+                    <p id="rubrik2">Centrala spel</p>
                     <span class="wrap"><label for="eldo">Eldorado</label>
                         <input type="text" id="eldo" placeholder="30000"><br>
-                        <p class="info">Spelas kl 14:00 och 19:00</p></span><br>
+                        <p class="info">Spelas kl 14.00 och 19.00</p></span><br>
                         <div class="space"></div>
 
                     <span class="wrap"><label for="at">Atlantis</label>
@@ -75,11 +75,16 @@
                         <div class="space2"></div>
                         <span class="wrapper"><span class="row">Rad 1 -</span><input type="text" id="sp1" placeholder="10000"></span>
                         <span class="wrapper"><span class="row">Rad 2 -</span><input type="text" id="sp2" placeholder="20000"></span>
-                        <span class="wrapper"><span class="row">Rad 3 -</span><input type="text" id="sp3" placeholder="30000"></span>
-                        
+                        <span class="wrapper"><span class="row">Rad 3 -</span><input type="text" id="sp3" placeholder="30000"></span><br>
+                    
+                        <div class="space"></div>
+                    <span id="bd"><span class="wrap"><label for="dp">Drömpotten</label>
+                        <input type="text" id="dp" placeholder="1000000"><br>
+                        <p class="info">Spelas på Bingons Dag, den 9 september</p></span></span><br>           
                 </div>
             </form>
-            <button id="show_btn" onclick="change()">Uppdatera Drag</button>
+            <button id="show_btn" class="btn" onclick="change()">UPPDATERA DRAG</button>
+            <button id="dp_btn" class="btn" onclick="show_dp()">VISA DRÖMPOTTEN</button>
         </div>
     </body>
 </html>

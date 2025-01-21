@@ -58,6 +58,9 @@ input{
     margin-left:2em;
     field-sizing: content;
 }
+input::placeholder{
+    color:#ccc9e7;
+}
 .ss{
     position: absolute;
 }
@@ -74,10 +77,12 @@ input{
 #rubrik1, #rubrik2{
     font-size:3em;
     padding-bottom:1em;
+    font-family: 'Tahoma', Arial, Sans-serif;
+    font-weight: bold;
 }
 .info{
     position: absolute;
-    font-size:1.7em;
+    font-size:1.6em;
     font-style: italic;
     margin-top:1.2em;
 }
@@ -106,20 +111,31 @@ input{
     border-left:thin solid black;
     padding-top:3em;
 }
-#show_btn{
+.btn{
     cursor: pointer;
-    font-size:2em;
-    width:10em;
+    font-size:1.3em;
+    width:11em;
     position:absolute;
-    bottom:10%;
     align-content:center;
+    border-radius: 24px;
+    padding:10px;
+    border:none;
+    box-shadow: rgba(0,0,0,.2) 0 3px 5px -1px, rgba(0,0,0,.14) 0 6px 10px 0, rgba(0,0,0,.12) 0 1px 18px 0;
+    background-color: #ad3f8b;
+    color:#fff;
 
 }
-#show_btn:hover{
-    font-size:2.1em;
+#show_btn{
+    bottom:13%;
+}
+#dp_btn{
+    bottom:5%;
+}
+#show_btn:hover, #dp_btn:hover{
+    background-color: #972172;
 }
 #show_btn:active{
-    font-size:2em;
+ background-color: #872368;
 }
 #footer{
     color:#fff;
@@ -137,20 +153,27 @@ input{
     font-size:1.4em;
     text-align: center;
 }
+#bd, #bd1{
+    visibility: hidden;
+}
+.hide{
+    visibility: hidden;
+}
 
 /**************************
         show.html
 ***************************/
-#sk1, #zata1, #fc1, #dyna1, #ss11, #ss21, #ss31, #bygg1, #eldo1, #at1, #sp11, #sp21, #sp31{
+#sk1, #zata1, #fc1, #dyna1, #ss11, #ss21, #ss31, #bygg1, #eldo1, #at1, #sp11, #sp21, #sp31, #dp1{
     border:none;
     background-color: #ccc9e7;
     cursor:default;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    font-weight: bold;
-    height:1.3em;
+    font-family:Tahoma, Arial, sans-serif;
+    font-weight:bold;
+    height:1.2em;
+    font-size: 1.9em;
 }
 #sp11, #sp21, #sp31{
-    width:4.5em;
+    width:4.2em;
     text-align: end;
 }
 #jackpot1{

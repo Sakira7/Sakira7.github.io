@@ -41,7 +41,11 @@
                 col[8].value = start + " " + end;
             }
             //Atlantis
-            if(col[9].value.length == 5){
+            if(col[9].value.length == 4){
+                let start = col[9].value.slice(0,1);
+                let end = col[9].value.slice(1);
+                col[9].value = start + " " + end;
+            }else if(col[9].value.length == 5){
                 let start = col[9].value.slice(0,2);
                 let end = col[9].value.slice(2);
                 col[9].value = start + " " + end;
@@ -52,7 +56,11 @@
             }
             //Superpotten
                 //Rad 1
-                if(col[10].value.length == 5){
+                if(col[10].value.length == 4){
+                    let start = col[10].value.slice(0,1);
+                    let end = col[10].value.slice(1);
+                    col[10].value = start + " " + end;
+                }else if(col[10].value.length == 5){
                     let start = col[10].value.slice(0,2);
                     let end = col[10].value.slice(2);
                     col[10].value = start + " " + end;
@@ -62,7 +70,11 @@
                     col[10].value = start + " " + end;
                 }
                 //Rad 2
-                if(col[11].value.length == 5){
+                if(col[11].value.length == 4){
+                    let start = col[11].value.slice(0,1);
+                    let end = col[11].value.slice(1);
+                    col[11].value = start + " " + end;
+                }else if(col[11].value.length == 5){
                     let start = col[11].value.slice(0,2);
                     let end = col[11].value.slice(2);
                     col[11].value = start + " " + end;
@@ -72,7 +84,11 @@
                     col[11].value = start + " " + end;
                 }
                 //Rad 3
-                if(col[12].value.length == 5){
+                if(col[12].value.length == 4){
+                    let start = col[12].value.slice(0,1);
+                    let end = col[12].value.slice(1);
+                    col[12].value = start + " " + end;
+                }else if(col[12].value.length == 5){
                     let start = col[12].value.slice(0,2);
                     let end = col[12].value.slice(2);
                     col[12].value = start + " " + end;
@@ -80,6 +96,25 @@
                     let start = col[12].value.slice(0,3);
                     let end = col[12].value.slice(3);
                     col[12].value = start + " " + end;
+                }
+                //Drömpotten
+                if(col[13].value.length == 4){
+                    let start = col[13].value.slice(0,1);
+                    let end = col[13].value.slice(1);
+                    col[13].value = start + " " + end;
+                }else if(col[13].value.length == 5){
+                    let start = col[13].value.slice(0,2);
+                    let end = col[13].value.slice(2);
+                    col[13].value = start + " " + end;
+                }else if(col[13].value.length == 6){
+                    let start = col[13].value.slice(0,3);
+                    let end = col[13].value.slice(3);
+                    col[13].value = start + " " + end;
+                }else if(col[13].value.length == 7){
+                    let start = col[13].value.slice(0,1);
+                    let middle = col[13].value.slice(1,4);
+                    let end = col[13].value.slice(4);
+                    col[13].value = start + " " + middle + " " + end;
                 }
         });
 
@@ -93,7 +128,7 @@
                 <div class="outer-border">
                     <div class="inner-border">
                 <div id="left-row">
-                    <p id="rubrik1">Lokala Spel</p>
+                    <p id="rubrik1">Lokala spel</p>
                     <span class="wrap"><label for="sk">Storkovan</label>
                         <input type="text" id="sk1" readonly><span class="after">drag</span></span>
 
@@ -117,10 +152,10 @@
 
 
                 <div id="right-row">
-                    <p id="rubrik2">Centrala Spel</p>
+                    <p id="rubrik2">Centrala spel</p>
                     <span class="wrap"><label for="eldo">Eldorado</label>
                         <input type="text" id="eldo1" readonly><span class="after">kr</span>
-                        <p class="info">Spelas kl 14:00 och 19:00</p></span><br>
+                        <p class="info">Spelas kl 14.00 och 19.00</p></span><br>
                         <div class="space"></div>
 
                     <span class="wrap"><label for="at">Atlantis</label>
@@ -132,13 +167,17 @@
                     <p class="info">Spelas sista torsdagen i månaden</p></span><br>
                         <span class="wrapper"><span class="row" id="row1">Rad 1 -</span><input type="text" id="sp11" readonly><span class="after">kr</span></span>
                         <span class="wrapper"><span class="row">Rad 2 -</span><input type="text" id="sp21" readonly><span class="after">kr</span></span>
-                        <span class="wrapper"><span class="row">Rad 3 -</span><input type="text" id="sp31" readonly><span class="after">kr</span></span>
+                        <span class="wrapper"><span class="row">Rad 3 -</span><input type="text" id="sp31" readonly><span class="after">kr</span></span><br>
                         
+                        <div class="space"></div>
+                    <span id="bd1"><span class="wrap"><label for="dp">Drömpotten</label>
+                        <input type="text" id="dp1" readonly><span class="after">kr</span><br>
+                        <p class="info">Spelas på Bingons Dag, den 9 september</p></span></span><br>     
                 </div>
                 </div>
                 </div>
             </form>
         </div>
-        <footer id="footer"><p>-www.bingoringen.se-</p></footer>
+        <footer id="footer"><p>&mdash; www.bingoringen.se &mdash;</p></footer>
     </body>
 </html>
