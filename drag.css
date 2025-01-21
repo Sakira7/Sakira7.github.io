@@ -65,7 +65,7 @@ input::placeholder{
     position: absolute;
 }
 #ss1, #ss12{
-    width:1.1em;
+    width:1.28em;
 }
 #ss3, #ss31{
     margin-bottom:1em;
@@ -192,4 +192,52 @@ input::placeholder{
     width:100%;
     position: relative;
     display: flex;
+}
+
+@media only screen and (min-width:1200px) {
+    #jackpot, #jackpot1{
+        font-size:0.9em;
+        margin-top:4.85em;
+    }
+    #left-row, #right-row{
+        padding-top:1em;
+    }
+}
+@media only screen and (min-width:1570px){
+    #jackpot, #jackpot1{
+        width:60%;
+    }
+}
+@media only screen and (max-width:980px){
+    #jackpot, #jackpot1{
+        font-size:0.7em;
+        margin-top:6.25em;
+        width:95%; 
+    }
+}
+@media only screen and (max-width:800px){
+    #dp, #dp1{
+        position: absolute;
+        margin-left:0;
+        margin-top:3em;
+    }
+    #after-dp{
+        position: absolute;
+        margin-left:4.8em;
+        margin-top:2.8em;
+    }
+    #row1, #sp1, #sp11, #after-sp11{
+        margin-top:1.4em;
+    }
+    #eldo, #eldo1, #at, #at1, #sk, #sk1, #fc, #fc1, #dyna, #dyna1, #bygg, #bygg1{
+        margin-left:0;
+    }
+    #left-row, #right-row{
+        padding:5px;
+    }
+    #rubrik1, #rubrik2{
+        width:85%;
+    }
+
+
 }
