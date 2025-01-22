@@ -72,7 +72,7 @@ body{
     #menuToggle{
       display: block;
       position:absolute;
-      top: 30px;
+      top: 2.5em;
       left: 50px;
       z-index: 1;
       -webkit-user-select: none;
@@ -220,8 +220,8 @@ body{
 h1{
     font-family: "Sacramento", sans-serif;
     color: #fff;
-    text-shadow: -1px 1px 0 #000;
-    margin-top:20px;
+    text-shadow: rgba(0,0,0,.2) 0 3px 5px, rgba(0,0,0,.14) 0 6px 10px , rgba(0,0,0,.12) 0 1px 18px ;
+    margin-top:0.5em;
 
 }
 @media only screen and (min-width: 300px){
