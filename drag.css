@@ -251,6 +251,9 @@ input::placeholder{
     #rubrik1, #rubrik2{
         width:85%;
     }
+    #jackpot{
+        height:75%;
+    }
 
 
 }
