@@ -210,15 +210,24 @@ input::placeholder{
 @media only screen and (min-width:1200px) {
     #jackpot, #jackpot1{
         font-size:0.9em;
-        margin-top:4.85em;
+        margin-top:2em;
+        height:80%;
     }
     #left-row, #right-row{
         padding-top:1em;
     }
+    #show_btn{
+        bottom:6%;
+    }
+    
 }
 @media only screen and (min-width:1570px){
     #jackpot, #jackpot1{
         width:60%;
+        height: 80%;
+    }
+    #show_btn{
+        bottom:6%;
     }
 }
 @media only screen and (max-width:980px){
