@@ -12,12 +12,19 @@
 
             let col = document.getElementsByTagName("input");
             let val = col.length;
-
+ 
 
             for(var i = 0; i < val; i++){
                 col[i].value = localStorage.getItem("value"+i);
                 
             }
+            let date =  document.getElementById("date1").value;
+
+            month = date.slice(5,7);
+            date = date.slice(8);
+            
+            let months = ["januari", "februari", "mars", "april", "maj", "juni", "juli", "augusti", "september", "oktober", "november", "december"];
+            col[10].value = date + " " +months[month -1];
 
             //Byggaren
             if(col[7].value.length == 4){
@@ -56,20 +63,6 @@
             }
             //Superpotten
                 //Rad 1
-                if(col[10].value.length == 4){
-                    let start = col[10].value.slice(0,1);
-                    let end = col[10].value.slice(1);
-                    col[10].value = start + " " + end;
-                }else if(col[10].value.length == 5){
-                    let start = col[10].value.slice(0,2);
-                    let end = col[10].value.slice(2);
-                    col[10].value = start + " " + end;
-                }else if(col[10].value.length == 6){
-                    let start = col[10].value.slice(0,3);
-                    let end = col[10].value.slice(3);
-                    col[10].value = start + " " + end;
-                }
-                //Rad 2
                 if(col[11].value.length == 4){
                     let start = col[11].value.slice(0,1);
                     let end = col[11].value.slice(1);
@@ -83,7 +76,7 @@
                     let end = col[11].value.slice(3);
                     col[11].value = start + " " + end;
                 }
-                //Rad 3
+                //Rad 2
                 if(col[12].value.length == 4){
                     let start = col[12].value.slice(0,1);
                     let end = col[12].value.slice(1);
@@ -97,7 +90,7 @@
                     let end = col[12].value.slice(3);
                     col[12].value = start + " " + end;
                 }
-                //Drömpotten
+                //Rad 3
                 if(col[13].value.length == 4){
                     let start = col[13].value.slice(0,1);
                     let end = col[13].value.slice(1);
@@ -110,11 +103,25 @@
                     let start = col[13].value.slice(0,3);
                     let end = col[13].value.slice(3);
                     col[13].value = start + " " + end;
-                }else if(col[13].value.length == 7){
-                    let start = col[13].value.slice(0,1);
-                    let middle = col[13].value.slice(1,4);
-                    let end = col[13].value.slice(4);
-                    col[13].value = start + " " + middle + " " + end;
+                }
+                //Drömpotten
+                if(col[14].value.length == 4){
+                    let start = col[14].value.slice(0,1);
+                    let end = col[14].value.slice(1);
+                    col[14].value = start + " " + end;
+                }else if(col[14].value.length == 5){
+                    let start = col[14].value.slice(0,2);
+                    let end = col[14].value.slice(2);
+                    col[14].value = start + " " + end;
+                }else if(col[14].value.length == 6){
+                    let start = col[14].value.slice(0,3);
+                    let end = col[14].value.slice(3);
+                    col[14].value = start + " " + end;
+                }else if(col[14].value.length == 7){
+                    let start = col[14].value.slice(0,1);
+                    let middle = col[14].value.slice(1,4);
+                    let end = col[14].value.slice(4);
+                    col[14].value = start + " " + middle + " " + end;
                 }
         });
 
@@ -164,13 +171,13 @@
                         <div class="space"></div>
     
                     <span class="wrap1"><label for="sp" >Superpotten</label>
-                    <p class="info">Spelas sista torsdagen i månaden</p></span><br>
+                    <p class="info">Spelas på Finaltorsdagen den <input type="text" id="date1" readonly></p></span><br>
                         <span class="wrapper"><span class="row" id="row1">Rad 1 -</span><input type="text" id="sp11" readonly><span class="after" id="after-sp11">kr</span></span>
                         <span class="wrapper"><span class="row">Rad 2 -</span><input type="text" id="sp21" readonly><span class="after">kr</span></span>
                         <span class="wrapper"><span class="row">Rad 3 -</span><input type="text" id="sp31" readonly><span class="after">kr</span></span><br>
                         
                         <div class="space"></div>
-                        <div class="space"></div>
+
                     <span class="wrap"><label for="dp">Drömpotten</label>
                         <input type="text" id="dp1" readonly><span class="after" id="after-dp">kr</span><br>
                         <p class="info">Spelas på Bingons Dag, den 9 september</p></span><br>     
