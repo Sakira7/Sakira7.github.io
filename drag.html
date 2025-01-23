@@ -24,10 +24,10 @@
             });
 
                 //window.addEventListener("input", ()=>{
-                   window.addEventListener("keyup", (e)=>{
-                        if(!e.key.match(/[0-9]/)){
-                            console.log("NO");
-                            window.KeyboardEvent("Backspace")
+                   window.addEventListener("keydown", (e)=>{
+                        if(!e.key.match(/[0-9]/) || e.key != "Backspace"){
+                           e.preventDefault();
+
                         }
                    })
                // })
@@ -45,7 +45,7 @@
                 <div id="left-row">
                     <p id="rubrik1">Lokala spel</p>
                     <span class="wrap"><label for="sk">Storkovan</label>
-                        <input type="text" id="sk" placeholder="55"></span>
+                        <input type="text" id="sk" placeholder="57"></span>
 
                     <span class="wrap"><label for="zata">Zäta</label>
                         <input type="text" id="zata" placeholder="30"></span>
