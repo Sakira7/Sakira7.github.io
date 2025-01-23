@@ -10,11 +10,10 @@
     </head>
     <body>
         <script>
+            let col = document.getElementsByTagName("input");
+            let val = col.length;
 
             window.addEventListener("load", function fill(){
-
-                let col = document.getElementsByTagName("input");
-                let val = col.length;
 
 
                 for(var i = 0; i < val; i++){
@@ -23,6 +22,16 @@
                     }
                 }
             });
+
+                //window.addEventListener("input", ()=>{
+                   window.addEventListener("keyup", (e)=>{
+                        if(!e.key.match(/[0-9]/)){
+                            console.log("NO");
+                            window.KeyboardEvent("Backspace")
+                        }
+                   })
+               // })
+            
 
             window.addEventListener("keydown", (event)=>{
                 if(event.key === "f"){

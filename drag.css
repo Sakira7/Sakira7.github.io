@@ -58,6 +58,9 @@ input{
     margin-left:2em;
     field-sizing: content;
 }
+input:disabled{
+    color:#000;
+}
 input::placeholder{
     color:#ccc9e7;
 }
