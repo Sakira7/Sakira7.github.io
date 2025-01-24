@@ -183,8 +183,10 @@ input::placeholder{
     font-style: italic;
 }
 #jackpot1{
-    width:80%;
-    height:73%;
+    width:85vw;
+    margin-left:2em;
+    margin-right:2em;
+    height:73vh;
     position:absolute;
     font-size:0.8em;
     margin-top:5.5em;
@@ -212,9 +214,7 @@ input::placeholder{
 
 @media only screen and (min-width:1200px) {
     #jackpot, #jackpot1{
-        font-size:0.9em;
-        margin-top:2em;
-        height:80%;
+        font-size:1.5vmin;
     }
     #left-row, #right-row{
         padding-top:1em;
@@ -225,10 +225,7 @@ input::placeholder{
     
 }
 @media only screen and (min-width:1570px){
-    #jackpot, #jackpot1{
-        width:60%;
-        height: 80%;
-    }
+
     #show_btn{
         bottom:6%;
     }
@@ -236,7 +233,6 @@ input::placeholder{
 @media only screen and (max-width:980px){
     #jackpot, #jackpot1{
         font-size:0.7em;
-        margin-top:6.25em;
         width:95%; 
     }
 }
