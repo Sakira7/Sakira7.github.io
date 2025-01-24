@@ -1,6 +1,16 @@
 let isOpen = false;
 let show;
-function change(){
+
+function update(){
+
+    let col = document.getElementsByTagName("input");
+    let val = col.length;
+    isClicked = true;
+
+    for(var i = 0; i < val; i++){
+
+        localStorage.setItem("value" + i, col[i].value);
+    }
 
     if(isOpen === false){
         show = window.open("show.html");
@@ -9,17 +19,10 @@ function change(){
     if(show.closed === true){
         isOpen = false;
     }
-
-    let col = document.getElementsByTagName("input");
-    let val = col.length;
-
-
-    for(var i = 0; i < val; i++){
-
-        localStorage.setItem("value" + i, col[i].value);
-    }
+    
 }
-function show_dp(){
-    document.getElementById("bd").style.visibility = "visible";
-    document.getElementById("bd1").style.visibility = "visible";
-}
+window.addEventListener("beforeunload",()=>{
+    show.close();
+})
+
+

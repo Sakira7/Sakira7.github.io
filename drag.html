@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,6 +38,9 @@
                 localStorage.clear();
             }
             });
+            window.addEventListener("beforeunload", ()=>{
+                closeWindow();
+            })
 
         </script>
         <div class="content">
@@ -92,7 +95,7 @@
                         <p class="info">Spelas på Bingons Dag, den 9 september</p></span><br>           
                 </div>
             </form>
-            <button id="show_btn" class="btn" onclick="change()">UPPDATERA DRAG</button>
+            <button id="show_btn" class="btn" onclick="update()">UPPDATERA DRAG</button>
         </div>
     </body>
 </html>
