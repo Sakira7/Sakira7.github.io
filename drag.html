@@ -23,14 +23,12 @@
                 }
             });
 
-                //window.addEventListener("input", ()=>{
                    window.addEventListener("keydown", (e)=>{
-                        if(!e.key.match(/[0-9]/) || e.key != "Backspace"){
-                           e.preventDefault();
 
+                        if(!e.key.match(/[0-9]/) && e.key != "Backspace" & e.key != "Tab"){
+                           e.preventDefault();
                         }
-                   })
-               // })
+                    });
             
 
             window.addEventListener("keydown", (event)=>{
@@ -45,50 +43,50 @@
                 <div id="left-row">
                     <p id="rubrik1">Lokala spel</p>
                     <span class="wrap"><label for="sk">Storkovan</label>
-                        <input type="text" id="sk" placeholder="57"></span>
+                        <input type="text" id="sk" placeholder="57" maxlength="2"></span>
 
                     <span class="wrap"><label for="zata">Zäta</label>
-                        <input type="text" id="zata" placeholder="30"></span>
+                        <input type="text" id="zata" placeholder="30" maxlength="2"></span>
 
                     <span class="wrap"><label for="fc">Färgchansen</label>
-                        <input type="text" id="fc" placeholder="55"></span>
+                        <input type="text" id="fc" placeholder="55" maxlength="2"></span>
 
                     <span class="wrap"><label for="dyna">Dynamiten</label>
-                        <input type="text" id="dyna" placeholder="55"></span>
+                        <input type="text" id="dyna" placeholder="55" maxlength="2"></span>
 
                     <label for="ss1" class="ss">Sjöstjärnan</label>
-                        <span class="wrapper"><input type="text" id="ss1" placeholder="8"></span>
-                        <span class="wrapper"><input type="text" id="ss2" placeholder="35"></span>
-                        <span class="wrapper"><input type="text" id="ss3" placeholder="54"></span>
+                        <span class="wrapper"><input type="text" id="ss1" placeholder="8" maxlength="2"></span>
+                        <span class="wrapper"><input type="text" id="ss2" placeholder="35" maxlength="2"></span>
+                        <span class="wrapper"><input type="text" id="ss3" placeholder="54" maxlength="2"></span>
 
                     <span class="wrap"><label for="bygg">Byggaren</label>
-                        <input type="text" id="bygg" placeholder="1500"></span>
+                        <input type="text" id="bygg" placeholder="1500" maxlength="5"></span>
                 </div>
 
 
                 <div id="right-row">
                     <p id="rubrik2">Centrala spel</p>
                     <span class="wrap"><label for="eldo">Eldorado</label>
-                        <input type="text" id="eldo" placeholder="30000"><br>
+                        <input type="text" id="eldo" placeholder="30000" maxlength="6"><br>
                         <p class="info">Spelas kl 14.00 och 19.00</p></span><br>
                         <div class="space"></div>
 
                     <span class="wrap"><label for="at">Atlantis</label>
-                        <input type="text" id="at" placeholder="10000"><br>
+                        <input type="text" id="at" placeholder="10000" maxlength="6"><br>
                         <p class="info">Spelas efter Eldorado</p></span><br>
                         <div class="space"></div>
     
                     <span class="wrap"><label for="sp" >Superpotten</label>
                     <p class="info">Spelas på Finaltorsdagen den <input type="date" id="date"></p></span><br>
                         <div class="space2"></div>
-                        <span class="wrapper"><span class="row" id="row1">Rad 1 -</span><input type="text" id="sp1" placeholder="10000"></span>
-                        <span class="wrapper"><span class="row">Rad 2 -</span><input type="text" id="sp2" placeholder="20000"></span>
-                        <span class="wrapper"><span class="row">Rad 3 -</span><input type="text" id="sp3" placeholder="30000"></span><br>
+                        <span class="wrapper"><span class="row" id="row1">Rad 1 -</span><input type="text" id="sp1" placeholder="10000" maxlength="6"></span>
+                        <span class="wrapper"><span class="row">Rad 2 -</span><input type="text" id="sp2" placeholder="20000" maxlength="6"></span>
+                        <span class="wrapper"><span class="row">Rad 3 -</span><input type="text" id="sp3" placeholder="30000" maxlength="6"></span><br>
                     
                         <div class="space"></div>
 
                     <span class="wrap"><label for="dp">Drömpotten</label>
-                        <input type="text" id="dp" placeholder="1000000"><br>
+                        <input type="text" id="dp" placeholder="1000000" maxlength="7"><br>
                         <p class="info">Spelas på Bingons Dag, den 9 september</p></span><br>           
                 </div>
             </form>
