@@ -12,11 +12,12 @@
     </head>
     <body>
         <script>
-            let col = document.getElementsByTagName("input");
-            let val = col.length;
+            
 
             window.addEventListener("load", function fill(){
 
+                let col = document.getElementsByTagName("input");
+                let val = col.length;
 
                 for(var i = 0; i < val; i++){
                     if(window.localStorage.length > 0){
@@ -33,14 +34,14 @@
                     });
             
 
-            window.addEventListener("keydown", (event)=>{
-                if(event.key === "f"){
-                localStorage.clear();
-            }
-            });
-            window.addEventListener("beforeunload", ()=>{
-                closeWindow();
-            })
+                window.addEventListener("keydown", (event)=>{
+                    if(event.key === "f"){
+                    localStorage.clear();
+                }
+                });
+                window.addEventListener("beforeunload", ()=>{
+                    closeWindow();
+                })
 
         </script>
         <div class="content">
@@ -65,7 +66,9 @@
                         <span class="wrapper"><input type="text" id="ss3" placeholder="54" maxlength="2"></span>
 
                     <span class="wrap"><label for="bygg">Byggaren</label>
-                        <input type="text" id="bygg" placeholder="1500" maxlength="5"></span>
+                        <input type="text" id="bygg" placeholder="1500" maxlength="5"></span><br>
+
+                        
                 </div>
 
 
@@ -96,6 +99,7 @@
                 </div>
             </form>
             <button id="show_btn" class="btn" onclick="update()">UPPDATERA DRAG</button>
+            <div id="last_updt"></div>
         </div>
     </body>
 </html>
