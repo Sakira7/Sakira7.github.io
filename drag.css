@@ -280,8 +280,11 @@ input::placeholder{
 
 }
 @media only screen and (min-height:1000px){
-    #jackpot, #jackpot1{
-        font-size:1.7em;
+    #jackpot1{
+        font-size:1.7vmin;
         width:95%; 
     }
+}
+@media only screen and (display-mode:fullscreen){
+
 }
