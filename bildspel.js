@@ -12,12 +12,16 @@ function logFile (event) {
   img_viewer.append(img);
 
 
-  img.addEventListener("click", ()=>{
-    let images = [];
-    images = document.getElementById("pics").childNodes;
-    if(images[0].getAttribute("class") === "pic"){
-      img.remove();
-      localStorage.removeItem(img.id);
+  img.addEventListener("click", (e, i)=>{
+    i = e.target.id;
+    
+    let last = localStorage.length;
+    console.log(localStorage);
+    if(i === 7){
+      e.target.remove;
+      localStorage.removeItem(i);
+    }else{
+      e.preventDefault();
     }
   
   });
@@ -29,7 +33,6 @@ window.addEventListener("keypress", (e)=>{
     localStorage.clear();
     let pics = document.querySelector("#pics");
     pics.innerHTML="";
-    console.log("LOISJHFIPAUFHKIJDHFs");
   }
 })
 
@@ -37,7 +40,6 @@ window.addEventListener("load", function load(){
   let img_viewer = document.querySelector("#pics");
   toggle = 1;
 
-  console.log(localStorage);
 
   for(var i = 0; i < localStorage.length; i++){
     let img = document.createElement("img");
@@ -64,7 +66,6 @@ window.addEventListener("keypress", (e)=>{
 });
 function handleSubmit () {
 
-  //localStorage.clear();
   let file_picker = document.createElement("input");
   file_picker.type = "file";
   file_picker.accept = "image/*";
@@ -86,58 +87,7 @@ function handleSubmit () {
 
 }
 
-
-window.addEventListener('resize', function slide() {
-
-  let pics = [];
-  let img_viewer = document.getElementById("pics");
-  pics = document.getElementById("pics").childNodes;
-  let to1;
-  let to2;
-  let to3;
-
-
-  if (window.screenTop && window.screenY) {
-    toggle = 0;
-    pics.forEach((pic, i)=>{
-      console.log(i);
-      pic.setAttribute("class", "slider");
-      
-      to1 = setTimeout(()=>{
-        pic.setAttribute("class", "slider-active");
-        
-
-        to2 = setTimeout(()=>{
-          pic.removeAttribute("class", "slider-active");
-          pic.setAttribute("class","slider");
-        },10000);
-
-        if(i == pics.length-1){
-          to3 = setTimeout(()=>{
-            slide();
-          },10000);
-        };
-
-      }, i * 10000);
-
-    });
-    let header = document.getElementById("header");
-    let footer = document.getElementById("footer");
-    let buttons = document.getElementById("buttons");
-
-
-    header.style.display = "none";
-    footer.style.display = "none";
-    buttons.style.display = "none";
-    img_viewer.style.top="0";
-    img_viewer.style.position="relative";
-    img_viewer.style.height="100%";
-  
-  } else if(!window.screenTop && !window.screenY && toggle === 0){
-
-    this.document.location.reload();
-
-
-  }
-  });
+function startslide(){
+  window.open("slide.html");
+}
 
