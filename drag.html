@@ -19,6 +19,8 @@
                 let col = document.getElementsByTagName("input");
                 let val = col.length;
 
+                console.log(screen.height);
+
                 for(var i = 0; i < val; i++){
                     if(window.localStorage.length > 0){
                         col[i].value = localStorage.getItem("value"+i);   

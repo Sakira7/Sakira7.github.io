@@ -36,15 +36,17 @@ function update(){
     let day = date.getDay();
     let hours = date.getHours();
     let minutes = date.getMinutes();
+    
 
-    if(minutes.length === 1){
+
+    if(minutes.toString().length === 1){
         minutes = "0" + minutes;
     }
 
-    let days = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"];
+    let days = ["Söndag", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag"];
 
     let show_date = document.getElementById("last_updt");
-    show_date.innerHTML = "Senast uppdaterad: " + days[day-1] + " " + hours + ":" + minutes;
+    show_date.innerHTML = "Senast uppdaterad: " + "<span class='bold'>"+days[day] + " " + hours + ":" + minutes+"</span>";
 }else{
     alert("Fyll i alla fält!");
 }
