@@ -1,7 +1,38 @@
 
 let i = 0;
 let toggle = 0;
+
+window.addEventListener("load", function load(){
+  let img_viewer = document.querySelector("#pics");
+  let pics = [];
+
+  for(var i = 0; i < localStorage.length; i++){
+
+    let ls_key = localStorage.key(i);
+    let img = document.createElement("img");
+    img.id = ls_key;
+    img.setAttribute("class", "pic");
+    img.src = localStorage.getItem(ls_key);
+    img_viewer.append(img);
+    pics.push(img);
+  
+  }
+
+  pics.forEach(pic =>{
+
+    pic.addEventListener("click", (e)=>{
+
+
+        e.target.remove();
+        localStorage.removeItem(e.target.id);
+
+
+    });
+  });
+});
+
 function logFile (event) {
+
   let img_viewer = document.querySelector("#pics");
   let str = event.target.result;
   let img = document.createElement('img');
@@ -11,22 +42,13 @@ function logFile (event) {
   img.src = localStorage.getItem("img"+i);
   img_viewer.append(img);
 
-
-  img.addEventListener("click", (e, i)=>{
-    i = e.target.id;
-    
-    let last = localStorage.length;
-    console.log(localStorage);
-    if(i === 7){
-      e.target.remove;
-      localStorage.removeItem(i);
-    }else{
-      e.preventDefault();
-    }
-  
+  img.addEventListener("click", (e)=>{
+    e.target.remove();
+    localStorage.removeItem(e.target.id);
   });
   
 }
+
 
 window.addEventListener("keypress", (e)=>{
   if(e.key == "o"){
@@ -36,27 +58,6 @@ window.addEventListener("keypress", (e)=>{
   }
 })
 
-window.addEventListener("load", function load(){
-  let img_viewer = document.querySelector("#pics");
-  toggle = 1;
-
-
-  for(var i = 0; i < localStorage.length; i++){
-    let img = document.createElement("img");
-    img.src = localStorage.getItem("img"+(i+1));
-    img.setAttribute("class", "pic");
-    img.setAttribute("id", "img"+(i+1));
-  
-    img_viewer.append(img);
-
-    img.addEventListener("click", ()=>{
-      img.remove();
-      localStorage.removeItem(img.id);
-
-    
-    });
-  }
-});
 
 window.addEventListener("keypress", (e)=>{
   if(e.key == " "){

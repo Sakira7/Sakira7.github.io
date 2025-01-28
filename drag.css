@@ -140,7 +140,7 @@ input::placeholder{
     background-color: #972172;
 }
 #show_btn:active{
- background-color: #872368;
+    background-color: #872368;
 }
 #last_updt{
     bottom:5%;
