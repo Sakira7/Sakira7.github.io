@@ -9,7 +9,6 @@
 html, body{
     background-color: #ccc9e7;
     height:100%;
-    caret-color: transparent;
 }
 .content{
     width:100%;
@@ -40,6 +39,7 @@ label{
     font-size:2em;
     margin-left:0;
     margin-right:auto;
+    caret-color: transparent;
 }
 .row{
     font-size:1.8em;
@@ -83,12 +83,14 @@ input::placeholder{
     padding-bottom:1em;
     font-family: 'Tahoma', Arial, Sans-serif;
     font-weight: bold;
+    caret-color: transparent;
 }
 .info{
     position: absolute;
     font-size:1.6em;
     font-style: italic;
     margin-top:1.2em;
+    caret-color: transparent;
 }
 #date{
     font-size:1.2em;
@@ -162,6 +164,7 @@ input::placeholder{
     align-content: center;
     font-family:Tahoma, Arial, sans-serif;
     font-weight:700;
+    caret-color: transparent;
 }
 #footer > p{
     font-size:2.5vmin;
@@ -206,6 +209,7 @@ input::placeholder{
     font-size:2em;
     padding-left:0.2em;
     text-align: end;
+    caret-color: transparent;
 }
 .outer-border{
     border:thick solid black;
