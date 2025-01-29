@@ -107,7 +107,8 @@ input::placeholder{
     height:100%;
     position: absolute;
     border-right:thin solid black;
-    padding-top:3em;
+    padding-top:1vmin;
+
 }
 #right-row{
     width:50%;
@@ -117,7 +118,7 @@ input::placeholder{
     margin-left:50%;
     position:absolute;
     border-left:thin solid black;
-    padding-top:3em;
+    padding-top:1vmin;
 }
 .btn{
     cursor: pointer;
@@ -193,13 +194,11 @@ input::placeholder{
     font-style: italic;
 }
 #jackpot1{
-    width:85vw;
-    margin-left:2em;
-    margin-right:2em;
-    height:73vh;
+    width:95vw;
+    margin:5vmin;
+    height:80vh;
     position:absolute;
-    font-size:0.8em;
-    margin-top:5.5em;
+    font-size:1.8vmin;
     font-family:Georgia, Arial, sans-serif;
 }
 .after{
@@ -223,12 +222,8 @@ input::placeholder{
 }
 
 @media only screen and (min-width:1200px) {
-    #jackpot, #jackpot1{
-        font-size:1.5vmin;
-    }
-    #left-row, #right-row{
-        padding-top:1em;
-    }
+
+
     #show_btn{
         bottom:8%;
     }
@@ -243,12 +238,6 @@ input::placeholder{
         bottom:8%;
     }
 
-}
-@media only screen and (max-width:980px){
-    #jackpot, #jackpot1{
-        font-size:0.7em;
-        width:95%; 
-    }
 }
 @media only screen and (max-width:800px){
     #dp, #dp1{
@@ -273,18 +262,6 @@ input::placeholder{
     #rubrik1, #rubrik2{
         width:85%;
     }
-    #jackpot{
-        height:75%;
-    }
 
-
-}
-@media only screen and (min-height:1000px){
-    #jackpot1{
-        font-size:1.7vmin;
-        width:95%; 
-    }
-}
-@media only screen and (display-mode:fullscreen){
 
 }

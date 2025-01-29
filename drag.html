@@ -19,8 +19,6 @@
                 let col = document.getElementsByTagName("input");
                 let val = col.length;
 
-                console.log(screen.height);
-
                 for(var i = 0; i < val; i++){
                     if(window.localStorage.length > 0){
                         col[i].value = localStorage.getItem("value"+i);   
@@ -30,7 +28,7 @@
 
                    window.addEventListener("keydown", (e)=>{
 
-                        if(!e.key.match(/[0-9]/) && e.key != "Backspace" & e.key != "Tab"){
+                        if(!e.key.match(/[0-9]/) && e.key != "Backspace" && e.key != "Tab" && e.key != "ArrowLeft" && e.key != "ArrowRight"){
                            e.preventDefault();
                         }
                     });
