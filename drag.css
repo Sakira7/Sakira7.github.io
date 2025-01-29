@@ -18,11 +18,11 @@ html, body{
     justify-content: center;
 } 
 #jackpot{
-    width:80%;
-    height:73%;
+    width:95vw;
+    height:80vh;
     position: absolute;
-    font-size:0.8em;
-    margin-top:5.5em;
+    font-size:1.8vmin;
+    margin:5vmin;
     font-family:Georgia, Arial, sans-serif;
     border:thick solid black;
 }
@@ -135,7 +135,7 @@ input::placeholder{
 
 }
 #show_btn{
-    bottom:10%;
+    margin-top:5.5vmin;
 }
 #show_btn:hover{
     background-color: #972172;
@@ -230,7 +230,7 @@ input::placeholder{
     #last_updt{
         bottom:4%;
     }
-    
+
 }
 @media only screen and (min-width:1570px){
 
