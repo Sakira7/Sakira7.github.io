@@ -9,6 +9,7 @@
 html, body{
     background-color: #ccc9e7;
     height:100%;
+    caret-color: transparent;
 }
 .content{
     width:100%;
