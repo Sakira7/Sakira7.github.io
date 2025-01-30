@@ -26,16 +26,34 @@
                 }
             });
 
-                   window.addEventListener("keydown", (e)=>{
+                window.addEventListener("keydown", (e)=>{
 
-                        if(!e.key.match(/[0-9]/) && e.key != "Backspace" && e.key != "Tab" && e.key != "ArrowLeft" && e.key != "ArrowRight"){
-                           e.preventDefault();
-                        }
-                    });
+                    if(!e.key.match(/[0-9]/) && e.key != "Backspace" && e.key != "Tab" && e.key != "ArrowLeft" && e.key != "ArrowRight"){
+                        e.preventDefault();
+                    }
+                });
+
+                window.addEventListener("keydown", (e)=>{
+                    let inputs = document.querySelectorAll("input[type='text']");
+                    let date = document.querySelector("#date");
+                    let ar = [];
+
+                    for(var i = 0; i < inputs.length; i++){
+                        ar.push(inputs[i]);
+                    };
+
+                    if(e.key === "f"){
+                        ar.forEach(e =>{
+                            e.value = e.placeholder;
+                            date.value = "2025-01-01"
+
+                        });
+                    }
+                });
             
 
-                window.addEventListener("keydown", (event)=>{
-                    if(event.key === "f"){
+                window.addEventListener("keydown", (e)=>{
+                    if(e.key === "o"){
                     localStorage.clear();
                 }
                 });
@@ -85,7 +103,7 @@
                         <div class="space"></div>
     
                     <span class="wrap"><label for="sp" >Superpotten</label>
-                    <p class="info">Spelas på Finaltorsdagen den <input type="date" id="date"></p></span><br>
+                    <p class="info">Spelas på Finaltorsdagen den <input type="date" id="date" placeholder="2025-01-01"></p></span><br>
                         <div class="space2"></div>
                         <span class="wrapper"><span class="row" id="row1">Rad 1 -</span><input type="text" id="sp1" placeholder="10000" maxlength="6"></span>
                         <span class="wrapper"><span class="row">Rad 2 -</span><input type="text" id="sp2" placeholder="20000" maxlength="6"></span>
