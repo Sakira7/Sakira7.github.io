@@ -17,18 +17,17 @@
 
                 for(var i = 0; i < localStorage.length; i++){
                     let img = document.createElement("img");
-                    img.src = localStorage.getItem("img"+(i+1));
+                    img.src = localStorage.getItem(localStorage.key(i));
                     pics.push(img);
                     slider.append(img);
                 }
+                console.log(pics);
                     pics.forEach((pic, i)=>{
-                        console.log(pics.length, i);
                         pic.setAttribute("class", "slider");
                         
                         setTimeout(()=>{
                             pic.setAttribute("class", "slider-active");
                             
-
                             setTimeout(()=>{
                                 pic.removeAttribute("class", "slider-active");
                                 pic.setAttribute("class","slider");

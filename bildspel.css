@@ -19,13 +19,11 @@ body{
     font-size:3em;
 }
 .btn{
-    font-family: Tahoma, arial, sans-serif;
     border:none;
     background-color:#ad3f8b;
     color:#e6e6e6;
     padding:0.6em;
     border-radius:24px;
-    font-weight: 700;
     font-size:1.5em;
     margin:0.4em;
     cursor: pointer;
@@ -35,8 +33,6 @@ body{
     background-color: #972172;
 }
 .btn:active{
-    font-size:1.3em;
-    margin:1em;
     background-color: #872368;
 }
 #buttons{
@@ -67,10 +63,6 @@ body{
     bottom:0;
     position: fixed;
     text-align: center;
-    background-image: url("BingoRingen_logo.PNG");
-    background-size:contain;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 #container{
     width:100%;
