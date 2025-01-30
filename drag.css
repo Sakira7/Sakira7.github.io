@@ -138,6 +138,7 @@ input::placeholder{
     font-size:1.7em;
     width:11em;
     height:2em;
+    position: absolute;
     align-content:center;
     border-radius: 24px;
     padding:10px;
@@ -153,7 +154,6 @@ input::placeholder{
     background-color: #872368;
 }
 #last_updt{
-    position:absolute;
     font-size: 2.4vmin;
     padding-top:3em;
     font-family: Tahoma, Arial, sans-serif;
