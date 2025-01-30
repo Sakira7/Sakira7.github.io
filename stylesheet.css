@@ -233,14 +233,14 @@ h1{
         left:20px;
     }
     h1{
-        font-size: 9em;
+        font-size: 8em;
         text-align: right;
     }
         #menu{
         width: 40em;
     }
         #menu li{
-        font-size: 3em;
+        font-size: 2em;
     }
 
 
@@ -252,12 +252,12 @@ h1{
 	}
     h1{
         text-align: center;
-        font-size: 6em;
+        font-size: 5em;
     }
     #menu{
         width: 40em;
     }
     #menu li{
-        font-size: 3em;
+        font-size: 2em;
     }
 }
