@@ -17,6 +17,7 @@ window.addEventListener("load", function load(){
     pics.push(img);
   
   }
+  this.document.getElementById("#debug").remove();
 
   pics.forEach(pic =>{
 
