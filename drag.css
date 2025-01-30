@@ -89,7 +89,7 @@ input::placeholder{
     position: absolute;
     font-size:1.5em;
     font-style: italic;
-    margin-top:1.2em;
+    margin-top:1.4em;
     caret-color: transparent;
 }
 #date{
@@ -123,11 +123,21 @@ input::placeholder{
     border-left:thin solid black;
     padding-top:1vmin;
 }
+#bottom{
+    width:100%;
+    height:15vmin;
+    border:1px solid black;
+    position:absolute;
+    bottom:0;
+    padding-top:2vmin;
+    justify-content: center;
+    display: flex;
+}
 .btn{
     cursor: pointer;
     font-size:1.7em;
     width:11em;
-    position:absolute;
+    height:2em;
     align-content:center;
     border-radius: 24px;
     padding:10px;
@@ -135,10 +145,6 @@ input::placeholder{
     box-shadow: rgba(0,0,0,.2) 0 3px 5px -1px, rgba(0,0,0,.14) 0 6px 10px 0, rgba(0,0,0,.12) 0 1px 18px 0;
     background-color: #ad3f8b;
     color:#fff;
-
-}
-#show_btn{
-    margin-top:5.5vmin;
 }
 #show_btn:hover{
     background-color: #972172;
@@ -147,10 +153,9 @@ input::placeholder{
     background-color: #872368;
 }
 #last_updt{
-    bottom:5%;
     position:absolute;
     font-size: 2.4vmin;
-    padding-top:1em;
+    padding-top:3em;
     font-family: Tahoma, Arial, sans-serif;
 }
 #footer{
@@ -226,24 +231,6 @@ input::placeholder{
     display: flex;
 }
 
-@media only screen and (min-width:1200px) {
-
-
-    #show_btn{
-        bottom:8%;
-    }
-    #last_updt{
-        bottom:4%;
-    }
-
-}
-@media only screen and (min-width:1570px){
-
-    #show_btn{
-        bottom:8%;
-    }
-
-}
 @media only screen and (max-width:800px){
     #dp, #dp1{
         position: absolute;
