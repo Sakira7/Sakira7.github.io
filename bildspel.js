@@ -6,18 +6,20 @@ window.addEventListener("load", function load(){
   let img_viewer = document.querySelector("#pics");
   let pics = [];
 
-  for(var i = 0; i < localStorage.length; i++){
+    for(var i = 0; i < localStorage.length; i++){
 
-    let ls_key = localStorage.key(i);
-    let img = document.createElement("img");
-    img.id = ls_key;
-    img.setAttribute("class", "pic");
-    img.src = localStorage.getItem(ls_key);
-    img_viewer.append(img);
-    pics.push(img);
+      if(localStorage.key(i).match("img")){
+        let ls_key = localStorage.key(i);
+        let img = document.createElement("img");
+        img.id = ls_key;
+        img.setAttribute("class", "pic");
+        img.src = localStorage.getItem(ls_key);
+        img_viewer.append(img);
+        pics.push(img);
+      }
+    
   
-  }
-  this.document.getElementById("#debug").remove();
+    }
 
   pics.forEach(pic =>{
 
@@ -53,9 +55,20 @@ function logFile (event) {
 
 window.addEventListener("keypress", (e)=>{
   if(e.key == "o"){
-    localStorage.clear();
     let pics = document.querySelector("#pics");
     pics.innerHTML="";
+    let inputs = document.querySelectorAll("input[type='text']");
+    let date = document.querySelector("#date");
+    let ar = [];
+
+    for(var i = 0; i < inputs.length; i++){
+        ar.push(inputs[i]);
+    }
+
+    ar.forEach((e, i) =>{
+        e.value="";
+        localStorage.removeItem("img"+i)
+    })
   }
 })
 

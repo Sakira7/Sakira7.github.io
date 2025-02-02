@@ -16,10 +16,12 @@
             window.addEventListener("load", ()=>{
 
                 for(var i = 0; i < localStorage.length; i++){
-                    let img = document.createElement("img");
-                    img.src = localStorage.getItem(localStorage.key(i));
-                    pics.push(img);
-                    slider.append(img);
+                    if(localStorage.key(i).match("img")){
+                        let img = document.createElement("img");
+                        img.src = localStorage.getItem(localStorage.key(i));
+                        pics.push(img);
+                        slider.append(img);
+                    }
                 }
                 console.log(pics);
                     pics.forEach((pic, i)=>{

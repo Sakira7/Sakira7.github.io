@@ -24,6 +24,7 @@
                         col[i].value = localStorage.getItem("value"+i);   
                     }
                 }
+                console.log(localStorage);
             });
 
                 window.addEventListener("keydown", (e)=>{
@@ -43,20 +44,46 @@
                     };
 
                     if(e.key === "f"){
-                        ar.forEach(e =>{
+                        ar.forEach((e, i) =>{
                             e.value = e.placeholder;
-                            date.value = "2025-01-01"
-
+                            date.value = "2025-01-01";
+                            
                         });
+
+                        let inputs2 = document.querySelectorAll("input");
+                        let ar2 = [];
+
+                        for(var i = 0; i < inputs2.length; i++){
+                            ar2.push(inputs2[i]);
+                        };
+
+                        ar2.forEach((e,i) =>{
+                            localStorage.setItem("value"+i, e.value);
+                        });
+
                     }
                 });
             
 
                 window.addEventListener("keydown", (e)=>{
                     if(e.key === "o"){
-                    localStorage.clear();
-                }
+                        let inputs = document.querySelectorAll("input[type='text']");
+                        let date = document.querySelector("#date");
+                        let ar = [];
+
+                        for(var i = 0; i < inputs.length; i++){
+                            ar.push(inputs[i]);
+                        }
+
+                        ar.forEach((e, i) =>{
+                            e.value="";
+                            date.value="";
+                            localStorage.removeItem("value"+i)
+                        })
+                        localStorage.removeItem("value14")
+                    }
                 });
+
                 window.addEventListener("beforeunload", ()=>{
                     closeWindow();
                 })

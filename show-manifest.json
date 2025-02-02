@@ -1,0 +1,47 @@
+{
+    "short_name": "show",
+    "name": "Show",
+    "theme_color": "#000",
+    "background_color": "#000",
+    "display": "standalone",
+    "icons": [
+        {
+     "src": "BingoRingen_logo.PNG",
+     "sizes": "36x36",
+     "type": "image/png",
+     "density": "0.75"
+    },
+      {
+        "src": "BingoRingen_logo.PNG",
+        "type": "image/png",
+        "sizes": "48x48"
+      },
+      {
+         "src": "BingoRingen_logo.PNG",
+     "sizes": "72x72",
+     "type": "image/png",
+     "density": "1.5"
+    },
+  
+      {
+      "src": "BingoRingen_logo.PNG",
+     "sizes": "96x96",
+     "type": "image/png",
+     "density": "2.0"
+    },
+    {
+     "src": "BingoRingen_logo.PNG",
+     "sizes": "144x144",
+     "type": "image/png",
+     "density": "3.0"
+    },
+    {
+     "src": "BingoRingen_logo.PNG",
+     "sizes": "192x192",
+     "type": "image/png",
+     "density": "4.0"
+    }
+    ],
+    "start_url": ".../show.html"
+
+  }
