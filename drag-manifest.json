@@ -42,6 +42,7 @@
      "density": "4.0"
     }
     ],
-    "start_url": "/drag.html"
+    "start_url": "/drag.html",
+    "scope": "http://www.sakira7.github.io"
 
   }
