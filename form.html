@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Form</title>
+        <link href="form.css" rel="stylesheet">
+        <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    </head>
+    <body>
+        <form id="myform">
+            <div id="header"><h1>Skicka in rapport</h1>
+            	<p>Besvara så många frågor som möjligt och var så detaljerad du kan. Om du inte kan besvara en fråga, lämna fältet tomt.</p>
+                </div>
+            
+            <span class="sec">
+                    <h2>Vilket företag rör anmälan?<span class="obl">*</span></h2>
+                <select name="företag" id="foretag" class="select">
+                    <option value="">--Välj--</option>
+                    <option value="Ringbingo AB">RingBingo AB</option>
+                    <option value="Bingoringen AB">Bingoringen AB</option>
+                    <option value="Pema AB">Pema AB</option>
+                    <option value="HB Bingoringen">HB Bingoringen</option>
+                    <option value="Trollhättans Bingo AB">Trollhättans Bingo AB</option>
+                    <option value="Eskilstuna Föreningsbingo AB">Eskilstuna Föreningsbingo AB</option>
+                    <option value="Östersunds Idrottsservice AB">Östersunds Idrottsservice AB</option>
+                    <option value="BingoRingen Gruppen AB">BingoRingen Gruppen AB</option>
+                    <option value="Idrottsservice Karlstad AB">Idrottsservice Karlstad AB</option>
+                </select>
+            </span>
+            <span class="sec">
+                <h2>Vad gäller problemet?<span class="obl">*</span></h2>
+                <select name="problem" id="problem" class="select">
+                    <option value="">--Välj--</option>
+                    <option value="Ekonomi, finans, pengar, pengatvätt">Ekonomi, finans, pengar, pengatvätt</option>
+                    <option value="Mutor, korruption, intressekonflikt">Mutor, korruption, intressekonflikt</option>
+                    <option value="Inköp">Inköp</option>
+                    <option value="Transport, produkter, tillverkning">Transport, produkter, tillverkning</option>
+                    <option value="Människors liv/hälsa">Människors liv/hälsa</option>
+                    <option value="Sexuella trakasserier">Sexuella trakasserier</option>
+                    <option value="Hantering av personuppgifter">Hantering av personuppgifter</option>
+                    <option value="Miljöpåverkan">Miljöpåverkan</option>
+                    <option value="Hot, våld, stöld">Hot, våld, stöld</option>
+                    <option value="Annat">Annat</option>
+                </select>
+            </span>
+            <span class="sec">
+                <h2>Vad har hänt?<span class="obl">*</span></h2>
+                <p>Ge en så precis beskrivning som möjligt</p>
+                <textarea name="description" id="what_description" class="text_box" rows="3" cols="71"></textarea>
+            </span>
+            <span class="sec">
+                <h2>Var hände det?</h2>
+                <p>Ange platsen så precist som möjligt, t.ex. arbetsplatsens namn, rum, avdelning</p>
+                <textarea name="description" id="where_description" class="text_box" rows="3" cols="71"></textarea>
+            </span>
+            <span class="sec">
+                <h2>När hände det?</h2>
+                <p>Ange datum och klockslag så exakt som möjligt</p>
+                <textarea name="description" id="when_description" class="text_box" rows="3" cols="71"></textarea>
+            </span>
+	
+            <span class="sec">
+            <h2>Ladda upp fil(er)</h2>
+                <p>Bifoga kompletterande dokumentation, till exempel fotografier, filmer, ljudfiler, e-post, skärmbilder, andra dokument m.m. OBS! Se till att bilagorna inte innehåller någon användarinformation som visar vem du är.</p>
+                <input type="file" id="fil" name="fil" multiple>
+            </span>
+            <span class="sec">
+                <h2>Vill du lägga till mer information?</h2>
+                <textarea name="other" id="other" class="text_box" rows="3" cols="71"></textarea>
+            </span>
+            <br>
+            
+        </form>
+        <button class="btn" onclick="submit_form()">Skicka in</button>
+        <script>
+
+            function submit_form(){
+                (function(){
+                    emailjs.init({
+                    publicKey: "KxAGafE4IBMV4QZ67",
+                    });
+                })();
+                
+                let company = document.getElementById("foretag").value;
+                let problem = document.getElementById("problem").value;
+                let what = document.getElementById("what_description").value;
+                let where = document.getElementById("where_description").value;
+                let when = document.getElementById("when_description").value;
+                
+                var templateParams = {
+                    message: company + problem + what + where + when
+                };
+                emailjs.send('contact_service', 'template', templateParams).then(
+                (response) => {
+                console.log('SUCCESS!', response.status, response.text);
+                    alert("Tack");
+                    
+                },
+                (error) => {
+                console.log('FAILED...', error);
+                    alert("något gick fel");
+                },
+                );
+            }
+
+        </script>
+    </body>
+</html>

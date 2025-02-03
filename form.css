@@ -1,0 +1,123 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*******************************************************
+ *      END CSS RESET
+ * ****************************************************/
+form{
+    padding:1em;
+    width:40%;
+}
+form > .sec{
+    height:100%;
+    width:100%;
+
+}
+h1{
+    font-size:2.4em;
+    margin:0.5em 0 1em;
+    font-weight: bold;
+    font-family:Tahoma, Arial, sans-serif;
+}
+h2{
+    margin-top:2em;
+    font-size:1.2em;
+    font-weight: bold;
+    font-family:Tahoma, Arial, sans-serif;
+    margin-bottom:0.3em;
+}
+.sec > p{
+    font-style: italic;
+    margin-bottom:0.3em;
+}
+p{
+    font-family:Georgia,serif;
+    margin-bottom:4em;
+}
+.select{
+    font-family: Georgia, serif;
+    font-size:1em;
+}
+.text_box{
+    font-family:Georgia, serif;
+    font-size:1em;
+}
+.obl{
+    color:red;
+    font-size:0.6em;
+    padding-left:3px;
+}
+#fil{
+    font-family:Georgia, serif;
+    font-size:1em;
+    font-style: italic;
+    margin-top:0.5em;
+}
+input::file-selector-button{
+    width:5em;
+    font-size:1.3em;
+}
+.btn{
+    font-size: 1.7em;
+    margin:1.5em 0.6em;
+    width:6em;
+
+}
+input::file-selector-button, .btn{
+    cursor: pointer;
+    border:none;
+    background-color: #222;
+    color:#fff;
+    border-radius:25px;
+    padding:5px;
+    font-family:Georgia, serif;
+}
+input::file-selector-button:hover, .btn:hover{
+    background-color:#444;
+}
