@@ -137,15 +137,16 @@ input::file-selector-button:hover, .btn:hover{
 #pop-up-content {
     background-color: #fefefe;
     margin: 15% auto;
-    padding: 20px;
     border: 1px solid #888;
-    width: 50%;
+    width: 30%;
+    height:20%;
   }
   #close {
     color: #aaa;
-    float: right;
     font-size: 2.5em;
     font-weight: bold;
+    float:right;
+    padding-right:0.2em;
   }
   
   #close:hover,
@@ -155,5 +156,16 @@ input::file-selector-button:hover, .btn:hover{
     cursor: pointer;
   }
   #pop-up-text{
-    font-size: 3em;
+    font-size: 2em;
+    text-align: center;
+    margin-top:1.4em;
+    position:absolute;
+    width:29.9%;
+  }
+  #yes, #no{
+    display:none;
+    border:1px solid #222;
+    background-color: #aaa;
+    font-size:2em;
+
   }
