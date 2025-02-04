@@ -16,7 +16,7 @@
             <span class="sec">
                     <h2>Vilket företag rör anmälan?<span class="obl">*</span></h2>
                 <select name="företag" id="foretag" class="select">
-                    <option value="">--Välj--</option>
+                    <option value="empty">--Välj--</option>
                     <option value="Ringbingo AB">RingBingo AB</option>
                     <option value="Bingoringen AB">Bingoringen AB</option>
                     <option value="Pema AB">Pema AB</option>
@@ -31,7 +31,7 @@
             <span class="sec">
                 <h2>Vad gäller problemet?<span class="obl">*</span></h2>
                 <select name="problem" id="problem" class="select">
-                    <option value="">--Välj--</option>
+                    <option value="empty">--Välj--</option>
                     <option value="Ekonomi, finans, pengar, pengatvätt">Ekonomi, finans, pengar, pengatvätt</option>
                     <option value="Mutor, korruption, intressekonflikt">Mutor, korruption, intressekonflikt</option>
                     <option value="Inköp">Inköp</option>
@@ -73,6 +73,12 @@
             
         </form>
         <button class="btn" onclick="submit_form()">Skicka in</button>
+        <div id="pop-up">  
+            <div id="pop-up-content">
+                <span id="close">&times;</span>
+                <p id="pop-up-text"></p>
+            </div>
+        </div>
         <script>
 
             function submit_form(){
@@ -87,21 +93,35 @@
                 let what = document.getElementById("what_description").value;
                 let where = document.getElementById("where_description").value;
                 let when = document.getElementById("when_description").value;
+                let other = document.getElementById("other").value;
+                let pop_up = document.getElementById("pop-up");
+                let x = document.getElementById("close");
+                let pop_up_txt = document.getElementById("pop-up-text");
                 
                 var templateParams = {
-                    message: company + problem + what + where + when
+                    message: "Företag: "+company +"\nProblem: " + problem + "\nVad som hände: " +'"'+ what+'"'+ "\nVar det hände: " + '"' + where + '"' + "\nNär det hände: " + '"' + when + '"' + "\nÖvrig information: " + '"' + other + '"'
                 };
-                emailjs.send('contact_service', 'template', templateParams).then(
-                (response) => {
-                console.log('SUCCESS!', response.status, response.text);
-                    alert("Tack");
-                    
-                },
-                (error) => {
-                console.log('FAILED...', error);
-                    alert("något gick fel");
-                },
-                );
+
+
+                if(company === "empty" || problem === "empty" || what === ""){
+                    pop_up.style.display = "block";
+                    pop_up_txt.innerHTML = "Vänligen fyll i alla obligatoriska fält.";
+                    x.onclick = ()=>{pop_up.style.display="none"}
+                }else{
+                    if(confirm("Vill du skicka in rapporten?")){
+                        emailjs.send('contact_service', 'template', templateParams).then(
+                        (response) => {
+                        console.log('SUCCESS!', response.status, response.text);
+                            alert("Tack! \nDin rapport är inskickad.");
+                            
+                        },
+                        (error) => {
+                        console.log('FAILED...', error);
+                            alert("Tyvärr, något gick fel. \nVänligen försök igen senare.");
+                        },
+                        );
+                    }
+                }
             }
 
         </script>
