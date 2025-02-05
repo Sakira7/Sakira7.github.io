@@ -122,7 +122,7 @@ input::file-selector-button:hover, .btn:hover{
     background-color:#444;
 }
 #pop-up{
-    display: none; 
+    display: none;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -140,6 +140,7 @@ input::file-selector-button:hover, .btn:hover{
     border: 1px solid #888;
     width: 30%;
     height:20%;
+
   }
   #close {
     color: #aaa;
@@ -163,9 +164,29 @@ input::file-selector-button:hover, .btn:hover{
     width:29.9%;
   }
   #yes, #no{
-    display:none;
-    border:1px solid #222;
-    background-color: #aaa;
-    font-size:2em;
+    border:none;
+    border-radius: 25px;
+    width:2.5em;
+    text-align: center;
+    background-color: #222;
+    color:#fff;
+    font-size:1.3em;
+    height:1em;
+    padding:0.4em;
+    margin:0 0.5em;
+    font-family: Tahoma, sans-serif;
+    cursor: pointer;
 
+  }
+  #yes:hover, #no:hover{
+    background-color: #444;
+  }
+  #answers{
+    display:none;
+    width:29.9%;
+    height:2.5em;
+    justify-content: center;
+    justify-self: end;
+    position:absolute;
+    margin:7.5em 0;
   }

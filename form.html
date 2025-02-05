@@ -77,7 +77,7 @@
             <div id="pop-up-content">
                 <span id="close">&times;</span>
                 <p id="pop-up-text"></p>
-                <span id="yes">JA</span><span id="no">NEJ</span>
+                <div id="answers"><span id="yes">JA</span><span id="no">NEJ</span></div>
             </div>
         </div>
         <script>
@@ -85,7 +85,7 @@
             function submit_form(){
                 (function(){
                     emailjs.init({
-                    publicKey: "KxAGafE4IBMV4QZ67",
+                    publicKey: "mYy2MP0lsMpDhx1lV",
                     });
                 })();
                 
@@ -114,12 +114,18 @@
                     }
                     }
                 }else{
-
-                    if(confirm("Vill du skicka in rapporten?")){
-                        emailjs.send('contact_service', 'template', templateParams).then(
+                    let answers = document.getElementById("answers");
+                    let yes = document.getElementById("yes");
+                    let no = document.getElementById("no");
+                    pop_up.style.display = "block";
+                    pop_up_txt.innerHTML = "Vill du skicka in rapporten?";
+                    answers.style.display = "flex";
+                    yes.onclick = ()=>{
+                        /*emailjs.send('contact_service', 'template_rli5lkr', templateParams).then(
                         (response) => {
-                            console.log('SUCCESS!', response.status, response.text);
+                            console.log('SUCCESS!', response.status, response.text);*/
                             pop_up.style.display = "block";
+                            answers.style.display = "none";
                             pop_up_txt.innerHTML = "Tack!\nDin rapport är skickad.";
                             x.onclick = ()=>{pop_up.style.display="none"};
                             window.onclick = (event)=> {
@@ -128,10 +134,11 @@
                                 }
                                 
                             };
-                        },
+                        /*},
                         (error) => {
                             console.log('FAILED...', error);
                             pop_up.style.display = "block";
+                            answers.style.display = "none";
                             pop_up_txt.innerHTML = "Tyvärr, något gick fel. \nVänligen försök igen senare.";
                             x.onclick = ()=>{pop_up.style.display="none"}
                             window.onclick = (event)=> {
@@ -140,7 +147,11 @@
                                 }
                             };
                         },
-                        );
+                        );*/
+                    }
+                    no.onclick = ()=>{
+                        pop_up.style.display = "none";
+                        answers.style.display = "none";
                     }
                 }
             }
