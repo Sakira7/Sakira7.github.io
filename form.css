@@ -95,21 +95,22 @@ p{
 }
 #fil{
     font-family:Georgia, serif;
-    font-size:1em;
-    font-style: italic;
+    font-size:1.2em;
     margin-top:0.5em;
-}
-input::file-selector-button{
     width:5em;
-    font-size:1.3em;
 }
-.btn{
+#preview{
+    font-size:1.2em;
+    font-style: italic;
+    margin-top:0.4em;
+}
+#send_btn{
     font-size: 1.7em;
     margin:1.5em 0.6em;
     width:6em;
 
 }
-input::file-selector-button, .btn{
+.btn{
     cursor: pointer;
     border:none;
     background-color: #222;
@@ -118,7 +119,7 @@ input::file-selector-button, .btn{
     padding:5px;
     font-family:Georgia, serif;
 }
-input::file-selector-button:hover, .btn:hover{
+.btn:hover{
     background-color:#444;
 }
 #pop-up{

@@ -63,7 +63,7 @@
             <span class="sec">
             <h2>Ladda upp fil(er)</h2>
                 <p>Bifoga kompletterande dokumentation, till exempel fotografier, filmer, ljudfiler, e-post, skärmbilder, andra dokument m.m. OBS! Se till att bilagorna inte innehåller någon användarinformation som visar vem du är.</p>
-                <input type="file" id="fil" name="fil" multiple>
+                <div id="fil" class ="btn" onclick="add_file()">Välj fil</div><div id="preview">Ingen fil vald..</div>
             </span>
             <span class="sec">
                 <h2>Vill du lägga till mer information?</h2>
@@ -72,7 +72,7 @@
             <br>
             
         </form>
-        <button class="btn" onclick="submit_form()">Skicka in</button>
+        <button class="btn" id="send_btn" onclick="submit_form()">Skicka in</button>
         <div id="pop-up">  
             <div id="pop-up-content">
                 <span id="close">&times;</span>
@@ -81,11 +81,46 @@
             </div>
         </div>
         <script>
+            let i = 0;
+            let names = [];
 
+            function add_file(){
+                let file_picker = document.createElement("input");
+                file_picker.type = "file";
+                file_picker.accept = "image/*";
+                let preview = document.querySelector("#preview");
+                
+                file_picker.onchange = (e)=>{
+                    i=i+1;
+                    e.preventDefault();
+ 
+                    if (!file_picker.value.length) console.log("no file");
+
+                    let reader = new FileReader();
+                    console.log(file_picker.files[0].name);
+                    
+
+                    reader.onload= (e)=>{
+                        
+                        names.push(file_picker.files[0].name);
+                        preview.innerHTML = names.join("<br>");
+                        localStorage.setItem("file"+i, e.target.result)
+                        
+                    }
+
+                    reader.readAsDataURL(file_picker.files[0]);
+
+                };
+
+                file_picker.click();
+
+            }
+
+            
             function submit_form(){
                 (function(){
                     emailjs.init({
-                    publicKey: "mYy2MP0lsMpDhx1lV",
+                    publicKey: /*"mYy2MP0lsMpDhx1lV"*/ "KxAGafE4IBMV4QZ67" ,
                     });
                 })();
                 
@@ -94,13 +129,15 @@
                 let what = document.getElementById("what_description").value;
                 let where = document.getElementById("where_description").value;
                 let when = document.getElementById("when_description").value;
+                let file = document.getElementById("fil");
                 let other = document.getElementById("other").value;
                 let pop_up = document.getElementById("pop-up");
                 let x = document.getElementById("close");
                 let pop_up_txt = document.getElementById("pop-up-text");
+                console.log(localStorage.getItem("file1"));
                 
                 var templateParams = {
-                    message: "Företag: "+company +"\nProblem: " + problem + "\nVad som hände: " +'"'+ what+'"'+ "\nVar det hände: " + '"' + where + '"' + "\nNär det hände: " + '"' + when + '"' + "\nÖvrig information: " + '"' + other + '"'
+                    message: "Företag: "+company +"\nProblem: " + problem + "\nVad som hände: " +'"'+ what+'"'+ "\nVar det hände: " + '"' + where + '"' + "\nNär det hände: " + '"' + when + '"' + "\nÖvrig information: " + '"' + other + '"\n' + file
                 };
 
 
@@ -121,7 +158,7 @@
                     pop_up_txt.innerHTML = "Vill du skicka in rapporten?";
                     answers.style.display = "flex";
                     yes.onclick = ()=>{
-                        emailjs.send('contact_service', 'template_rli5lkr', templateParams).then(
+                        emailjs.send('contact_service', 'template'/*_rli5lkr'*/, templateParams).then(
                         (response) => {
                             console.log('SUCCESS!', response.status, response.text);
                             pop_up.style.display = "block";
