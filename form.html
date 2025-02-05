@@ -121,9 +121,9 @@
                     pop_up_txt.innerHTML = "Vill du skicka in rapporten?";
                     answers.style.display = "flex";
                     yes.onclick = ()=>{
-                        /*emailjs.send('contact_service', 'template_rli5lkr', templateParams).then(
+                        emailjs.send('contact_service', 'template_rli5lkr', templateParams).then(
                         (response) => {
-                            console.log('SUCCESS!', response.status, response.text);*/
+                            console.log('SUCCESS!', response.status, response.text);
                             pop_up.style.display = "block";
                             answers.style.display = "none";
                             pop_up_txt.innerHTML = "Tack!\nDin rapport är skickad.";
@@ -134,7 +134,7 @@
                                 }
                                 
                             };
-                        /*},
+                        },
                         (error) => {
                             console.log('FAILED...', error);
                             pop_up.style.display = "block";
@@ -147,7 +147,7 @@
                                 }
                             };
                         },
-                        );*/
+                        );
                     }
                     no.onclick = ()=>{
                         pop_up.style.display = "none";
