@@ -129,7 +129,6 @@
                 let what = document.getElementById("what_description").value;
                 let where = document.getElementById("where_description").value;
                 let when = document.getElementById("when_description").value;
-                let file = document.getElementById("fil");
                 let other = document.getElementById("other").value;
                 let pop_up = document.getElementById("pop-up");
                 let x = document.getElementById("close");
@@ -137,7 +136,12 @@
                 console.log(localStorage.getItem("file1"));
                 
                 var templateParams = {
-                    message: "Företag: "+company +"\nProblem: " + problem + "\nVad som hände: " +'"'+ what+'"'+ "\nVar det hände: " + '"' + where + '"' + "\nNär det hände: " + '"' + when + '"' + "\nÖvrig information: " + '"' + other + '"\n' + file
+                    message: "Företag: "+company +
+                    "\nProblem: " + problem + 
+                    "\nVad som hände: " +'"'+ what+'"'+ 
+                    "\nVar det hände: " + '"' + where + '"' + 
+                    "\nNär det hände: " + '"' + when + '"' + 
+                    "\nÖvrig information: " + '"' + other + '"\n'
                 };
 
 

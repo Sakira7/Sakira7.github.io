@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap");
+#files{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+#wrapper{
+    background-color: #fff;
+    position:relative;
+    z-index:1;
+    margin: 15% auto;
+    border: 1px solid #888;
+    width: 50vmin;
+    height: 50vmin;
+    display: flex;
+    justify-content: center;
+    
+}
+#auth{
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    width:30vmin;
+}
+#pw_txt{
+    font-size: 3vmin;
+    width:20vmin;
+    height:4vmin;
+    font-family: "Montserrat", sans-serif;
+}
+#pw{
+    height:3vmin;
+    width:30vmin;
+    background: transparent;
+    font-size: 1.7em;
+    font-family: "Montserrat", sans-serif;
+
+}
+#submit_btn{
+    font-size:2vmin;
+    margin-top:1vmin;
+    border:none;
+    border-radius:25px;
+    background-color: #444;
+    color:#fff;
+    padding:5px;
+    width:6em;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+}
+#submit_btn:hover{
+    background-color: #222;
+}
+.password-toggle-icon {
+    position: absolute;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width:1em;
+}
+.password-toggle-icon i {
+    font-size: 1.7em;
+    line-height: 1;
+    color: #444;
+    transition: color 0.3s ease-in-out;
+    margin-bottom: 1.2em;
+    margin-left:5.7em;
+}
+.password-toggle-icon i:hover {
+    color: #000;
+}
