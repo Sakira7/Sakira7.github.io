@@ -1,103 +1,55 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-/*******************************************************
- *      END CSS RESET
- * ****************************************************/
-form{
+#wb_form{
     padding:1em;
-    width:40%;
+    width:70%;
+    max-width:700px;
 }
-form > .sec{
+.sec{
     height:100%;
     width:100%;
 
 }
-h1{
+#header > h1{
     font-size:2.4em;
-    margin:0.5em 0 1em;
+    margin:0.5em 0;
     font-weight: bold;
     font-family:Tahoma, Arial, sans-serif;
 }
-h2{
-    margin-top:2em;
+.sub{
+    margin-top:3em;
     font-size:1.2em;
     font-weight: bold;
     font-family:Tahoma, Arial, sans-serif;
-    margin-bottom:0.3em;
 }
-.sec > p{
+.info{
     font-style: italic;
     margin-bottom:0.3em;
+    margin-top:-0.8em;
 }
-p{
+#header > p{
     font-family:Georgia,serif;
     margin-bottom:4em;
 }
-.select{
+.sec > .select{
     font-family: Georgia, serif;
     font-size:1em;
 }
 .text_box{
     font-family:Georgia, serif;
     font-size:1em;
+    width:100%;
 }
 .obl{
     color:red;
-    font-size:0.6em;
+    font-size:0.7em;
     padding-left:3px;
+    margin-top:0.3em;
 }
 #fil{
     font-family:Georgia, serif;
     font-size:1.2em;
     margin-top:0.5em;
     width:5em;
+    text-align: center;
 }
 #preview{
     font-size:1.2em;
@@ -135,36 +87,35 @@ p{
     background-color: rgba(0,0,0,0.4);
 
 }
-#pop-up-content {
+#pop-up-content{
     background-color: #fefefe;
     margin: 15% auto;
     border: 1px solid #888;
     width: 30%;
     height:20%;
 
-  }
-  #close {
+}
+#close{
     color: #aaa;
     font-size: 2.5em;
     font-weight: bold;
     float:right;
     padding-right:0.2em;
-  }
-  
-  #close:hover,
-  #close:focus {
+}  
+#close:hover,
+#close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
-  }
-  #pop-up-text{
+}
+#pop-up-text{
     font-size: 2em;
     text-align: center;
     margin-top:1.4em;
     position:absolute;
     width:29.9%;
-  }
-  #yes, #no{
+}
+#yes, #no{
     border:none;
     border-radius: 25px;
     width:2.5em;
@@ -178,11 +129,11 @@ p{
     font-family: Tahoma, sans-serif;
     cursor: pointer;
 
-  }
-  #yes:hover, #no:hover{
+}
+#yes:hover, #no:hover{
     background-color: #444;
-  }
-  #answers{
+}
+#answers{
     display:none;
     width:29.9%;
     height:2.5em;
@@ -190,4 +141,4 @@ p{
     justify-self: end;
     position:absolute;
     margin:7.5em 0;
-  }
+}
