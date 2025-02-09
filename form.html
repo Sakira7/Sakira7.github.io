@@ -116,13 +116,13 @@
 
             }
 
-            
-            function submit_form(){
-                (function(){
+            (function(){
                     emailjs.init({
                     publicKey: /*"mYy2MP0lsMpDhx1lV"*/ "KxAGafE4IBMV4QZ67" ,
                     });
                 })();
+            function submit_form(){
+
                 
                 let company = document.getElementById("foretag").value;
                 let problem = document.getElementById("problem").value;
@@ -133,7 +133,6 @@
                 let pop_up = document.getElementById("pop-up");
                 let x = document.getElementById("close");
                 let pop_up_txt = document.getElementById("pop-up-text");
-                console.log(localStorage.getItem("file1"));
                 
                 var templateParams = {
                     message: "Företag: "+company +
@@ -168,13 +167,11 @@
                             pop_up.style.display = "block";
                             answers.style.display = "none";
                             pop_up_txt.innerHTML = "Tack!\nDin rapport är skickad.";
-                            x.onclick = ()=>{pop_up.style.display="none"};
-                            window.onclick = (event)=> {
-                                if (event.target == pop_up) {
-                                    pop_up.style.display = "none";
-                                }
-                                
-                            };
+
+                            setTimeout(()=>{
+                                window.location.replace("https://www.bingoringen.se");
+                            },5000)
+
                         },
                         (error) => {
                             console.log('FAILED...', error);
