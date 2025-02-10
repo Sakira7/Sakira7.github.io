@@ -4,13 +4,11 @@
         <meta charset="UTF-8">
         <title>Vault</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="vault.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.js">
-        
-        <script type="module" src="vault.js"></script>
+        <link rel="stylesheet" href="vault.css"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
+        <script type="module" src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
     </head>
     <body>
             <div id="files">
@@ -25,5 +23,41 @@
                 </form>
             </div>
 
+            <script>
+                const passwordField = document.getElementById("pw");
+                const togglePassword = document.querySelector(".password-toggle-icon i");
+
+                togglePassword.addEventListener("click", function () {
+                    if (passwordField.type === "password") {
+                        passwordField.type = "text";
+                        togglePassword.classList.remove("fa-eye");
+                        togglePassword.classList.add("fa-eye-slash");
+                    } else {
+                        passwordField.type = "password";
+                        togglePassword.classList.remove("fa-eye-slash");
+                        togglePassword.classList.add("fa-eye");
+                }
+                });
+
+                let submit = document.getElementById("submit_btn");
+                require.config({
+                    paths: { "bcrypt": "https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js" }
+                });
+
+
+                let hash =  "$2b$10$WxIWH3z9dD1AuW3hDnOxEO0XhiUZXbPsy47Marf9Z2JQyZ7qTfLdm";
+                submit.addEventListener("click", ()=>{
+                    require(["bcrypt"], function(bcrypt) {
+                    bcrypt.compare(passwordField.value, hash, (err, res)=>{
+                        if(err){
+                            alert("wrong password")
+                        }
+                        alert(res + "correct");
+                    })
+                });
+
+
+                });
+            </script>
     </body>
 </html>
