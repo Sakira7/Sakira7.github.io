@@ -154,19 +154,22 @@
                     pop_up_txt.innerHTML = "Vänligen fyll i alla obligatoriska fält.";
                     x.onclick = ()=>{pop_up.style.display="none"}
                     window.onclick = (event)=> {
-                    if (event.target == pop_up) {
-                        pop_up.style.display = "none";
-                    }
+                        if (event.target == pop_up) {
+                            pop_up.style.display = "none";
+                        }
                     }
                 }else{
                     let answers = document.getElementById("answers");
                     let yes = document.getElementById("yes");
                     let no = document.getElementById("no");
                     let spinner = document.getElementById("spinner");
+
                     pop_up.style.display = "block";
                     document.getElementById("pop-up-content").style.height="28vmin";
                     pop_up_txt.innerHTML = "Vill du skicka in rapporten?";
                     answers.style.display = "flex";
+                    x.style.display="none";
+
                     yes.onclick = ()=>{
                         answers.style.display="none";
                         pop_up_txt.innerHTML="";
