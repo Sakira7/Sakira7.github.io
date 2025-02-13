@@ -3,11 +3,15 @@
     width:70%;
     max-width:700px;
 }
+#files{
+    display:none;
+}
 .sec{
     height:100%;
     width:100%;
 
 }
+
 #header > h1{
     font-size:2.4em;
     margin:0.5em 0;
@@ -66,15 +70,30 @@
 .btn{
     cursor: pointer;
     border:none;
-    background-color: #1f7a8c;
+    background-color:#1f7a8c ;
+    background-image: linear-gradient(1deg, #114550, #1f7a8c 99%);
+    transition: background-color .2s, background-position .2s;
     color:#fff;
-    border-radius:25px;
+    border-radius:100px;
     padding:5px;
     font-family:Georgia, serif;
+    touch-action: manipulation;
+    vertical-align: top;
+    white-space: nowrap;
+    background-size: calc(100% + 20px) calc(100% + 20px);
+    text-shadow: -0.5px -0.5px 0 #222;
 }
-.btn:hover{
-    background-color:#c4c7cc;
-    color:#1f7a8c;
+.btn:active,
+.btn:focus {
+  outline: none;
+}
+
+.btn:hover {
+  background-position: -20px -20px;
+}
+
+.btn:focus:not(:active) {
+  box-shadow: rgba(40, 170, 255, 0.25) 0 0 0 .125em;
 }
 #pop-up{
     display: none;
@@ -123,23 +142,14 @@
 #yes, #no{
     border:none;
     text-align: center;
-    color:#222;
-    font-size:3.5vmin;
+    font-size:3vmin;
     height:3vmin;
+    width:10vw;
     padding:10px;
-    margin:0 7vw;
-    font-family: Tahoma, sans-serif;
+    margin:0 5vw;
     cursor: pointer;
-    font-weight: bold;
+    justify-content: center;
 
-}
-#yes:hover, #yes:active, #no:active, #no:hover{
-    color:#fff;
-    text-shadow: 
-    -1px -1px 0 #222, 
-    1px -1px 0 #222, 
-    -1px 1px 0 #222, 
-    1px 1px 0 #222;
 }
 #answers{
     display:none;
