@@ -13,6 +13,7 @@
     margin:0.5em 0;
     font-weight: bold;
     font-family:Tahoma, Arial, sans-serif;
+    color:#AD3F8B;
 }
 .sub{
     margin-top:3em;
@@ -65,14 +66,15 @@
 .btn{
     cursor: pointer;
     border:none;
-    background-color: #222;
+    background-color: #1f7a8c;
     color:#fff;
     border-radius:25px;
     padding:5px;
     font-family:Georgia, serif;
 }
 .btn:hover{
-    background-color:#444;
+    background-color:#c4c7cc;
+    color:#1f7a8c;
 }
 #pop-up{
     display: none;
