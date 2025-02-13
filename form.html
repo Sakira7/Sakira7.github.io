@@ -4,8 +4,7 @@
         <meta charset="UTF-8" />
         <title>Form</title>
         <link href="form.css" rel="stylesheet">
-        <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+        <link rel="icon" type="image/x-icon" href="https://bingoringen.se/webshop/photos/BingoRingen_Favicon.png">
     </head>
     <body>
         <form id="wb_form">
@@ -76,11 +75,21 @@
         <div id="pop-up">  
             <div id="pop-up-content">
                 <span id="close">&times;</span>
+                <span id="spinner"><div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></span>
                 <p id="pop-up-text"></p>
                 <div id="answers"><span id="yes">JA</span><span id="no">NEJ</span></div>
             </div>
         </div>
+        <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
         <script>
+            
+            (function(){
+                    emailjs.init({
+                    publicKey: /*"mYy2MP0lsMpDhx1lV"*/ "KxAGafE4IBMV4QZ67" ,
+                    });
+                })();
+
             let i = 0;
             let names = [];
 
@@ -116,12 +125,8 @@
 
             }
 
-            (function(){
-                    emailjs.init({
-                    publicKey: /*"mYy2MP0lsMpDhx1lV"*/ "KxAGafE4IBMV4QZ67" ,
-                    });
-                })();
             function submit_form(){
+
 
                 
                 let company = document.getElementById("foretag").value;
@@ -157,26 +162,37 @@
                     let answers = document.getElementById("answers");
                     let yes = document.getElementById("yes");
                     let no = document.getElementById("no");
+                    let spinner = document.getElementById("spinner");
                     pop_up.style.display = "block";
+                    document.getElementById("pop-up-content").style.height="28vmin";
                     pop_up_txt.innerHTML = "Vill du skicka in rapporten?";
                     answers.style.display = "flex";
                     yes.onclick = ()=>{
+                        answers.style.display="none";
+                        pop_up_txt.innerHTML="";
+                        spinner.style.display="block";
+                        x.style.display="none";
+                        document.getElementById("wb_form").innerHTML = "";
+                        document.getElementById("send_btn").style.display="none";
+
                         emailjs.send('contact_service', 'template'/*_rli5lkr'*/, templateParams).then(
                         (response) => {
                             console.log('SUCCESS!', response.status, response.text);
                             pop_up.style.display = "block";
                             answers.style.display = "none";
+                            spinner.style.display="none";
                             pop_up_txt.innerHTML = "Tack!\nDin rapport är skickad.";
 
                             setTimeout(()=>{
                                 window.location.replace("https://www.bingoringen.se");
-                            },5000)
+                            },4000)
 
                         },
                         (error) => {
                             console.log('FAILED...', error);
                             pop_up.style.display = "block";
                             answers.style.display = "none";
+                            spinner.style.display="none";
                             pop_up_txt.innerHTML = "Tyvärr, något gick fel. \nVänligen försök igen senare.";
                             x.onclick = ()=>{pop_up.style.display="none"}
                             window.onclick = (event)=> {
