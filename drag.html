@@ -24,13 +24,14 @@
                         col[i].value = localStorage.getItem("value"+i);   
                     }
                 }
-                console.log(localStorage);
+               
             });
 
                 window.addEventListener("keydown", (e)=>{
-
-                    if(!e.key.match(/[0-9]/) && e.key != "Backspace" && e.key != "Tab" && e.key != "ArrowLeft" && e.key != "ArrowRight"){
-                        e.preventDefault();
+                    if(e.target.nodeName == "INPUT"){
+                        if(!e.key.match(/[0-9]/) && e.key != "Backspace" && e.key != "Tab" && e.key != "ArrowLeft" && e.key != "ArrowRight"){
+                            e.preventDefault();
+                        }
                     }
                 });
 
@@ -146,6 +147,12 @@
             <div id="bottom">
                 <button id="show_btn" class="btn" onclick="update()">UPPDATERA DRAG</button>
                 <div id="last_updt"></div>
+            </div>
+            <div id="pop-up">  
+                <div id="pop-up-content">
+                    <p id="pop-up-text">Fyll i alla fält</p>
+                    <span id="ok" class="btn">OK</span>
+                </div>
             </div>
         </div>
     </body>
