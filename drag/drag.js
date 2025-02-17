@@ -27,7 +27,7 @@ function update(){
         }
 
         if(isOpen === false){
-
+            console.log("WHAT THE HELL IS GOING ON");
             if(window.screen.isExtended == true){
                 show = window.open("show.html", "popup", `left="100vw",top="0",width="100vw",height="100vh"` )
             }
