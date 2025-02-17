@@ -43,12 +43,7 @@
      "density": "4.0"
     }
     ],
-    "shortcuts": [
-    {
-      "name": "Jackpots",
-      "url": "drag/show.html"
-    }
-    ],
+
     "start_url": "/drag.html"
 
   }
