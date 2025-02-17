@@ -26,13 +26,16 @@ function update(){
         }
 
         if(isOpen === false){
+            const other = window.screenDetails.screens.find(s=>s!=window.screenDetails.currentScreen);
+            const left = other.availLeft + (other.availWidth / 2) - (width / 2);
+            const top = other.availTop + (other.availHeight / 2) - (height / 2);
+            const features = `left=${left},top=${top},width="100vw",height="100vh"`;
             if(window.screen.isExtended == true){
-                console.log("2 screens")
+                show = window.open("show.html", "popup", features )
             }
             else{
-                console.log("one screen");
+                show = window.open("show.html", "popup");
             }
-            show = window.open("show.html", "jackpots", "popup");
             isOpen = true;
         }
         if(show.closed === true){
