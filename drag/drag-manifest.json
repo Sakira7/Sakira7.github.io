@@ -3,7 +3,7 @@
     "name": "Drag",
     "theme_color": "#000",
     "background_color": "#000",
-    "scope":"https://sakira7.github.io/drag",
+    "scope":"/drag",
     "display": "standalone",
     "icons": [
         {
