@@ -1,9 +1,8 @@
 {
-    "short_name": "dr",
-    "name": "Drag",
+    "short_name": "BS",
+    "name": "Bildspel",
     "theme_color": "#000",
     "background_color": "#000",
-    "scope":"/",
     "display": "standalone",
     "icons": [
         {
@@ -43,6 +42,5 @@
      "density": "4.0"
     }
     ],
-    "start_url": "/drag.html"
-
+    "start_url": "/bildspel.html"
   }
