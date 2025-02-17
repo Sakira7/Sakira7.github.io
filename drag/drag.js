@@ -23,13 +23,13 @@ function update(){
         for(var i = 0; i < val; i++){
 
             localStorage.setItem("value" + i, inputs[i]);
-            
+
         }
 
         if(isOpen === false){
-            const features = `left="100vw",top="0",width="100vw",height="100vh"`;
+
             if(window.screen.isExtended == true){
-                show = window.open("show.html", "popup", features )
+                show = window.open("show.html", "popup", `left="100vw",top="0",width="100vw",height="100vh"` )
             }
             else{
                 show = window.open("show.html", "popup");
