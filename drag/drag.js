@@ -26,10 +26,7 @@ function update(){
         }
 
         if(isOpen === false){
-            const other = window.screenDetails.screens.find(s=>s!=window.screenDetails.currentScreen);
-            const left = other.availLeft + (other.availWidth / 2) - (width / 2);
-            const top = other.availTop + (other.availHeight / 2) - (height / 2);
-            const features = `left=${left},top=${top},width="100vw",height="100vh"`;
+            const features = `left="100vw",top="0",width="100vw",height="100vh"`;
             if(window.screen.isExtended == true){
                 show = window.open("show.html", "popup", features )
             }
