@@ -26,7 +26,7 @@ function update(){
         }
 
         if(isOpen === false){
-            show = window.open("show.html");
+            show = window.open("show.html", "jackpots", "popup");
             isOpen = true;
         }
         if(show.closed === true){
