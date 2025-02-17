@@ -46,7 +46,7 @@
     "shortcuts": [
     {
       "name": "Jackpots",
-      "url": "/show"
+      "url": "drag/show.html"
     }
     ],
     "start_url": "/drag.html"
