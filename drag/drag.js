@@ -26,6 +26,12 @@ function update(){
         }
 
         if(isOpen === false){
+            if(window.screen.isExtended){
+                console.log("2 screens")
+            }
+            else{
+                console.log("one screen");
+            }
             show = window.open("show.html", "jackpots", "popup");
             isOpen = true;
         }
