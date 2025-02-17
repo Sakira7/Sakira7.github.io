@@ -23,6 +23,7 @@ function update(){
         for(var i = 0; i < val; i++){
 
             localStorage.setItem("value" + i, inputs[i]);
+            
         }
 
         if(isOpen === false){
