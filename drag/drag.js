@@ -1,7 +1,9 @@
 let isOpen = false;
 let show;
+let i = 0;
 
 function update(){
+    i = 0;
 
     let col = document.getElementsByTagName("input");
     let inputs = [];
@@ -64,28 +66,49 @@ window.addEventListener("beforeunload",()=>{
     show.close();
 });
 
-let i = 0;
-setInterval(() => {
-    i++
-    if(i == 60){
-        document.getElementById("pop-up").style.display = "block";
-        document.getElementById("pop-up-text").innerHTML = "Dags att uppdatera dragen!";
 
-        document.getElementById("ok").addEventListener("click", ()=>{
-            document.getElementById("pop-up").style.display="none";
-            i=0;
-        });
 
-        document.addEventListener("keydown", (e)=>{
-            if(e.key === "Enter"){
+    setInterval(() => {
+    
+    let date = new Date();
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+
+    if(minutes < 2){
+        minutes = "0"+minutes;
+    }
+    let time = hours + "" + minutes;
+    
+    let last_updt = document.querySelector(".bold").innerHTML;
+    last_updt = last_updt.split(" ");
+    last_updt = last_updt[1];
+    last_updt = last_updt.split(":");
+    last_updt = last_updt.join("");
+    last_updt = parseInt(last_updt)
+    if(time > 945 && time < 2200){
+
+        if(time == last_updt+100 || i >= 2){
+            document.getElementById("pop-up").style.display = "block";
+            document.getElementById("pop-up-text").innerHTML = "Dags att uppdatera dragen!";
+            i++
+
+            document.getElementById("ok").addEventListener("click", ()=>{
                 document.getElementById("pop-up").style.display="none";
-                i=0;
-            }
-        });
+            });
+
+            document.addEventListener("keydown", (e)=>{
+                if(e.key === "Enter"){
+                    document.getElementById("pop-up").style.display="none";
+                }
+            });
+        }
         
     }
 
-}, 60000);
+}, 30000);
+
+
+
 
 
 
