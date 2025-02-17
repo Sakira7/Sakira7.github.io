@@ -3,7 +3,7 @@
     "name": "Drag",
     "theme_color": "#000",
     "background_color": "#000",
-    "scope":"/",
+    "scope":"drag",
     "display": "standalone",
     "icons": [
         {
@@ -41,6 +41,12 @@
      "sizes": "192x192",
      "type": "image/png",
      "density": "4.0"
+    }
+    ],
+    "shortcuts": [
+    {
+      "name": "Jackpots",
+      "url": "/show"
     }
     ],
     "start_url": "/drag.html"
