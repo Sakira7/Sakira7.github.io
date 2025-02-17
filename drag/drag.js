@@ -26,7 +26,7 @@ function update(){
         }
 
         if(isOpen === false){
-            if(window.screen.isExtended){
+            if(window.screen.isExtended == true){
                 console.log("2 screens")
             }
             else{
