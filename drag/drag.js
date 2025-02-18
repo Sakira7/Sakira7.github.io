@@ -28,11 +28,11 @@ function update(){
 
         if(isOpen === false){
 
-            let width = window.screenX;
-            let left = 200;
-            left += width;
+            let width = window.screen.availWidth;
             if(window.screen.isExtended == true){
-                show = window.open("show.html", "popup", 'left=' + left +',top="0",width="100vw",height="100vh"' )
+                show = window.open("show.html", "popup");
+                window.moveTo(width, 0)
+
             }
             else{
                 show = window.open("show.html", "popup");
