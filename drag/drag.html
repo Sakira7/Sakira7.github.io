@@ -18,6 +18,7 @@
 
                 let col = document.getElementsByTagName("input");
                 let val = col.length;
+                document.getElementById("last_updt").innerHTML = localStorage.getItem("last_updt");
 
                 for(var i = 0; i < val; i++){
                     if(window.localStorage.length > 0){

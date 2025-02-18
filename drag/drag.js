@@ -27,9 +27,12 @@ function update(){
         }
 
         if(isOpen === false){
-            console.log("WHAT THE HELL IS GOING ON");
+
+            let width = window.screenX;
+            let left = 200;
+            left += width;
             if(window.screen.isExtended == true){
-                show = window.open("show.html", "popup", `left="100vw",top="0",width="100vw",height="100vh"` )
+                show = window.open("show.html", "popup", 'left=' + left +',top="0",width="100vw",height="100vh"' )
             }
             else{
                 show = window.open("show.html", "popup");
@@ -56,6 +59,7 @@ function update(){
 
         let show_date = document.getElementById("last_updt");
         show_date.innerHTML = "Senast uppdaterad: " + "<span class='bold'>"+days[day] + " " + hours + ":" + minutes+"</span>";
+        localStorage.setItem("last_updt", show_date.innerHTML);
     }else{
         document.getElementById("pop-up").style.display="block";
         document.getElementById("ok").addEventListener("click", ()=>{
@@ -85,16 +89,22 @@ window.addEventListener("beforeunload",()=>{
         minutes = "0"+minutes;
     }
     let time = hours + "" + minutes;
+
+    let day = date.getDay();
+    let days = ["Söndag", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag"];
     
-    let last_updt = document.querySelector(".bold").innerHTML;
+    
+    let last_updt = document.querySelector(".bold");
+    last_updt = last_updt.innerHTML;
     last_updt = last_updt.split(" ");
+    let last_day = last_updt[0];
     last_updt = last_updt[1];
+    
     last_updt = last_updt.split(":");
     last_updt = last_updt.join("");
-    last_updt = parseInt(last_updt)
+    last_updt = parseInt(last_updt);
     if(time > 945 && time < 2200){
-
-        if(time == last_updt+100 || i >= 2){
+        if(time >= last_updt+100 || days[day] != last_day && last_updt < 2030){
             document.getElementById("pop-up").style.display = "block";
             document.getElementById("pop-up-text").innerHTML = "Dags att uppdatera dragen!";
             i++
@@ -112,7 +122,7 @@ window.addEventListener("beforeunload",()=>{
         
     }
 
-}, 30000);
+}, 60000);
 
 
 
