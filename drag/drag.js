@@ -33,7 +33,7 @@ function update(){
                 (err)=>{
                     if(err){console.log(err)}
                     show = window.open("show.html", "popup");
-                    show.moveTo(width, 0);
+                    window.moveTo(width, 0);
                     console.log("Two monitors detected");
                 }
 
