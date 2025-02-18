@@ -32,7 +32,7 @@ function update(){
             show = window.open("show.html", "popup");
             if(window.screen.isExtended == true){
                 
-                show.moveTo(width, 0);
+                window.moveTo(width, 0);
                 console.log("Two monitors detected");
 
             }
