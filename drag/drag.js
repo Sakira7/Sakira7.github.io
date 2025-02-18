@@ -29,15 +29,12 @@ function update(){
         if(isOpen === false){
 
             let width = window.screen.availWidth;
+            show = window.open("show.html", "popup");
             if(window.screen.isExtended == true){
-
-                show = window.open("show.html", "popup");
-                window.moveTo(width, 0);
+                
+                show.moveTo(width, 0);
                 console.log("Two monitors detected");
 
-            }
-            else{
-                show = window.open("show.html", "popup");
             }
             isOpen = true;
         }
