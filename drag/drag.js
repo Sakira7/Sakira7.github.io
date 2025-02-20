@@ -28,11 +28,9 @@ function update(){
 
         if(isOpen === false){
 
-            let width = window.screen.availWidth;
-            show = window.open("show.html", "popup");
+            show = window.open("show.html", "Jackpott-drag", "popup");
             if(window.screen.isExtended == true){
                 
-                window.moveTo(width, 0);
                 console.log("Two monitors detected");
 
             }
