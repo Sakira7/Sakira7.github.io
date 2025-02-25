@@ -188,6 +188,17 @@ input::placeholder{
 .bold{
     font-weight: bold;
 }
+::selection {
+    background: #ad3f8b;
+    color: #ffffff93;
+    text-shadow: none;
+}
+
+::-moz-selection {
+    background: #ad3f8b;
+    color: #eeeeee91;
+    text-shadow: none;
+}
 /**************************
         show.html
 ***************************/

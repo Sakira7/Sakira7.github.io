@@ -1,6 +1,7 @@
 let isOpen = false;
 let show;
 let i = 0;
+let act = false;
 
 function update(){
     i = 0;
@@ -34,6 +35,15 @@ function update(){
             if(window.screen.isExtended == true){
                 
                 console.log("Two monitors detected");
+                console.log(show.document.fullscreenElement);
+                let fs = new KeyboardEvent("keypress", {key:"F11"});
+                show.addEventListener("keypress", ()=>{
+                    console.log("fullscren?");
+                    console.log(show);
+                })
+                show.dispatchEvent(fs);
+                
+
                 let event = new KeyboardEvent("keydown",{
                     metaKey : true,
                     shiftKey : true,
@@ -92,7 +102,7 @@ window.addEventListener("beforeunload",()=>{
 
 
 
-    setInterval(() => {
+setInterval(() => {
     
     let date = new Date();
     let hours = date.getHours();
@@ -117,7 +127,10 @@ window.addEventListener("beforeunload",()=>{
     last_updt = last_updt.join("");
     last_updt = parseInt(last_updt);
     if(time > 945 && time < 2200){
-        if(time >= last_updt+100 || days[day] != last_day && last_updt < 2030){
+        if(days[day] != last_day && last_updt < 2030){
+            last_updt = 1030;
+        }
+        if(time >= last_updt+100 && act === false){
             document.getElementById("pop-up").style.display = "block";
             document.getElementById("pop-up-text").innerHTML = "Dags att uppdatera dragen!";
             i++
@@ -131,18 +144,24 @@ window.addEventListener("beforeunload",()=>{
                     document.getElementById("pop-up").style.display="none";
                 }
             });
+            document.querySelectorAll("input").forEach(box =>{
+                box.addEventListener("focus", ()=>{
+                    act = true;
+                })
+            })
         }
         
     }
 
 }, 60000);
-function combo(target){
-    let shift = new KeyboardEvent("keydown", {shiftKey:true});
-    let meta = new KeyboardEvent("keydown", {metaKey:true});
-    let right = new KeyboardEvent("keydown", {key:"ArrowRight"});
 
-}
-
+document.addEventListener("click", (e)=>{
+    console.log(e)
+    if(e.target.nodeName === "INPUT"){
+        console.log("INPUT");
+        e.target.select()
+    }
+});
 
 
 

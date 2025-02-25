@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Slide</title>
+        <link rel="stylesheet" href="bildspel.css" />
+
+    </head>
+    <body>
+
+        <div id="slides"></div>
+        <script>
+            let slider = document.querySelector("#slides");
+            let pics = [];
+            window.addEventListener("load", ()=>{
+
+                for(var i = 0; i < localStorage.length; i++){
+                    if(localStorage.key(i).match("img")){
+                        let img = document.createElement("img");
+                        img.src = localStorage.getItem(localStorage.key(i));
+                        pics.push(img);
+                        slider.append(img);
+                    }
+                }
+                console.log(pics);
+                    pics.forEach((pic, i)=>{
+                        pic.setAttribute("class", "slider");
+                        
+                        setTimeout(()=>{
+                            pic.setAttribute("class", "slider-active");
+                            
+                            setTimeout(()=>{
+                                pic.removeAttribute("class", "slider-active");
+                                pic.setAttribute("class","slider");
+                            },10000);
+
+                            if(i == pics.length-1){
+                                setTimeout(()=>{
+                                    location.reload();
+                                },10000);
+                            };
+
+                        }, i * 10000);
+                    });  
+            });
+        </script>
+    </body>
+</html>
