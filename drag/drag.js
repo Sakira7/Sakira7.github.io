@@ -28,10 +28,26 @@ function update(){
 
         if(isOpen === false){
 
-            show = window.open("show.html", "Jackpott-drag", "popup");
+
+            show = window.open("show.html", "_blank", "popup");
+            
             if(window.screen.isExtended == true){
                 
                 console.log("Two monitors detected");
+                let event = new KeyboardEvent("keydown",{
+                    metaKey : true,
+                    shiftKey : true,
+                    key : "ArrowRight"
+                });
+
+                show.addEventListener("keydown", (e)=>{
+                    console.log("event dispatched: "+ e.key + e.metaKey + e.shiftKey);
+
+                });
+
+                show.dispatchEvent(event);
+        
+
 
             }
             isOpen = true;
@@ -120,7 +136,12 @@ window.addEventListener("beforeunload",()=>{
     }
 
 }, 60000);
+function combo(target){
+    let shift = new KeyboardEvent("keydown", {shiftKey:true});
+    let meta = new KeyboardEvent("keydown", {metaKey:true});
+    let right = new KeyboardEvent("keydown", {key:"ArrowRight"});
 
+}
 
 
 
