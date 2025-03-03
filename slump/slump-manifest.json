@@ -3,7 +3,7 @@
   "name": "SlumpGenerator",
   "theme_color": "#000",
   "background_color": "#000",
-  "scope": "/",
+  "scope": "https://www.sakira7.github.io/slump",
   "display": "standalone",
   "icons": [
       {
