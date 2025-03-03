@@ -58,6 +58,9 @@ function random(){
     },4000);
     
 }
+window.addEventListener("load", ()=>{
+    console.log("updated");
+})
 
 let installPrompt = null;
 const installButton = document.querySelector("#install");
