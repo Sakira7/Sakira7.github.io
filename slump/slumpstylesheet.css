@@ -158,9 +158,29 @@ label{
     font-weight: 100;
 }
 #install{
-  width:200px;
-  height:200px;
-  background-color: #FF89D6;
+  width:fit-content;
+  padding:0.3em;
+  top:0;
+  border: 1px solid #012880;
+	background-image: linear-gradient(-180deg, #FF89D6 0%, #C01F9E 100%);
+	box-shadow: 0 1rem 1.25rem 0 rgba(0,0,0,0.50),
+							0 -0.25rem 1.5rem rgba(110, 15, 155, 1) inset,
+							0 0.75rem 0.5rem rgba(255,255,255, 0.4) inset,
+							0 0.25rem 0.5rem 0 rgba(180, 70, 207, 1) inset;
+  border-radius:100px;
+  cursor:pointer;
+  height:fit-content;
+  background-color: #C01F9E;
+  color:#fff;
+  font-size: 3.5em;
+  font-weight:700;
+  position: absolute;
+  opacity: 0.5;
+  font-family: 'Poppins', sans-serif;
+  margin:3vh 35vw;
+}
+#install:hover{
+  opacity: 1;
 }
 @keyframes fade{
     100%{font-size:20em;font-weight:800;}

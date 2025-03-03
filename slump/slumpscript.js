@@ -59,7 +59,7 @@ function random(){
     
 }
 window.addEventListener("load", ()=>{
-    console.log("updated");
+    console.log("updated again");
 })
 
 let installPrompt = null;
@@ -67,7 +67,6 @@ const installButton = document.querySelector("#install");
 
 window.addEventListener("beforeinstallprompt", (event) => {
   event.preventDefault();
-  console.log(event);
   installPrompt = event;
   installButton.removeAttribute("hidden");
 });
