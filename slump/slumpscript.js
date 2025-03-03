@@ -66,6 +66,7 @@ window.addEventListener("beforeinstallprompt", (event) => {
   event.preventDefault();
   console.log(event);
   installPrompt = event;
+  installPrompt.prompt();
   installButton.removeAttribute("hidden");
 });
 
@@ -74,6 +75,7 @@ installButton.addEventListener("click", async () => {
       return;
     }
     const result = await installPrompt.prompt();
+    console.log(result);
     console.log(`Install prompt was: ${result.outcome}`);
     disableInAppInstallPrompt();
 });
