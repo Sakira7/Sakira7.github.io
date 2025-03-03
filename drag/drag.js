@@ -102,8 +102,8 @@ window.addEventListener("beforeunload",()=>{
 
 
 
-setInterval(() => {
-    
+setInterval((min) => {
+    console.log(min);
     let date = new Date();
     let hours = date.getHours();
     let minutes = date.getMinutes();
@@ -127,23 +127,31 @@ setInterval(() => {
     last_updt = last_updt.join("");
     last_updt = parseInt(last_updt);
     if(time > 945 && time < 2200){
-        if(days[day] != last_day && last_updt < 2030){
+        console.log(last_day + " " + last_updt);
+        if(days[day] != last_day && last_updt >= 2030){
             last_updt = 1030;
         }
-        if(time >= last_updt+100 && act === false){
+        if(i === 0 && time >= last_updt+100 && act === false || i === 0 && days[day] != last_day && last_updt < 2030){
             document.getElementById("pop-up").style.display = "block";
             document.getElementById("pop-up-text").innerHTML = "Dags att uppdatera dragen!";
-            i++
+            i=1;
+            
+            
 
             document.getElementById("ok").addEventListener("click", ()=>{
                 document.getElementById("pop-up").style.display="none";
+                
+                
             });
 
             document.addEventListener("keydown", (e)=>{
                 if(e.key === "Enter"){
                     document.getElementById("pop-up").style.display="none";
+                    
+                    
                 }
             });
+
             document.querySelectorAll("input").forEach(box =>{
                 box.addEventListener("focus", ()=>{
                     act = true;
@@ -156,9 +164,7 @@ setInterval(() => {
 }, 60000);
 
 document.addEventListener("click", (e)=>{
-    console.log(e)
     if(e.target.nodeName === "INPUT"){
-        console.log("INPUT");
         e.target.select()
     }
 });
