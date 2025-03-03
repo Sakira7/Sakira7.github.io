@@ -157,8 +157,10 @@ label{
     font-family: 'Poppins', sans-serif;
     font-weight: 100;
 }
-#heading{
-    
+#install{
+  width:200px;
+  height:200px;
+  background-color: #FF89D6;
 }
 @keyframes fade{
     100%{font-size:20em;font-weight:800;}

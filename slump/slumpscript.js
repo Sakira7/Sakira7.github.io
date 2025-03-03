@@ -66,7 +66,6 @@ window.addEventListener("beforeinstallprompt", (event) => {
   event.preventDefault();
   console.log(event);
   installPrompt = event;
-  installPrompt.prompt();
   installButton.removeAttribute("hidden");
 });
 
