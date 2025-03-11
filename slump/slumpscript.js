@@ -63,13 +63,20 @@ window.addEventListener("load", ()=>{
 })
 
 let installPrompt = null;
-const installButton = document.querySelector("#install");
+const install = document.querySelector("#pop-up");
+const close = document.querySelector("#close");
 
 window.addEventListener("beforeinstallprompt", (event) => {
   event.preventDefault();
   installPrompt = event;
-  installButton.removeAttribute("hidden");
+  install.removeAttribute("hidden");
+    close.addEventListener("click", ()=>{
+        install.setAttribute("hidden");
+    })
+  
 });
+
+
 
 installButton.addEventListener("click", async () => {
     if (!installPrompt) {

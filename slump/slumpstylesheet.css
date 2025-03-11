@@ -158,22 +158,40 @@ label{
     font-family: 'Poppins', sans-serif;
     font-weight: 100;
 }
-#install{
+#pop-up{
+  background-color: #fda2dd;
+  border:1px solid #fff;
+  border-radius: 0 25px 25px 0;
   width:10em;
+  height:16vh;
+  text-align: center;
+  font-size:2.5em;
+  top:0;
+}
+#close{
+  float:right;
+  margin:0.5em;
+  cursor:pointer;
+}
+#pop-up > p{
+  margin-top:2em;
+}
+#install{
+  width:3em;
+  margin:0.6em 0 0 0;
   padding:0.3em;
-  border: 1px solid #012880;
+  border: 1px solid #fda2dd;
 	background-image: linear-gradient(-180deg, #FF89D6 0%, #C01F9E 100%);
-	box-shadow: 0 1rem 1.25rem 0 rgba(0,0,0,0.50),
-							0 -0.25rem 1.5rem rgba(110, 15, 155, 1) inset,
-							0 0.75rem 0.5rem rgba(255,255,255, 0.4) inset,
-							0 0.25rem 0.5rem 0 rgba(180, 70, 207, 1) inset;
+	box-shadow: 
+							0 -0.25rem 1.5rem rgb(207, 127, 244) inset,
+							0 0.75rem 0.5rem rgba(255, 255, 255, 0.654) inset,
+							0 0.25rem 0.5rem 0 rgb(210, 113, 235) inset;
   border-radius:150px;
   cursor:pointer;
-  height:2.5em;
-  font-size: 3.5em;
+  height:2em;
+  font-size: 1.2em;
   font-weight:700;
   color:#fff;
-  opacity: 0.5;
   font-family: 'Poppins', sans-serif;
 }
 #install:hover{
