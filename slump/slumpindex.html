@@ -14,8 +14,13 @@
     </head>
     <body>
         <div id="container">
+          
         <canvas class="confetti" id="canvas" width="1440" height="3200"></canvas>
+        
+
+        <button id="install" hidden>INSTALLERA APPEN</button>
         <div class="lasvegas">SL<span>UM</span>PEN <br><span class="delay">A</span>VGÖR</div>
+        
         <form id="range">
             <label for="from">Från:</label>
             <input type="number" id="from" min="1" max="30" required>
@@ -27,7 +32,7 @@
         <div id="number"></div>
         
         </div>
-        <button id="install">INSTALLERA APPEN</button>
+        
         <script>
 //-----------Var Inits--------------
 canvas = document.getElementById("canvas");
