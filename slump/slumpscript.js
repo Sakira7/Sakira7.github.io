@@ -78,7 +78,7 @@ window.addEventListener("beforeinstallprompt", (event) => {
 
 
 
-installButton.addEventListener("click", async () => {
+document.getElementById("install").addEventListener("click", async () => {
     if (!installPrompt) {
       return;
     }
