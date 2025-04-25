@@ -59,7 +59,7 @@ function random(){
     
 }
 window.addEventListener("load", ()=>{
-    console.log("updated again");
+    console.log("updated");
 })
 
 let installPrompt = null;
