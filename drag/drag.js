@@ -101,9 +101,10 @@ window.addEventListener("beforeunload",()=>{
 });
 
 
+let counter = 0;
 
-setInterval((min) => {
-    console.log(min);
+
+setInterval(() => {
     let date = new Date();
     let hours = date.getHours();
     let minutes = date.getMinutes();
@@ -126,29 +127,44 @@ setInterval((min) => {
     last_updt = last_updt.split(":");
     last_updt = last_updt.join("");
     last_updt = parseInt(last_updt);
+
+
     if(time > 945 && time < 2200){
-        console.log(last_day + " " + last_updt);
+        last_updt = 1400;
+        
         if(days[day] != last_day && last_updt >= 2030){
             last_updt = 1030;
         }
-        if(i === 0 && time >= last_updt+100 && act === false || i === 0 && days[day] != last_day && last_updt < 2030){
+        if(counter === 0 && time >= last_updt+100 && act === false || counter === 0 && days[day] != last_day && last_updt < 2030 || counter >=6){
             document.getElementById("pop-up").style.display = "block";
             document.getElementById("pop-up-text").innerHTML = "Dags att uppdatera dragen!";
-            i=1;
+            
             
             
 
             document.getElementById("ok").addEventListener("click", ()=>{
                 document.getElementById("pop-up").style.display="none";
-                
-                
+                if(counter === 0){
+                    counter = 1;
+                    let timer = setInterval(()=>{
+                        counter++
+                        console.log(counter);
+                    },60000);
+                }else{counter = 1;}
+
+                document.querySelector("#show_btn").addEventListener("click", ()=>{clearInterval(timer); counter = 0; console.log("reset")})
             });
 
             document.addEventListener("keydown", (e)=>{
                 if(e.key === "Enter"){
                     document.getElementById("pop-up").style.display="none";
-                    
-                    
+                    counter = 1;
+                    let timer = setInterval(()=>{
+                        counter++
+                        console.log(counter);
+                    },60000);
+
+                    document.querySelector("#show_btn").addEventListener("click", ()=>{clearInterval(timer); console.log("reset")})
                 }
             });
 
