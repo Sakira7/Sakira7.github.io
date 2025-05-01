@@ -35,29 +35,6 @@ function update(){
             if(window.screen.isExtended == true){
                 
                 console.log("Two monitors detected");
-                console.log(show.document.fullscreenElement);
-                let fs = new KeyboardEvent("keypress", {key:"F11"});
-                show.addEventListener("keypress", ()=>{
-                    console.log("fullscren?");
-                    console.log(show);
-                })
-                show.dispatchEvent(fs);
-                
-
-                let event = new KeyboardEvent("keydown",{
-                    metaKey : true,
-                    shiftKey : true,
-                    key : "ArrowRight"
-                });
-
-                show.addEventListener("keydown", (e)=>{
-                    console.log("event dispatched: "+ e.key + e.metaKey + e.shiftKey);
-
-                });
-
-                show.dispatchEvent(event);
-        
-
 
             }
             isOpen = true;
