@@ -107,7 +107,6 @@ setInterval(() => {
 
 
     if(time > 945 && time < 2200){
-        last_updt = 1400;
         
         if(days[day] != last_day && last_updt >= 2030){
             last_updt = 1030;
