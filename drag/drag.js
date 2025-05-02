@@ -111,7 +111,7 @@ setInterval(() => {
         if(days[day] != last_day && last_updt >= 2030){
             last_updt = 1030;
         }
-        if(counter === 0 && time >= last_updt+100 && act === false || counter === 0 && days[day] != last_day && last_updt < 2030 || counter >=6){
+        if(counter === 0 && time >= last_updt+100 && act === false || counter === 0 && days[day] != last_day && last_updt < 2030 && act === false|| counter >=6 && act === false){
             document.getElementById("pop-up").style.display = "block";
             document.getElementById("pop-up-text").innerHTML = "Dags att uppdatera dragen!";
             
@@ -124,11 +124,10 @@ setInterval(() => {
                     counter = 1;
                     let timer = setInterval(()=>{
                         counter++
-                        console.log(counter);
                     },60000);
                 }else{counter = 1;}
 
-                document.querySelector("#show_btn").addEventListener("click", ()=>{clearInterval(timer); counter = 0; console.log("reset")})
+                document.querySelector("#show_btn").addEventListener("click", ()=>{clearInterval(timer); counter = 0})
             });
 
             document.addEventListener("keydown", (e)=>{
@@ -137,10 +136,9 @@ setInterval(() => {
                     counter = 1;
                     let timer = setInterval(()=>{
                         counter++
-                        console.log(counter);
                     },60000);
 
-                    document.querySelector("#show_btn").addEventListener("click", ()=>{clearInterval(timer); console.log("reset")})
+                    document.querySelector("#show_btn").addEventListener("click", ()=>{clearInterval(timer); counter = 0})
                 }
             });
 
