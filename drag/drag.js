@@ -8,6 +8,9 @@ function update(){
 
     let col = document.getElementsByTagName("input");
     let inputs = [];
+    let info = document.querySelector("#info-input");
+    localStorage.setItem("info", info.innerHTML);
+
 
     for(var i = 0; i < col.length; i++){
         if(col[i].value != ""){
@@ -156,9 +159,135 @@ setInterval(() => {
 document.addEventListener("click", (e)=>{
     if(e.target.nodeName === "INPUT"){
         e.target.select()
+    }else{
+        e.preventDefault();
     }
 });
 
+let active = false;
+let info = document.querySelector("#info-input");
+
+info.addEventListener("focus", ()=>{active = true});
+
+window.addEventListener("keydown", (e)=>{
+    let inputs = document.querySelectorAll("input[type='text']");
+    let date = document.querySelector("#date");
+    let ar = [];
+
+    for(var i = 0; i < inputs.length; i++){
+        ar.push(inputs[i]);
+    };
+
+    if(e.key === "f" && active === false){
+        ar.forEach((e, i) =>{
+            e.value = e.placeholder;
+            date.value = "2025-01-01";
+            
+        });
+
+        let inputs2 = document.querySelectorAll("input");
+        let ar2 = [];
+
+        for(var i = 0; i < inputs2.length; i++){
+            ar2.push(inputs2[i]);
+        };
+
+        ar2.forEach((e,i) =>{
+            localStorage.setItem("value"+i, e.value);
+        });
+
+    }
+});
+
+
+window.addEventListener("keydown", (e)=>{
+    if(e.key === "o" && active === false){
+        let inputs = document.querySelectorAll("input[type='text']");
+        let date = document.querySelector("#date");
+        let ar = [];
+
+        for(var i = 0; i < inputs.length; i++){
+            ar.push(inputs[i]);
+        }
+
+        ar.forEach((e, i) =>{
+            e.value="";
+            date.value="";
+            localStorage.removeItem("value"+i)
+        })
+        localStorage.removeItem("value12")
+    }
+});
+let isActive = false;
+
+
+let b_btn = document.querySelector("#b");
+b_btn.addEventListener("mousedown", (e)=>{
+
+    document.execCommand("bold");
+    if(isActive === false){
+
+        isActive = true;
+        b_btn.style.color = "#ad3f8b";
+
+
+    }else if(isActive === true){
+        isActive = false;
+        b_btn.style.color = "black";
+
+    }
+    e.preventDefault();
+});
+let i_btn = document.querySelector("#i");
+i_btn.addEventListener("mousedown", (e)=>{
+
+    document.execCommand("italic");
+
+    if(isActive === false){
+
+        isActive = true;
+        i_btn.style.color = "#ad3f8b";
+
+
+    }else if(isActive === true){
+        isActive = false;
+        i_btn.style.color = "black";
+
+    }
+    e.preventDefault();
+});
+let h_btn = document.querySelector("#h");
+h_btn.addEventListener("mousedown", (e)=>{
+
+    document.execCommand("bold");
+    
+    
+
+    if(isActive === false){
+
+        isActive = true;
+        h_btn.style.color = "#fff";
+        h_btn.style.webkitTextStrokeColor="#ad3f8b";
+        h_btn.style.webkitTextStrokeWidth="2px";
+        document.execCommand("styleWithCSS", false, true);
+        document.execCommand("foreColor",false, "ad3f8b");
+        
+
+
+
+    }else if(isActive === true){
+        isActive = false;
+        h_btn.style.color = "#ad3f8b";
+        h_btn.style.webkitTextStrokeColor="#000";
+        h_btn.style.webkitTextStrokeWidth="1px";
+        document.execCommand("styleWithCSS", false, true);
+        document.execCommand("foreColor",false, "000");
+
+
+    }
+
+    e.preventDefault();
+});
 
 
 

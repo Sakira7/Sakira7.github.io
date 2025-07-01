@@ -8,7 +8,7 @@
         <meta name="theme-color" content="#000">
         <title>Drag</title>
         <link href="drag.css" rel="stylesheet">
-        <script src="drag.js"></script>
+        
     </head>
     <body>
         <script>
@@ -38,55 +38,7 @@
                     }
                 });
 
-                window.addEventListener("keydown", (e)=>{
-                    let inputs = document.querySelectorAll("input[type='text']");
-                    let date = document.querySelector("#date");
-                    let ar = [];
 
-                    for(var i = 0; i < inputs.length; i++){
-                        ar.push(inputs[i]);
-                    };
-
-                    if(e.key === "f"){
-                        ar.forEach((e, i) =>{
-                            e.value = e.placeholder;
-                            date.value = "2025-01-01";
-                            
-                        });
-
-                        let inputs2 = document.querySelectorAll("input");
-                        let ar2 = [];
-
-                        for(var i = 0; i < inputs2.length; i++){
-                            ar2.push(inputs2[i]);
-                        };
-
-                        ar2.forEach((e,i) =>{
-                            localStorage.setItem("value"+i, e.value);
-                        });
-
-                    }
-                });
-            
-
-                window.addEventListener("keydown", (e)=>{
-                    if(e.key === "o"){
-                        let inputs = document.querySelectorAll("input[type='text']");
-                        let date = document.querySelector("#date");
-                        let ar = [];
-
-                        for(var i = 0; i < inputs.length; i++){
-                            ar.push(inputs[i]);
-                        }
-
-                        ar.forEach((e, i) =>{
-                            e.value="";
-                            date.value="";
-                            localStorage.removeItem("value"+i)
-                        })
-                        localStorage.removeItem("value14")
-                    }
-                });
 
                 window.addEventListener("beforeunload", ()=>{
                     closeWindow();
@@ -99,8 +51,6 @@
             <form id="jackpot">
                 <div id="left-row">
                     <p id="rubrik1">Lokala spel</p>
-                    <span class="wrap"><label for="sk">Storkovan</label>
-                        <input type="text" id="sk" placeholder="57" maxlength="2"></span>
 
                     <span class="wrap"><label for="zata">Zäta</label>
                         <input type="text" id="zata" placeholder="30" maxlength="2"></span>
@@ -108,16 +58,25 @@
                     <span class="wrap"><label for="fc">Färgchansen</label>
                         <input type="text" id="fc" placeholder="55" maxlength="2"></span>
 
-                    <span class="wrap"><label for="dyna">Dynamiten</label>
-                        <input type="text" id="dyna" placeholder="55" maxlength="2"></span>
 
                     <label for="ss1" class="ss">Sjöstjärnan</label>
                         <span class="wrapper"><input type="text" id="ss1" placeholder="8" maxlength="2"></span>
                         <span class="wrapper"><input type="text" id="ss2" placeholder="35" maxlength="2"></span>
                         <span class="wrapper"><input type="text" id="ss3" placeholder="54" maxlength="2"></span>
 
-                    <span class="wrap"><label for="bygg">Byggaren</label>
-                        <input type="text" id="bygg" placeholder="1500" maxlength="5"></span><br>
+                    <span class="wrap"><label for="jr">Jackpottresan</label>
+                        <input type="text" id="jr" placeholder="3000" maxlength="5"></span><br>
+
+
+                        <div id="info-box" hidden>
+                            <div id="border">
+                                <p id="info-box-txt">Missa inte:</p>
+                                <div id="editable-content">
+                                    <div id="info-input" contenteditable></div>
+                                    <div id="opt"><button id="b">B</button><br><button id="i">i</button><br><button id="h">H</button></div>
+                                </div>
+                            </div>
+                        </div>
 
                         
                 </div>
@@ -131,7 +90,7 @@
                         <div class="space"></div>
 
                     <span class="wrap"><label for="at">Atlantis</label>
-                        <input type="text" id="at" placeholder="10000" maxlength="6"><br>
+                        <input type="text" id="at" value="10000" placeholder="10000" maxlength="6" disabled><br>
                         <p class="info">Spelas efter Eldorado</p></span><br>
                         <div class="space"></div>
     
@@ -160,5 +119,6 @@
                 </div>
             </div>
         </div>
+        <script src="drag.js"></script>
     </body>
 </html>

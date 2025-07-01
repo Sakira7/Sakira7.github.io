@@ -116,6 +116,94 @@ input::placeholder{
     padding-top:1vmin;
 
 }
+#info-box{
+    margin-top:10%;
+    height:20%;
+}
+#info-box1{
+    margin-top:20%;
+    height:20%;
+}
+#border, #border1{
+    border:1px solid black;
+    width:100%;
+    height:100%;
+}
+#info-box-txt, #info-box-txt1{
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top:-0.65em;
+    background-color: #ccc9e7;
+    width:fit-content;
+    margin-left:0.5em;
+    padding-right:0.3em;
+    padding-left:0.3em;
+
+}
+#editable-content{
+    width:100%;
+    height:100%;
+    display: flex;
+    margin-top:2%;
+}
+#info-input{
+    width:91%;
+    margin-left:0.5em;
+    height:75%;
+    font-size:1.3em;
+    border:1px solid black;
+    background-color: #fff;
+    caret-color:black;
+    outline: none;
+    padding:0.2em;
+}
+#opt{
+    width:5%;
+    height:75%;
+    border:1px solid black;
+    margin-left:-1px;
+    background-color: #fff;
+}
+#b, #i, #h{
+    width:100%;
+    font-size:1.5em;
+    margin-top:0.1em;
+    margin-bottom:0.1em;
+    background-color: #fff;
+    border:none;
+    cursor: pointer;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+#b:hover, #i:hover{
+    color:#ad3f8b;
+}
+#h{
+    color:#ad3f8b;
+    font-family: "Tahoma", Arial, sans-serif;
+    font-weight:bold;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #000;
+}
+#h:hover{
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #ad3f8b;
+    color:#fff;
+}
+#b{
+    font-weight: bold;
+}
+#i{
+    font-style: italic;
+}
+#info-output{
+    width:96%;
+    margin-left:0.5em;
+    margin-top:2%;
+    height:75%;
+    font-size:1.3em;
+    text-align: center;
+}
 #right-row{
     width:50%;
     padding-left:3%;
@@ -202,7 +290,7 @@ input::placeholder{
 /**************************
         show.html
 ***************************/
-#sk1, #zata1, #fc1, #dyna1, #ss11, #ss21, #ss31, #bygg1, #eldo1, #at1, #sp11, #sp21, #sp31, #dp1{
+#zata1, #fc1, #ss11, #ss21, #ss31, #jr1, #eldo1, #at1, #sp11, #sp21, #sp31, #dp1{
     border:none;
     background-color: #ccc9e7;
     cursor:default;
@@ -306,7 +394,7 @@ input::placeholder{
     #row1, #sp1, #sp11, #after-sp11{
         margin-top:1.4em;
     }
-    #eldo, #eldo1, #at, #at1, #sk, #sk1, #fc, #fc1, #dyna, #dyna1, #bygg, #bygg1{
+    #eldo, #eldo1, #at, #at1, #fc, #fc1, #jr, #jr1{
         margin-left:0;
     }
     #left-row, #right-row{

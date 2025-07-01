@@ -14,6 +14,7 @@ function random(){
         var rand = Math.floor((Math.random() * (max-min+1)+min));
         arr.push(rand);   
     }
+    console.log(arr);
 
     var j=0;
    var one = setInterval(function run(){
@@ -22,7 +23,7 @@ function random(){
         }
         number.innerHTML = x;
 
-    },80);
+    },60);
     
      var two = setInterval(function run(){
         if(j>15 && j<=25){
@@ -30,7 +31,7 @@ function random(){
         }
         number.innerHTML = x;  
 
-    },140);
+    },80);
     
     var three = setInterval(function run(){
         if(j>25 && j<30){
@@ -38,7 +39,7 @@ function random(){
         }
         number.innerHTML = x
 
-    },200);
+    },100);
     
     
     setTimeout(function(){
