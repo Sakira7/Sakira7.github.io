@@ -6,6 +6,14 @@ let act = false;
 function update(){
     i = 0;
 
+    let request = new XMLHttpRequest();
+    request.open("GET", "https://bingoringen.se/connect", true);
+    request.onload = () => {
+        const doc = new DOMParser().parseFromString(request.responseText, 'text/html');
+        document.querySelector('#eldo').value = doc.querySelector('#eldorado').innerHTML;
+    }
+    request.send();
+
     let col = document.getElementsByTagName("input");
     let inputs = [];
     let info = document.querySelector("#info-input");
