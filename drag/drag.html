@@ -16,7 +16,22 @@
 
             window.addEventListener("load", function fill(){
 
-                console.log("updated again");
+                    fetch("http://localhost:3000/api?url=https://connect.idpit.se/jpinfo.php?format=json")
+                    .then(res => res.json())
+                    .then(data => {
+                        const eldo = data[0].eldorado;
+                        const drom = data[0].drom;
+                        const sp1 = data[0].rad1;
+                        const sp2 = data[0].rad2;
+                        const sp3 = data[0].rad3;
+                        document.getElementById("eldo").value = eldo;
+                        document.getElementById("sp1").value = sp1;
+                        document.getElementById("sp2").value = sp2;
+                        document.getElementById("sp3").value = sp3;
+                        document.getElementById("dp").value = drom;
+
+                    })
+                    .catch(err => console.error("Fetch error:", err));
 
                 let col = document.getElementsByTagName("input");
                 let val = col.length;
@@ -94,7 +109,7 @@
                 <div id="right-row">
                     <p id="rubrik2">Centrala spel</p>
                     <span class="wrap"><label for="eldo">Eldorado</label>
-                        <input type="text" id="eldo" placeholder="30000" maxlength="6"><br>
+                        <input type="text" id="eldo" placeholder="30000" maxlength="6" disabled><br>
                         <p class="info">Spelas kl 14.00 och 19.00</p></span><br>
                         <div class="space"></div>
 
@@ -106,14 +121,14 @@
                     <span class="wrap"><label for="sp" >Superpotten</label>
                     <p class="info">Spelas på Finaltorsdagen den <input type="date" id="date" placeholder="2025-01-01"></p></span><br>
                         <div class="space2"></div>
-                        <span class="wrapper"><span class="row" id="row1">Rad 1 -</span><input type="text" id="sp1" placeholder="10000" maxlength="6"></span>
-                        <span class="wrapper"><span class="row">Rad 2 -</span><input type="text" id="sp2" placeholder="20000" maxlength="6"></span>
-                        <span class="wrapper"><span class="row">Rad 3 -</span><input type="text" id="sp3" placeholder="30000" maxlength="6"></span><br>
+                        <span class="wrapper"><span class="row" id="row1">Rad 1 -</span><input type="text" id="sp1" placeholder="10000" maxlength="6" disabled></span>
+                        <span class="wrapper"><span class="row">Rad 2 -</span><input type="text" id="sp2" placeholder="20000" maxlength="6" disabled></span>
+                        <span class="wrapper"><span class="row">Rad 3 -</span><input type="text" id="sp3" placeholder="30000" maxlength="6" disabled></span><br>
                     
                         <div class="space"></div>
 
                     <span class="wrap"><label for="dp">Drömpotten</label>
-                        <input type="text" id="dp" placeholder="1000000" maxlength="7"><br>
+                        <input type="text" id="dp" placeholder="1000000" maxlength="7" disabled><br>
                         <p class="info">Spelas på Bingons Dag, den 9 september</p></span><br>           
                 </div>
             </form>

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Prosto+One&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -212,9 +213,32 @@ input::placeholder{
     font-size:1.3em;
     text-align: center;
 }
+#clock{
+    background-color: aquamarine;
+    width:40vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 #time{
-    font-size:2em;
-    color:#000;
+    font-size:5em;
+    color:#fff;
+    font-family: "Prosto One", sans-serif;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+.colon{
+    animation: blink 3s infinite;
+    padding:5px;
+    font-size:1.2em;
+    
 }
 #right-row{
     width:50%;

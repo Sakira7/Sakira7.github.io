@@ -6,14 +6,6 @@ let act = false;
 function update(){
     i = 0;
 
-    let request = new XMLHttpRequest();
-    request.open("GET", "https://bingoringen.se/connect", true);
-    request.onload = () => {
-        const doc = new DOMParser().parseFromString(request.responseText, 'text/html');
-        /*document.querySelector('#eldo').value*/console.log( doc.querySelector('#eldorado').innerHTML);
-    }
-    request.send();
-
     let col = document.getElementsByTagName("input");
     let inputs = [];
     let info = document.querySelector("#info-input");
@@ -310,12 +302,16 @@ h_btn.addEventListener("mousedown", (e)=>{
 
 setInterval(()=>{
     let time = new Date();
-let hour = time.getHours();
-let min = time.getMinutes();
+    let hour = time.getHours();
+    let min = time.getMinutes();
 
-hour = hour.toString();
-min = min.toString();
-document.querySelector("#time").innerHTML = hour+":"+min;
+    hour = hour.toString();
+    min = min.toString();
+
+    if(min.length === 1){
+        min = "0"+min;
+    }
+    document.querySelector("#time").innerHTML = hour+"<span class='colon'>:</span>"+min;
 },600);
 
 
