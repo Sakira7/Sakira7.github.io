@@ -10,7 +10,7 @@ function update(){
     request.open("GET", "https://bingoringen.se/connect", true);
     request.onload = () => {
         const doc = new DOMParser().parseFromString(request.responseText, 'text/html');
-        document.querySelector('#eldo').value = doc.querySelector('#eldorado').innerHTML;
+        /*document.querySelector('#eldo').value*/console.log( doc.querySelector('#eldorado').innerHTML);
     }
     request.send();
 
