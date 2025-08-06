@@ -122,6 +122,9 @@ input::placeholder{
     margin-left:-3vw;
     height:27vh;
     position: relative;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
 #info-box, #clock, #clock1{
     position: absolute;
