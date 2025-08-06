@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Prosto+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=New+Amsterdam&family=Rubik+Moonrocks&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -107,7 +107,7 @@ input::placeholder{
 .space2{
     height:1em;
 }
-#left-row{
+#left-row, #left-row1{
     width:50%;
     padding-left:3%;
     padding-right:3%;
@@ -117,7 +117,7 @@ input::placeholder{
     padding-top:1vmin;
 
 }
-#info-box, #clock{
+#info-box, #clock, #clock1{
     margin-top:10%;
     height:20%;
 }
@@ -214,9 +214,8 @@ input::placeholder{
     text-align: center;
 }
 #clock, #clock1{
-    background-color:#ad3f8b;
-    width:35vw;
-    height:15vh;
+    background-color:#333;
+    border:1px solid #000;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -224,13 +223,28 @@ input::placeholder{
     border-radius: 25px;
 }
 #clock1{
-    margin-top:10vh;
+    width:27vw;
+    height:20vh;
+    position:relative;
+    box-shadow: 1px 4px 10px 10px #000  inset;
+}
+#clock1:before{
+    content: " ";
+    position: absolute;
+    top: -11px;
+    left: -11px;
+    right: -11px;
+    bottom: -11px;
+    border-radius: 35px;
+    border: 10px solid #ad3f8b;
+    box-shadow:0 0 2px 2px #222;
 }
 #time, #time1{
-    font-size:7em;
+    font-size:15vmin;
     color:#fff;
-    font-family: "Prosto One", sans-serif;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    font-family: "New Amsterdam", sans-serif;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1);
+    align-self: center;
 }
 @keyframes blink {
     0%, 100% {
@@ -242,8 +256,7 @@ input::placeholder{
 }
 .colon{
     animation: blink 1s ease infinite;
-    padding:5px;
-    font-size:1.2em;
+    padding:0 5px;
     
 }
 #right-row{
