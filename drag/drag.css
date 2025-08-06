@@ -117,9 +117,14 @@ input::placeholder{
     padding-top:1vmin;
 
 }
+#extras, #extras1{
+    width:47.5vw;
+    margin-left:-3vw;
+    height:27vh;
+    position: relative;
+}
 #info-box, #clock, #clock1{
-    margin-top:10%;
-    height:20%;
+    position: absolute;
 }
 #info-box1{
     margin-top:20%;
@@ -225,7 +230,7 @@ input::placeholder{
 #clock1{
     width:27vw;
     height:20vh;
-    position:relative;
+    margin-top:5vh;
     box-shadow: 1px 4px 10px 10px #000  inset;
 }
 #clock1:before{
