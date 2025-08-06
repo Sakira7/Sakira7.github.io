@@ -9,6 +9,12 @@ function update(){
     let col = document.getElementsByTagName("input");
     let inputs = [];
     let info = document.querySelector("#info-input");
+    let info_txt = document.querySelector("#info-select").value;
+    if(info_txt === "blank" || info_txt === "default"){
+        localStorage.setItem("info-txt", "");
+    }else{
+        localStorage.setItem("info-txt", info_txt);
+    }
     localStorage.setItem("info", info.innerHTML);
 
 
@@ -218,21 +224,24 @@ window.addEventListener("keydown", (e)=>{
         localStorage.removeItem("value12")
     }
 });
-let isActive = false;
+
+let b_isActive = false;
+let i_isActive = false;
+let h_isActive = false;
 
 
 let b_btn = document.querySelector("#b");
 b_btn.addEventListener("mousedown", (e)=>{
 
     document.execCommand("bold");
-    if(isActive === false){
+    if(b_isActive === false){
 
-        isActive = true;
+        b_isActive = true;
         b_btn.style.color = "#ad3f8b";
 
 
-    }else if(isActive === true){
-        isActive = false;
+    }else if(b_isActive === true){
+        b_isActive = false;
         b_btn.style.color = "black";
 
     }
@@ -243,14 +252,14 @@ i_btn.addEventListener("mousedown", (e)=>{
 
     document.execCommand("italic");
 
-    if(isActive === false){
+    if(i_isActive === false){
 
-        isActive = true;
+        i_isActive = true;
         i_btn.style.color = "#ad3f8b";
 
 
-    }else if(isActive === true){
-        isActive = false;
+    }else if(i_isActive === true){
+        i_isActive = false;
         i_btn.style.color = "black";
 
     }
@@ -262,21 +271,21 @@ h_btn.addEventListener("mousedown", (e)=>{
     document.execCommand("bold");
     
     
+    
 
-    if(isActive === false){
+    if(h_isActive === false){
 
-        isActive = true;
+        h_isActive = true;
         h_btn.style.color = "#fff";
         h_btn.style.webkitTextStrokeColor="#ad3f8b";
         h_btn.style.webkitTextStrokeWidth="2px";
         document.execCommand("styleWithCSS", false, true);
         document.execCommand("foreColor",false, "ad3f8b");
-        
 
 
 
-    }else if(isActive === true){
-        isActive = false;
+    }else if(h_isActive === true){
+        h_isActive = false;
         h_btn.style.color = "#ad3f8b";
         h_btn.style.webkitTextStrokeColor="#000";
         h_btn.style.webkitTextStrokeWidth="1px";
@@ -288,6 +297,18 @@ h_btn.addEventListener("mousedown", (e)=>{
 
     e.preventDefault();
 });
+
+
+
+setInterval(()=>{
+    let time = new Date();
+let hour = time.getHours();
+let min = time.getMinutes();
+
+hour = hour.toString();
+min = min.toString();
+document.querySelector("#time").innerHTML = hour+":"+min;
+},600);
 
 
 

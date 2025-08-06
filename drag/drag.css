@@ -116,7 +116,7 @@ input::placeholder{
     padding-top:1vmin;
 
 }
-#info-box{
+#info-box, #clock{
     margin-top:10%;
     height:20%;
 }
@@ -129,7 +129,14 @@ input::placeholder{
     width:100%;
     height:100%;
 }
-#info-box-txt, #info-box-txt1{
+#info-select{
+    font-size: 1.2em;
+    margin-top:-0.8em;
+    margin-left:0.5em;
+    position: absolute;
+    padding:1px;
+}
+#info-box-txt1{
     font-size: 1.5em;
     font-weight: bold;
     margin-top:-0.65em;
@@ -142,9 +149,9 @@ input::placeholder{
 }
 #editable-content{
     width:100%;
-    height:100%;
+    height:105%;
     display: flex;
-    margin-top:2%;
+    margin-top:3%;
 }
 #info-input{
     width:91%;
@@ -156,6 +163,7 @@ input::placeholder{
     caret-color:black;
     outline: none;
     padding:0.2em;
+    text-align:center;
 }
 #opt{
     width:5%;
@@ -203,6 +211,10 @@ input::placeholder{
     height:75%;
     font-size:1.3em;
     text-align: center;
+}
+#time{
+    font-size:2em;
+    color:#000;
 }
 #right-row{
     width:50%;
