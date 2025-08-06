@@ -213,15 +213,21 @@ input::placeholder{
     font-size:1.3em;
     text-align: center;
 }
-#clock{
-    background-color: aquamarine;
-    width:40vw;
+#clock, #clock1{
+    background-color:#ad3f8b;
+    width:35vw;
+    height:15vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    justify-self: center;
+    border-radius: 25px;
 }
-#time{
-    font-size:5em;
+#clock1{
+    margin-top:10vh;
+}
+#time, #time1{
+    font-size:7em;
     color:#fff;
     font-family: "Prosto One", sans-serif;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
@@ -231,11 +237,11 @@ input::placeholder{
         opacity: 1;
     }
     50% {
-        opacity: 0;
+        opacity: 0.5;
     }
 }
 .colon{
-    animation: blink 3s infinite;
+    animation: blink 1s ease infinite;
     padding:5px;
     font-size:1.2em;
     

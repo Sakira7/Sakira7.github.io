@@ -311,7 +311,8 @@ setInterval(()=>{
     if(min.length === 1){
         min = "0"+min;
     }
-    document.querySelector("#time").innerHTML = hour+"<span class='colon'>:</span>"+min;
+    document.querySelector("#time").innerHTML = hour+":"+min;
+    localStorage.setItem("time", hour+"<span class='colon'>:</span>"+min);
 },600);
 
 
