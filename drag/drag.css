@@ -208,7 +208,7 @@ input::placeholder{
     color:#ad3f8b;
 }
 #h{
-    color:#ad3f8b;
+    color:#fff;
     font-family: "Tahoma", Arial, sans-serif;
     font-weight:bold;
     -webkit-text-stroke-width: 1px;
@@ -216,8 +216,8 @@ input::placeholder{
 }
 #h:hover{
     -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #ad3f8b;
-    color:#fff;
+    -webkit-text-stroke-color: #000;
+    color:#ad3f8b;
 }
 #b{
     font-weight: bold;

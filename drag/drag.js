@@ -278,21 +278,19 @@ h_btn.addEventListener("mousedown", (e)=>{
     if(h_isActive === false){
 
         h_isActive = true;
-        h_btn.style.color = "#fff";
-        h_btn.style.webkitTextStrokeColor="#ad3f8b";
+        h_btn.style.color = "#ad3f8b";
+        h_btn.style.webkitTextStrokeColor="#000";
         h_btn.style.webkitTextStrokeWidth="2px";
-        document.execCommand("styleWithCSS", false, true);
-        document.execCommand("foreColor",false, "ad3f8b");
+
 
 
 
     }else if(h_isActive === true){
         h_isActive = false;
-        h_btn.style.color = "#ad3f8b";
+        h_btn.style.color = "#fff";
         h_btn.style.webkitTextStrokeColor="#000";
         h_btn.style.webkitTextStrokeWidth="1px";
-        document.execCommand("styleWithCSS", false, true);
-        document.execCommand("foreColor",false, "000");
+
 
 
     }
