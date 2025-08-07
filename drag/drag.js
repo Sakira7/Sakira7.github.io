@@ -3,9 +3,9 @@ let show;
 let i = 0;
 let act = false;
 
-function update(){
+function update(central){
     i = 0;
-
+    central();
     let col = document.getElementsByTagName("input");
     let inputs = [];
     let info = document.querySelector("#info-input");
@@ -17,6 +17,8 @@ function update(){
     }
     localStorage.setItem("info", info.innerHTML);
 
+    let chosen_widget = document.querySelector("#widgets").value;
+    localStorage.setItem("widget", chosen_widget);
 
     for(var i = 0; i < col.length; i++){
         if(col[i].value != ""){
@@ -301,6 +303,7 @@ h_btn.addEventListener("mousedown", (e)=>{
 
 
 setInterval(()=>{
+
     let time = new Date();
     let hour = time.getHours();
     let min = time.getMinutes();
@@ -309,11 +312,38 @@ setInterval(()=>{
     min = min.toString();
 
     if(min.length === 1){
-        min = "0"+min;
+    min = "0"+min;
     }
     document.querySelector("#time").innerHTML = hour+":"+min;
     localStorage.setItem("time", hour+"<span class='colon'>:</span>"+min);
+
 },600);
+
+document.querySelector("#widget-selector").addEventListener("click", ()=>{
+    console.log("widgetssssss");
+    document.querySelector("#widgets").addEventListener("click", ()=>{
+        console.log(document.querySelector("#widgets").value);
+        let clock = document.querySelector("#clock");
+        let info = document.querySelector("#info-box");
+        let widget = document.querySelector("#widgets").value;
+        if(widget === "klocka"){
+            clock.removeAttribute("hidden", "");
+            clock.style.display="block";
+            info.setAttribute("hidden", "");
+
+        }else if(widget === "info-box"){
+            clock.setAttribute("hidden", "");
+            info.removeAttribute("hidden","");
+            clock.style.display="none";
+        }else if(widget === "default"){
+            clock.setAttribute("hidden", "");
+            info.setAttribute("hidden", "");
+            clock.style.display = "none";
+        }
+    })
+})
+
+
 
 
 

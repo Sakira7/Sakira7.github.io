@@ -13,9 +13,7 @@
     <body>
         <script>
             
-
-            window.addEventListener("load", function fill(){
-
+                function central(){
                     fetch("https://proxy-9x3u.onrender.com/api?url=https://connect.idpit.se/jpinfo.php?format=json")
                     .then(res => res.json())
                     .then(data => {
@@ -32,6 +30,11 @@
 
                     })
                     .catch(err => console.error("Fetch error:", err));
+                }
+
+            window.addEventListener("load", function fill(){
+
+                central();
 
                 let col = document.getElementsByTagName("input");
                 let val = col.length;
@@ -83,6 +86,13 @@
                         <input type="text" id="jr" placeholder="3000" maxlength="5"></span><br>
 
                         <div id="extras">
+                            <div id="widget-selector">
+                                <select name="widgets" id="widgets">
+                                    <option value="default" selected>-VÄLJ-</option>
+                                    <option value="klocka">Klocka</option>
+                                    <option value="info-box">Info-box</option>
+                                </select>
+                            </div>
                             <div id="info-box" hidden>
                                 <div id="border">
                                     <select name="info-select" id="info-select">
@@ -134,7 +144,7 @@
                 </div>
             </form>
             <div id="bottom">
-                <button id="show_btn" class="btn" onclick="update()">UPPDATERA DRAG</button>
+                <button id="show_btn" class="btn" onclick="update(central)">UPPDATERA DRAG</button>
                 <div id="last_updt"></div>
             </div>
             <div id="pop-up">  

@@ -20,6 +20,20 @@
             document.querySelector("#info-output").innerHTML = localStorage.getItem("info");
             document.querySelector("#info-box-txt1").innerHTML = localStorage.getItem("info-txt");
             document.querySelector("#time1").innerHTML = localStorage.getItem("time");
+
+            let clock = document.querySelector("#clock1");
+            let info_box = document.querySelector("#info-box1");
+
+            if(localStorage.getItem("widget") === "klocka"){
+                clock.style.display = "block";
+                info_box.style.display = "none";
+            }else if(localStorage.getItem("widget") === "info-box"){
+                clock.style.display = "none";
+                info_box.style.display = "block";
+            }else if(localStorage.getItem("widget") === "default"){
+                clock.style.display = "none";
+                info_box.style.display = "none";
+            }
             for(var i = 0; i < val; i++){
                 col[i].value = localStorage.getItem("value"+i);
                 
@@ -159,13 +173,13 @@
 
                        
                        <div id="extras1">
-                            <div id="info-box1" hidden>
+                            <div id="info-box1">
                                 <div id="border1">
                                     <p id="info-box-txt1"></p>
                                     <p id="info-output"></p>
                                 </div>
                             </div>
-                            <div id="clock1">
+                            <div id="clock1" hidden>
                                 <div id="time1"></div>
                             </div>
                         </div>
