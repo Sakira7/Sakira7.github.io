@@ -158,7 +158,7 @@ input::placeholder{
     padding:1px;
 }
 #info-box-txt1{
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: bold;
     margin-top:-0.65em;
     background-color: #ccc9e7;
@@ -230,6 +230,7 @@ input::placeholder{
     width:100%;
     height:100%;
     font-size:1.3em;
+    padding:10px 20px;
 }
 #clock, #clock1{
     background-color:#333;
