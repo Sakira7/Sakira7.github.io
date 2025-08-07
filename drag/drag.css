@@ -185,7 +185,6 @@ input::placeholder{
     caret-color:black;
     outline: none;
     padding:0.2em;
-    text-align:center;
 }
 #opt{
     width:5%;
