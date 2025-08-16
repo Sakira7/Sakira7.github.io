@@ -158,7 +158,7 @@ input::placeholder{
     padding:1px;
 }
 #info-box-txt1{
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: bold;
     margin-top:-0.65em;
     background-color: #ccc9e7;
@@ -166,6 +166,7 @@ input::placeholder{
     margin-left:0.5em;
     padding-right:0.3em;
     padding-left:0.3em;
+    font-family: "Tahoma", sans-serif;
 
 }
 #editable-content{
@@ -206,20 +207,6 @@ input::placeholder{
 #b:hover, #i:hover{
     color:#ad3f8b;
 }
-#h{
-    color:#fff;
-    font-family: "Tahoma", Arial, sans-serif;
-    font-weight:bold;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #000;
-}
-#h:hover{
-    color: #ad3f8b;;
-}
-.header{
-    font-size:larger;
-    font-weight: bold;
-}
 #b{
     font-weight: bold;
 }
@@ -229,9 +216,8 @@ input::placeholder{
 #info-output{
     width:100%;
     height:100%;
-    padding:10%;
     font-size:1.3em;
-    text-align: center;
+    padding:10px 20px;
 }
 #clock, #clock1{
     background-color:#333;
