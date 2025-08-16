@@ -184,7 +184,6 @@ input::placeholder{
     caret-color:black;
     outline: none;
     padding:0.2em;
-    text-align:center;
 }
 #opt{
     width:5%;
@@ -208,16 +207,18 @@ input::placeholder{
     color:#ad3f8b;
 }
 #h{
-    color:#ad3f8b;
+    color:#fff;
     font-family: "Tahoma", Arial, sans-serif;
     font-weight:bold;
-    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: #000;
 }
 #h:hover{
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #ad3f8b;
-    color:#fff;
+    color: #ad3f8b;;
+}
+.header{
+    font-size:larger;
+    font-weight: bold;
 }
 #b{
     font-weight: bold;

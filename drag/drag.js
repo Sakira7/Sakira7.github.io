@@ -270,30 +270,38 @@ i_btn.addEventListener("mousedown", (e)=>{
 let h_btn = document.querySelector("#h");
 h_btn.addEventListener("mousedown", (e)=>{
 
-    document.execCommand("bold");
-    
-    
-    
-
     if(h_isActive === false){
 
         h_isActive = true;
         h_btn.style.color = "#fff";
         h_btn.style.webkitTextStrokeColor="#ad3f8b";
         h_btn.style.webkitTextStrokeWidth="2px";
-        document.execCommand("styleWithCSS", false, true);
-        document.execCommand("foreColor",false, "ad3f8b");
+        let txt_window = document.getElementById("info-input");
+        
+
+        let sel = window.getSelection();
+        let format = document.createElement("span");
+        format.setAttribute("class", "header");
+
+
+        if(sel && sel.rangeCount > 0 && sel.toString().length > 0){
+            format.textContent = sel.toString();
+            sel.deleteFromDocument();
+            txt_window.append(format);
+            
+
+        }else{
+            txt_window.append(format);
+            
+        }
 
 
 
     }else if(h_isActive === true){
         h_isActive = false;
-        h_btn.style.color = "#ad3f8b";
+        h_btn.style.color = "#fff";
         h_btn.style.webkitTextStrokeColor="#000";
-        h_btn.style.webkitTextStrokeWidth="1px";
-        document.execCommand("styleWithCSS", false, true);
-        document.execCommand("foreColor",false, "000");
-
+        h_btn.style.webkitTextStrokeWidth="2px";
 
     }
 
