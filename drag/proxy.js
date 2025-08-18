@@ -15,11 +15,12 @@ app.get("/health", (_, res)=> res.status(200).send("ok"));
 
 // Example: GET /api?url=https://some-website.com/data
 app.get("/api", async (req, res) => {
-    const targetUrl = req.query.url;
+    const raw = req.query.url;
 
-    if (!targetUrl) {
+    if (!raw) {
         return res.status(400).json({ error: "Missing 'url' parameter" });
     }
+    const targetUrl = decodeURIComponent(raw);
 
 
     //NEVER cache this proxy response
