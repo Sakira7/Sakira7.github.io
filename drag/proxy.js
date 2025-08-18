@@ -1,15 +1,9 @@
 const express = require(`express`);
 const cors = require(`cors`);
-const { Agent } = require(`undici`);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-//temporary solution to bypass expired certs
-const ALLOW_INSECURE = process.env.ALLOW_INSECURE === `1`;
-const indecureDispatcher = ALLOW_INSECURE
-    ? new Agent({ connect: {rejectUnauthorized: false}})
-    : undefined;
 
 app.disable("etag");
 app.set("x-powered-by", false);
@@ -18,7 +12,17 @@ app.options("*", cors());
 
 app.get("/health", (_, res)=> res.status(200).send("ok"));
 
-// Example: GET /api?url=https://some-website.com/data
+app.get("/debug", async (_req,res) => {
+    try{
+        const r = await fetch("https://example.com", {cache: "no-store"});
+        res.status(r.status).type(r.headers.get("content-type")||"text-plain");
+        res.send(await r.text());
+    }catch(e){
+        console.error("DEBUG fetch failed", e);
+        res.status(500).json({error:"debug failed", code: e.code, name: e.name, message: e.message});
+    }
+});
+
 app.get("/api", async (req, res) => {
     const raw = req.query.url;
 
@@ -40,28 +44,30 @@ app.get("/api", async (req, res) => {
         //handle cold-start & slow upstreams
         const controller = new AbortController();
         const timer = setTimeout(() => controller.abort(),25000);
+
         const upstream = await fetch(targetUrl, {
             signal: controller.signal,
             cache: "no-store",
-            dispatcher: insecureDispatcher, //temporary
             headers: {"User-Agent": "render-proxy/1.0"}
         });
         clearTimeout(timer);
 
         //pass through upstream status and content type
         const contentType = upstream.headers.get("content-type") || "application/octet-stream";
-        res.status(upstream.status).type(contentType);
+        const buf = Buffer.from(await upstream.arrayBuffer());
+        res.status(upstream.status).type(contentType).send(buf);
 
         //simplest: buffer and send (fine for small JSON/HTML)
         const body = await upstream.text();
         res.send(body);
 
     } catch (error) {
+        console.error("Proxy error: ",{name:error.name, code: error.code, message: error.message});
         if(error.name === "AbortError"){
             return res.status(504).json({error:"Upstream timeout"});
         }
         console.log("Proxy error: ", error);
-        res.status(502).json({ error: "Failed to fetch external resource" });
+        res.status(502).json({ error: "Failed to fetch external resource" , code:error.code});
     }
 });
 
