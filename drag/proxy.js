@@ -21,6 +21,7 @@ app.get("/api", async (req, res) => {
         return res.status(400).json({ error: "Missing 'url' parameter" });
     }
 
+
     //NEVER cache this proxy response
     res.set({
         "Cache-Control" : "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0",
