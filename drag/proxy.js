@@ -1,16 +1,21 @@
-const express = require("express");
-//const fetch = require("node-fetch");
-const cors = require("cors");
+const express = require(`express`);
+const cors = require(`cors`);
+const { Agent } = require(`undici`);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+//temporary solution to bypass expired certs
+const ALLOW_INSECURE = process.env.ALLOW_INSECURE === `1`;
+const indecureDispatcher = ALLOW_INSECURE
+    ? new Agent({ connect: {rejectUnauthorized: false}})
+    : undefined;
+
 app.disable("etag");
 app.set("x-powered-by", false);
-app.use(cors()); // allow all origins by default
-app.options("*", cors()); //preflight
+app.use(cors());
+app.options("*", cors());
 
-//tiny health check (handy for uptime pingers)
 app.get("/health", (_, res)=> res.status(200).send("ok"));
 
 // Example: GET /api?url=https://some-website.com/data
@@ -38,6 +43,7 @@ app.get("/api", async (req, res) => {
         const upstream = await fetch(targetUrl, {
             signal: controller.signal,
             cache: "no-store",
+            dispatcher: insecureDispatcher, //temporary
             headers: {"User-Agent": "render-proxy/1.0"}
         });
         clearTimeout(timer);
