@@ -3,9 +3,9 @@ let show;
 let i = 0;
 let act = false;
 
-function update(central){
+function update(){
     i = 0;
-    central();
+    //central();
     let col = document.getElementsByTagName("input");
     let inputs = [];
     let info = document.querySelector("#info-input");
