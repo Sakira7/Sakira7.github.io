@@ -18,7 +18,7 @@ app.get("/health", (_, res)=> res.status(200).send("ok"));
 app.get("/debug", async (_req,res) => {
     try{
         const r = await fetch("https://example.com", {cache: "no-store"});
-        res.status(r.status).type(r.headers.get("content-type")||"text-plain");
+        res.status(r.status).type(r.headers.get("content-type")||"text/plain");
         res.send(await r.text());
     }catch(e){
         console.error("DEBUG fetch failed", e);
@@ -79,7 +79,7 @@ app.get("/api", async (req, res) => {
 
     upstream.on("error", (err)=>{
         console.error("Proxy upstream error: ", err.code || err.message);
-        if(!res.headerSent){
+        if(!res.headersSent){
             res.status(502).json({ error: "Failed to fetch external resource"});
         }
     });
