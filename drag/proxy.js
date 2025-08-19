@@ -4,6 +4,8 @@ const http = require(`node:http`);
 const https = require(`node:https`);
 const { URL } = require(`node:url`);
 
+const httpsAgent = new https.Agent({rejectUnauthorized:false});
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -59,13 +61,16 @@ app.get("/api", async (req, res) => {
         path: u.pathname + (u.search || ""),
         method: "GET",
         headers: {
+            Host: u.host,
             "User-Agent": "render-proxy/1.0",
-            "Accept": "*/*",
+            Accept: "*/*",
             "Cache-Control": "no-cache",
-            "Pragma": "no-cache",
+            Pragma: "no-cache",
         },
-        rejectUnauthorized: !isHttps ? undefined : false,
+        
         timeout: 25000,
+        agent: isHttps ? httpsAgent : undefined,
+        servername: u.hostname,
     };
         const upstream = client.request(reqOpts, (up) => {
         const type = up.headers["content-type"] || "application/octet-stream";
