@@ -1,5 +1,8 @@
 const express = require(`express`);
 const cors = require(`cors`);
+const http = require(`node:http`);
+const https = require(`node:https`);
+const { URL } = require(`node:url`);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -31,6 +34,12 @@ app.get("/api", async (req, res) => {
     }
     const targetUrl = decodeURIComponent(raw);
 
+    let u;
+    try{
+        u=new URL(targetUrl);
+    }catch{
+        return res.status(400).json({error: "invalid URL"});
+    }
 
     //NEVER cache this proxy response
     res.set({
@@ -40,35 +49,42 @@ app.get("/api", async (req, res) => {
         "Surrogate-Control" : "no-store"
     });
 
-    try {
-        //handle cold-start & slow upstreams
-        const controller = new AbortController();
-        const timer = setTimeout(() => controller.abort(),25000);
+    const isHttps = u.protocol === "https:";
+    const client = isHttps ? https : http;
 
-        const upstream = await fetch(targetUrl, {
-            signal: controller.signal,
-            cache: "no-store",
-            headers: {"User-Agent": "render-proxy/1.0"}
-        });
-        clearTimeout(timer);
+    const reqOpts = {
+        protocol: u.protocol,
+        hostname: u.hostname,
+        port: u.port || (isHttps ? 443 : 80),
+        path: u.pathname + (u.search || ""),
+        method: "GET",
+        headers: {
+            "User-Agent": "render-proxy/1.0",
+            "Accept": "*/*",
+            "Cache-Control": "no-cache",
+            "Pragma": "no-cache",
+        },
+        rejectUnauthorized: !isHttps ? undefined : false,
+        timeout: 25000,
+    };
+        const upstream = client.request(reqOpts, (up) => {
+        const type = up.headers["content-type"] || "application/octet-stream";
+        res.status(up.statusCode || 502).type(type);
+        up.pipe(res);
+    });
 
-        //pass through upstream status and content type
-        const contentType = upstream.headers.get("content-type") || "application/octet-stream";
-        const buf = Buffer.from(await upstream.arrayBuffer());
-        res.status(upstream.status).type(contentType).send(buf);
+    upstream.on("timeout", ()=>{
+        upstream.destroy(new Error("Upstream timeout"));
+    });
 
-        //simplest: buffer and send (fine for small JSON/HTML)
-        const body = await upstream.text();
-        res.send(body);
-
-    } catch (error) {
-        console.error("Proxy error: ",{name:error.name, code: error.code, message: error.message});
-        if(error.name === "AbortError"){
-            return res.status(504).json({error:"Upstream timeout"});
+    upstream.on("error", (err)=>{
+        console.error("Proxy upstream error: ", err.code || err.message);
+        if(!res.headerSent){
+            res.status(502).json({ error: "Failed to fetch external resource"});
         }
-        console.log("Proxy error: ", error);
-        res.status(502).json({ error: "Failed to fetch external resource" , code:error.code});
-    }
+    });
+    upstream.end();
+
 });
 
 app.listen(PORT, () => {
