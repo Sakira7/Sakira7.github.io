@@ -78,9 +78,13 @@ app.get("/api", async (req, res) => {
     });
 
     upstream.on("error", (err)=>{
-        console.error("Proxy upstream error: ", err.code || err.message);
+        console.error("[proxy error]", {
+            code: err.code,
+            message: err.message,
+            stack: err.stack
+        });
         if(!res.headersSent){
-            res.status(502).json({ error: "Failed to fetch external resource"});
+            res.status(502).json({ error: "Failed to fetch external resource",code:err.code,message:err.message});
         }
     });
     upstream.end();
