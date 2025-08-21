@@ -23,7 +23,7 @@
                     }
                 }
             
-                /*async function central(){
+                async function central(){
                     const base = `https://proxy-9x3u.onrender.com/api`;
                     const target = `https://connect.idpit.se/jpinfo.php?format=json`;
                     const url = `${base}?url=${encodeURIComponent(target)}&t=${Date.now()}`; //cache-buster
@@ -56,11 +56,11 @@
                         }
                     }
 
-                }*/
+                }
 
             window.addEventListener("load", function fill(){
 
-                //central();
+                central();
 
                 let col = document.getElementsByTagName("input");
                 let val = col.length;
@@ -170,7 +170,7 @@
                 </div>
             </form>
             <div id="bottom">
-                <button id="show_btn" class="btn" onclick="update()">UPPDATERA DRAG</button>
+                <button id="show_btn" class="btn" onclick="update(central)">UPPDATERA DRAG</button>
                 <div id="last_updt"></div>
             </div>
             <div id="pop-up">  
