@@ -17,7 +17,7 @@ app.options("*", cors());
 
 app.get("/health", (_, res)=> res.status(200).send("ok"));
 
-app.get("/debug", async (_req,res) => {
+/*app.get("/debug", async (_req,res) => {
     try{
         const r = await fetch("https://example.com", {cache: "no-store"});
         res.status(r.status).type(r.headers.get("content-type")||"text/plain");
@@ -26,7 +26,7 @@ app.get("/debug", async (_req,res) => {
         console.error("DEBUG fetch failed", e);
         res.status(500).json({error:"debug failed", code: e.code, name: e.name, message: e.message});
     }
-});
+});*/
 
 app.get("/api", async (req, res) => {
     const raw = req.query.url;
@@ -51,7 +51,7 @@ app.get("/api", async (req, res) => {
         "Surrogate-Control" : "no-store"
     });
 
-    /*const isHttps = u.protocol === "https:";
+    const isHttps = u.protocol === "https:";
     const client = isHttps ? https : http;
 
     const reqOpts = {
@@ -63,7 +63,7 @@ app.get("/api", async (req, res) => {
         headers: {
             Host: u.host,
             "User-Agent": "render-proxy/1.0",
-            Accept: "*//*",
+            Accept: "*/*",
             "Cache-Control": "no-cache",
             Pragma: "no-cache",
         },
@@ -92,7 +92,7 @@ app.get("/api", async (req, res) => {
             res.status(502).json({ error: "Failed to fetch external resource",code:err.code,message:err.message});
         }
     });
-    upstream.end();*/
+    upstream.end();
 
 });
 
