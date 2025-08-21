@@ -4,9 +4,7 @@ const http = require(`node:http`);
 const https = require(`node:https`);
 const { URL } = require(`node:url`);
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
-const httpsAgent = new https.Agent({rejectUnauthorized:false});
 
 const app = express();
 const PORT = process.env.PORT || 3000;
