@@ -51,7 +51,7 @@ app.get("/api", async (req, res) => {
         "Surrogate-Control" : "no-store"
     });
 
-    const isHttps = u.protocol === "https:";
+    /*const isHttps = u.protocol === "https:";
     const client = isHttps ? https : http;
 
     const reqOpts = {
@@ -63,7 +63,7 @@ app.get("/api", async (req, res) => {
         headers: {
             Host: u.host,
             "User-Agent": "render-proxy/1.0",
-            Accept: "*/*",
+            Accept: "*//*",
             "Cache-Control": "no-cache",
             Pragma: "no-cache",
         },
@@ -92,7 +92,7 @@ app.get("/api", async (req, res) => {
             res.status(502).json({ error: "Failed to fetch external resource",code:err.code,message:err.message});
         }
     });
-    upstream.end();
+    upstream.end();*/
 
 });
 
