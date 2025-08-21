@@ -13,7 +13,7 @@
     <body>
         <script>
             
-                async function fetchWithTimeout(url, ms = 30000){
+                async function fetchWithTimeout(url, ms){
                     const ctrl = new AbortController();
                     const t = setTimeout(() => ctrl.abort(),ms);
                     try {

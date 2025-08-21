@@ -1,98 +1,38 @@
 const express = require(`express`);
-const cors = require(`cors`);
-const http = require(`node:http`);
 const https = require(`node:https`);
-const { URL } = require(`node:url`);
-
-
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 
-app.disable("etag");
-app.set("x-powered-by", false);
-app.use(cors());
-
 app.get("/health", (_, res)=> res.status(200).send("ok"));
 
-app.get("/debug", async (_req,res) => {
-    try{
-        const r = await fetch("https://example.com", {cache: "no-store"});
-        res.status(r.status).type(r.headers.get("content-type")||"text/plain");
-        res.send(await r.text());
-    }catch(e){
-        console.error("DEBUG fetch failed", e);
-        res.status(500).json({error:"debug failed", code: e.code, name: e.name, message: e.message});
-    }
-});
-
 app.get("/api", async (req, res) => {
-    const raw = req.query.url;
-
-    if (!raw) {
-        return res.status(400).json({ error: "Missing 'url' parameter" });
-    }
-    const targetUrl = decodeURIComponent(raw);
-
-    let u;
     try{
-        u=new URL(targetUrl);
-    }catch{
-        return res.status(400).json({error: "invalid URL"});
-    }
+        const raw = req.query.url;
 
-    //NEVER cache this proxy response
-    res.set({
-        "Cache-Control" : "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0",
-        "Pragma" : "no-cache",
-        "Expires" : "0",
-        "Surrogate-Control" : "no-store"
-    });
-
-    const isHttps = u.protocol === "https:";
-    const client = isHttps ? https : http;
-
-    const reqOpts = {
-        protocol: u.protocol,
-        hostname: u.hostname,
-        port: u.port || (isHttps ? 443 : 80),
-        path: u.pathname + (u.search || ""),
-        method: "GET",
-        headers: {
-            Host: u.host,
-            "User-Agent": "render-proxy/1.0",
-            Accept: "*/*",
-            "Cache-Control": "no-cache",
-            Pragma: "no-cache",
-        },
-        
-        timeout: 25000,
-        agent: isHttps ? httpsAgent : undefined,
-        servername: u.hostname,
-    };
-        const upstream = client.request(reqOpts, (up) => {
-        const type = up.headers["content-type"] || "application/octet-stream";
-        res.status(up.statusCode || 502).type(type);
-        up.pipe(res);
-    });
-
-    upstream.on("timeout", ()=>{
-        upstream.destroy(new Error("Upstream timeout"));
-    });
-
-    upstream.on("error", (err)=>{
-        console.error("[proxy error]", {
-            code: err.code,
-            message: err.message,
-            stack: err.stack
-        });
-        if(!res.headersSent){
-            res.status(502).json({ error: "Failed to fetch external resource",code:err.code,message:err.message});
+        if (!raw) {
+            return res.status(400).json({ error: "Missing 'url' parameter" });
         }
-    });
-    upstream.end();
+        const target = /%[0-9A-Fa-f]{2}/.test(raw) ? decodeURIComponent(raw) : raw;
 
+        const agent = target.startsWith("https:")
+            ? new https.Agent({rejectUnauthorized : false})
+            : undefined;
+        
+            const r = await fetch(target, {
+                agent,
+                chache: "no-store",
+                header: { "User-Agent": "render-proxy/1.0", "Accept": "*/*" }
+            });
+
+            const type = r.headers.get("content-type") || "text/plain";
+            const body = await r.text();
+
+            res.status(r.status).type(type).send(body);
+        }catch(e){
+            res.status(502).json({ error: "proxy-failed", message: e.message });
+        }
 });
 
 app.listen(PORT, () => {
