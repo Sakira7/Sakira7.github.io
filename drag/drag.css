@@ -61,6 +61,7 @@ input{
     text-align: center;
     margin-left:2em;
     field-sizing: content;
+    max-width: max-content;
     caret-color: #5e1246;
 }
 input:disabled{
