@@ -152,6 +152,7 @@ setInterval(() => {
                     document.querySelector("#show_btn").addEventListener("click", ()=>{clearInterval(timer); counter = 0})
                 }
             });
+            
 
             document.querySelectorAll("input").forEach(box =>{
                 box.addEventListener("focus", ()=>{

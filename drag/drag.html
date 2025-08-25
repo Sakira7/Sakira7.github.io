@@ -7,7 +7,7 @@
         <meta name="msapplication-TileColor" content="#222">
         <meta name="theme-color" content="#000">
         <title>Drag</title>
-        <link href="drag.css" rel="stylesheet">
+        <link href="drag.css?v=1" rel="stylesheet">
         
     </head>
     <body>
@@ -39,7 +39,6 @@
             window.addEventListener("load", function fill(){
 
                 central();
-                console.log("WORK PLEASE");
 
                 let col = document.getElementsByTagName("input");
                 let val = col.length;
@@ -59,9 +58,40 @@
                             e.preventDefault();
                         }
                     }
+
                 });
 
+                window.addEventListener("keydown", (e) => {
+                    if(e.key === "a"){
+                                let eldo = document.querySelector("#eldo");
+                                let drom = document.querySelector("#dp");
+                                let sp1 = document.querySelector("#sp1");
+                                let sp2 = document.querySelector("#sp2");
+                                let sp3 = document.querySelector("#sp3");
+                                let all = [eldo, drom, sp1, sp2, sp3];
+                                
+                                for(var i = 0; i < all.length; i++){
+                                    if(all[i].hasAttribute("disabled", "")){
+                                        all[i].removeAttribute("disabled", "");
+                                    }else if(!all[i].hasAttribute("disabled", "")){
+                                        all[i].setAttribute("disabled", "");
+                                    }
+                                }
+                        
+                    }else{e.preventDefault();}
+                });
 
+                window.addEventListener("keydown", (e) => {
+                    if(e.ctrlKey &&(e.key === "u")){
+                        forceUpdate();
+                    }
+                });
+
+                function forceUpdate(){
+                    const url = new URL(window.location.href);
+                    url.searchParams.set('_update', Date.now().toString());
+                    window.location.replace(url.toString());
+                }
 
                 window.addEventListener("beforeunload", ()=>{
                     closeWindow();
@@ -159,6 +189,6 @@
                 </div>
             </div>
         </div>
-        <script src="drag.js"></script>
+        <script src="drag.js?v=1"></script>
     </body>
 </html>
