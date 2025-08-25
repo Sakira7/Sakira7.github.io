@@ -57,34 +57,26 @@
                         if(!e.key.match(/[0-9]/) && e.key != "Backspace" && e.key != "Tab" && e.key != "ArrowLeft" && e.key != "ArrowRight"){
                             e.preventDefault();
                         }
-                    }
+                    }else if(e.key === "a"){
+                        let eldo = document.querySelector("#eldo");
+                        let drom = document.querySelector("#dp");
+                        let sp1 = document.querySelector("#sp1");
+                        let sp2 = document.querySelector("#sp2");
+                        let sp3 = document.querySelector("#sp3");
+                        let all = [eldo, drom, sp1, sp2, sp3];
 
-                });
+                        for(var i = 0; i < all.length; i++){
+                            if(all[i].hasAttribute("disabled", "")){
+                                all[i].removeAttribute("disabled", "");
+                            }else if(!all[i].hasAttribute("disabled", "")){
+                                all[i].setAttribute("disabled", "");
+                            }
+                        }
 
-                window.addEventListener("keydown", (e) => {
-                    if(e.key === "a"){
-                                let eldo = document.querySelector("#eldo");
-                                let drom = document.querySelector("#dp");
-                                let sp1 = document.querySelector("#sp1");
-                                let sp2 = document.querySelector("#sp2");
-                                let sp3 = document.querySelector("#sp3");
-                                let all = [eldo, drom, sp1, sp2, sp3];
-                                
-                                for(var i = 0; i < all.length; i++){
-                                    if(all[i].hasAttribute("disabled", "")){
-                                        all[i].removeAttribute("disabled", "");
-                                    }else if(!all[i].hasAttribute("disabled", "")){
-                                        all[i].setAttribute("disabled", "");
-                                    }
-                                }
-                        
-                    }else{e.preventDefault();}
-                });
-
-                window.addEventListener("keydown", (e) => {
-                    if(e.ctrlKey &&(e.key === "u")){
+                    }else if(e.ctrlKey &&(e.key === "u")){
                         forceUpdate();
                     }
+
                 });
 
                 function forceUpdate(){
