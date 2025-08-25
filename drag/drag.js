@@ -127,13 +127,13 @@ setInterval(() => {
             document.getElementById("pop-up-text").innerHTML = "Dags att uppdatera dragen!";
             
             
-            
+            let timer;
 
             document.getElementById("ok").addEventListener("click", ()=>{
                 document.getElementById("pop-up").style.display="none";
                 if(counter === 0){
                     counter = 1;
-                    let timer = setInterval(()=>{
+                    timer = setInterval(()=>{
                         counter++
                     },60000);
                 }else{counter = 1;}
