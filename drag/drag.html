@@ -13,7 +13,7 @@
     <body>
         <script>
             
-                async function fetchWithTimeout(url, ms){
+                /*async function fetchWithTimeout(url, ms){
                     const ctrl = new AbortController();
                     const t = setTimeout(() => ctrl.abort(),ms);
                     try {
@@ -21,15 +21,10 @@
                     } finally {
                         clearTimeout(t);
                     }
-                }
+                }*/
             
                 async function central(){
-                    const base = `https://proxy-9x3u.onrender.com/api`;
-                    try{
-                        await fetch(base.replace("/api", "/health"), {chache:"no-store"});
-                    }catch{ 
-
-                    }
+                    /*const base = `https://proxy-9x3u.onrender.com/api`;
                     const target = `https://connect.idpit.se/jpinfo.php?format=json`;
                     const url = `${base}?url=${encodeURIComponent(target)}&t=${Date.now()}`; //cache-buster
 
@@ -52,13 +47,30 @@
                             return;
                         }catch(e){
                             if(attempt === 3){
-                                console.error("Fetch failed: ", e);
-                                console.log("Failed");
+                                console.log("FETCH FAILED:",e);
                             }else{
                                 await new Promise(r => setTimeout(r, 1500)); //brief backoff
+                                console.log("await new promise?");
                             }
                         }
-                    }
+                    }*/
+
+                    fetch("https://proxy-9x3u.onrender.com/api?url=https://connect.idpit.se/jpinfo.php?format=json")
+                    .then(res => res.json())
+                    .then(data => {
+                        const eldo = data[0].eldorado;
+                        const drom = data[0].drom;
+                        const sp1 = data[0].rad1;
+                        const sp2 = data[0].rad2;
+                        const sp3 = data[0].rad3;
+                        document.getElementById("eldo").value = eldo;
+                        document.getElementById("sp1").value = sp1;
+                        document.getElementById("sp2").value = sp2;
+                        document.getElementById("sp3").value = sp3;
+                        document.getElementById("dp").value = drom;
+
+                    })
+                    .catch(err => console.error("Fetch error:", err));
 
                 }
 

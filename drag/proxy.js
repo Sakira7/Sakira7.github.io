@@ -1,40 +1,29 @@
-const express = require(`express`);
-const https = require(`node:https`);
+const express = require("express");
+const cors = require("cors");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
+
+app.use(cors()); // allow all origins by default
 
 
-app.get("/health", (_, res)=> res.status(200).send("ok"));
-
+// Example: GET /api?url=https://some-website.com/data
 app.get("/api", async (req, res) => {
-    try{
-        const raw = req.query.url;
+    try {
+        const response = await fetch(targetUrl);
+        const contentType = response.headers.get("content-type");
+        res.set("Content-Type", contentType);
+        const data = await response.text(); // works for JSON, HTML, etc.
+        res.send(data);
 
-        if (!raw) {
-            return res.status(400).json({ error: "Missing 'url' parameter" });
-        }
-        const target = /%[0-9A-Fa-f]{2}/.test(raw) ? decodeURIComponent(raw) : raw;
-
-        const agent = target.startsWith("https:")
-            ? new https.Agent({rejectUnauthorized : false})
-            : undefined;
-        
-            const r = await fetch(target, {
-                agent,
-                chache: "no-store",
-                header: { "User-Agent": "render-proxy/1.0", "Accept": "*/*" }
-            });
-
-            const type = r.headers.get("content-type") || "text/plain";
-            const body = await r.text();
-
-            res.status(r.status).type(type).send(body);
-        }catch(e){
-            res.status(502).json({ error: "proxy-failed", message: e.message });
-        }
+    } catch (error) {
+        res.status(500).json({ error: "Failed to fetch external resource" });
+    }
+    return res.status(400).json({ error: "Missing 'url' parameter" });
 });
 
+
+
 app.listen(PORT, () => {
-    console.log(`Proxy server running on port ${PORT}`);
+    console.log(`Proxy server running at https://proxy-9x3u.onrender.com`);
 });
