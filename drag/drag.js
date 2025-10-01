@@ -92,10 +92,10 @@ window.addEventListener("beforeunload",()=>{
 
 document.querySelector("#sb160").addEventListener("input", (e)=>{
     document.querySelector("#sb260").value = e.target.value *2;
-    document.querySelector("#sb162").value = e.target.value -300;
-    document.querySelector("#sb262").value = (e.target.value -300)*2;
-})
-
+});
+document.querySelector("#sb162").addEventListener("input", (e)=>{
+    document.querySelector("#sb262").value = e.target.value *2;
+});
 
 let counter = 0;
 
