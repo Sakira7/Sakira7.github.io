@@ -50,12 +50,7 @@ label{
     margin-right:0.5em;
 }
 #ss1, #ss2, #ss3, #ss11, #ss21, #ss31 ,#sp1, #sp2, #sp3{
-    margin-left:1.2em;
-}
-.wrapper-ss{
-    display: flex;
-    justify-content: end;
-    margin-bottom:1.2em;
+    margin-left:0.5em;
 }
 .wrapper{
     display: flex;
@@ -63,12 +58,6 @@ label{
 }
 .sb{
     display: flex;
-}
-.sb60{
-    margin-right:2em;
-}
-.sb62{
-    margin-left:2em;
 }
 input{
     font-size:2em;
@@ -131,7 +120,7 @@ input::placeholder{
     justify-content: center;
 }
 #widget-selector{
-    top:-2vh;
+    top:2vh;
     right:3vw;
     position: absolute;
 }
@@ -489,8 +478,13 @@ input::placeholder{
 
 
 }
-@media only screen and (min-height:1000px){
-    .info{
-        font-size:1.4em;
+@media only screen and (max-width:1379px){
+    .after, .before,#row1,.row, #zata1, #fc1, #ss11, #ss21, #ss31, #jr1, 
+    #sb1160, #sb1260, #eldo1, #at1, #sp11, #sp21, #sp31, #dp1, label{
+        font-size:1.5em;
     }
+    .info{
+        font-size: 1.2em;
+    }
+
 }
