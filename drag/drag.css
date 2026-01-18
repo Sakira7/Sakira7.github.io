@@ -337,13 +337,13 @@ html, body{
     margin-right:3vw;
 }
 #tb_value{
-    font-size:4em !important;
+    font-size:3.5em !important;
     font-weight: bold;
     color:#222;
     font-family: "Tahoma", sans-serif;
 }
 .after_tb{
-    font-size:4em;
+    font-size:3.5em;
     color:#222;
 }
 #ball_wrap{
