@@ -692,7 +692,7 @@ html, body{
 
 
 }
-@media only screen and (max-width:1379px){
+@media only screen and (max-width:1100px){
     .after, .before,#row1,.row, #zata1, #fc1, #ss11, #ss21, #ss31, #jr1, 
     #sb1160, #sb1260, #eldo1, #at1, #sp11, #sp21, #sp31, #dp1, #tb1,label{
         font-size:1.5em;
@@ -703,6 +703,9 @@ html, body{
     .row_nr{
         font-size:1.7em;
         margin-right:-12px;
+    }
+    #tb_value, .after_tb{
+        font-size:2em;
     }
 
 }
