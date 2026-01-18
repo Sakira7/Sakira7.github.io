@@ -320,9 +320,21 @@ html, body{
     align-content: end;
     margin-bottom:5vh;
 }
+#tb_wrap_edit{
+    display:flex;
+    align-items: center;
+
+}
 #tb_nr{
     border-radius: 50%;
-    width:10vw;
+    width:2em !important;
+    height:2em;
+    field-sizing: fixed !important;
+
+}
+#tb{
+    height:1em;
+    margin-right:3vw;
 }
 #tb_value{
     font-size:4em !important;
