@@ -6,7 +6,23 @@ let act = false;
 function update(central){
     i = 0;
     central();
-    let col = document.getElementsByTagName("input");
+
+    let cb_at = document.querySelector("#cb_at");
+    let cb_dp = document.querySelector("#cb_dp");
+
+    if(cb_at.hasAttribute("checked")){
+        localStorage.setItem("cb_at", "true")
+    }else{
+        localStorage.setItem("cb_at", "false")
+    }
+    if(cb_dp.hasAttribute("checked")){
+        localStorage.setItem("cb_dp", "true")
+    }else{
+        localStorage.setItem("cb_dp", "false")
+    }
+
+
+    let col = document.querySelectorAll(".game");
     let inputs = [];
     let info = document.querySelector("#info-input");
     let info_txt = document.querySelector("#info-select").value;
@@ -213,6 +229,31 @@ window.addEventListener("keydown", (e)=>{
     }
 });
 
+document.querySelector("#tog_at").addEventListener("click", ()=>{
+    let cb_at = document.querySelector("#cb_at");
+    if(cb_at.hasAttribute("checked", "checked")){
+        cb_at.removeAttribute("checked", "checked");
+        document.querySelector("#atlantis").style.color="grey";
+        document.querySelector("#at").style.color="grey";
+
+    }else if(!cb_at.hasAttribute("checked", "checked")){
+        cb_at.setAttribute("checked", "checked");
+        document.querySelector("#atlantis").style.color="black";
+        document.querySelector("#at").style.color="black";
+    }
+});
+document.querySelector("#tog_dp").addEventListener("click", ()=>{
+    let cb_dp = document.querySelector("#cb_dp");
+    if(cb_dp.hasAttribute("checked", "checked")){
+        cb_dp.removeAttribute("checked", "checked");
+        document.querySelector("#drompotten").style.color="grey";
+        document.querySelector("#dp").style.color="grey";
+    }else if(!cb_dp.hasAttribute("checked", "checked")){
+        cb_dp.setAttribute("checked", "checked");
+        document.querySelector("#drompotten").style.color="black";
+        document.querySelector("#dp").style.color="black";
+    }
+});
 
 window.addEventListener("keydown", (e)=>{
     if(e.key === "o" && active === false){
@@ -294,24 +335,31 @@ setInterval(()=>{
 },600);
 
 document.querySelector("#widget-selector").addEventListener("click", ()=>{
-    console.log("widgetssssss");
     document.querySelector("#widgets").addEventListener("click", ()=>{
         console.log(document.querySelector("#widgets").value);
         let clock = document.querySelector("#clock");
         let info = document.querySelector("#info-box");
+        let storbingo = document.querySelector("#storbingo");
         let widget = document.querySelector("#widgets").value;
         if(widget === "klocka"){
             clock.removeAttribute("hidden", "");
             clock.style.display="block";
             info.setAttribute("hidden", "");
-
+            storbingo.setAttribute("hidden", "");
         }else if(widget === "info-box"){
             clock.setAttribute("hidden", "");
+            storbingo.setAttribute("hidden","");
             info.removeAttribute("hidden","");
+            clock.style.display="none";
+        }else if(widget === "storbingo"){
+            storbingo.removeAttribute("hidden","");
+            clock.setAttribute("hidden", "");
+            info.setAttribute("hidden", "");
             clock.style.display="none";
         }else if(widget === "default"){
             clock.setAttribute("hidden", "");
             info.setAttribute("hidden", "");
+            storbingo.setAttribute("hidden", "");
             clock.style.display = "none";
         }
     })

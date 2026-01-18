@@ -40,7 +40,7 @@
 
                 central();
 
-                let col = document.getElementsByTagName("input");
+                let col = document.querySelectorAll(".game");
                 let val = col.length;
                 document.getElementById("last_updt").innerHTML = localStorage.getItem("last_updt");
 
@@ -97,25 +97,25 @@
                 <div id="left-row">
                     <p id="rubrik1">Lokala spel</p>
 
-                    <span class="wrap"><label for="zata">Zäta</label>
-                        <input type="text" id="zata" placeholder="30" maxlength="2" autocomplete="off"></span>
+                    <span class="wrap"><label class="game_name" for="zata">Zäta</label>
+                        <input type="text" class="game" id="zata" placeholder="30" maxlength="2" autocomplete="off"></span>
 
-                    <span class="wrap"><label for="fc">Färgchansen</label>
-                        <input type="text" id="fc" placeholder="55" maxlength="2" autocomplete="off"></span>
+                    <span class="wrap"><label class="game_name" for="fc">Färgchansen</label>
+                        <input type="text" class="game" id="fc" placeholder="55" maxlength="2" autocomplete="off"></span>
 
 
-                    <span class="wrap"><label for="ss1">Sjöstjärnan</label>
-                        <input type="text" id="ss1" placeholder="8" maxlength="2" autocomplete="off">
-                        <input type="text" id="ss2" placeholder="35" maxlength="2" autocomplete="off">
-                        <input type="text" id="ss3" placeholder="54" maxlength="2" autocomplete="off"></span>
+                    <span class="wrap"><label class="game_name" for="ss1">Sjöstjärnan</label>
+                        <input type="text" class="game" id="ss1" placeholder="8" maxlength="2" autocomplete="off">
+                        <input type="text" class="game" id="ss2" placeholder="35" maxlength="2" autocomplete="off">
+                        <input type="text" class="game" id="ss3" placeholder="54" maxlength="2" autocomplete="off"></span>
 
-                    <span class="wrap"><label for="jr">Jackpottresan</label>
-                        <input type="text" id="jr" placeholder="3000" maxlength="5" autocomplete="off"></span>
+                    <span class="wrap"><label class="game_name" for="jr">Jackpottresan</label>
+                        <input type="text" class="game" id="jr" placeholder="3000" maxlength="5" autocomplete="off"></span>
 
-                    <span class="sb"><label for="sb">SingelBygg</label>
+                    <span class="sb"><label class="game_name" for="sb">SingelBygg</label>
                         <span class="sb60">
-                        <input type="text" id="sb160" placeholder="500" maxlength="5" autocomplete="off">
-                        <input type="text" id="sb260" placeholder="1000" maxlength="5" disabled></span>
+                        <input type="text" class="game" id="sb160" placeholder="500" maxlength="5" autocomplete="off">
+                        <input type="text" class="game" id="sb260" placeholder="1000" maxlength="5" disabled></span>
                     </span>
 
                         <div id="extras">
@@ -152,28 +152,53 @@
 
                 <div id="right-row">
                     <p id="rubrik2">Centrala spel</p>
-                    <span class="wrap"><label for="eldo">Eldorado</label>
-                        <input type="text" id="eldo" placeholder="30000" maxlength="6"><br>
-                        <p class="info">Spelas kl 14.00 och 19.00</p></span><br>
-                        <div class="space"></div>
+                    <span class="wrap"><label class="game_name" for="eldo">Eldorado</label>
+                        <input type="text" class="game" id="eldo" placeholder="30000" maxlength="6">
+                    </span><br>
 
-                    <span class="wrap"><label for="at">Atlantis</label>
-                        <input type="text" id="at" value="10000" placeholder="10000" maxlength="6" disabled><br>
-                        <p class="info">Spelas efter Eldorado</p></span><br>
-                        <div class="space"></div>
+                            <label class="container">
+                                <input type="checkbox" id="cb_at">
+                                <span class="checkmark" id="tog_at"></span>
+                            </label>
+
+                            <span class="wrap">
+                                <label class="game_name" for="at" id="atlantis">Atlantis</label>
+                                <input type="text" class="game" id="at" value="10000" placeholder="10000" maxlength="6" disabled>
+                            </span><br>
     
-                    <span class="wrap"><label for="sp" >Superpotten</label>
-                    <p class="info">Spelas den <input type="date" id="date" placeholder="2025-01-01"></p></span><br>
-                        <div class="space2"></div>
-                        <span class="wrapper"><span class="row" id="row1">Rad 1 -</span><input type="text" id="sp1" placeholder="10000" maxlength="6"></span>
-                        <span class="wrapper"><span class="row">Rad 2 -</span><input type="text" id="sp2" placeholder="20000" maxlength="6"></span>
-                        <span class="wrapper"><span class="row">Rad 3 -</span><input type="text" id="sp3" placeholder="30000" maxlength="6"></span><br>
-                    
-                        <div class="space"></div>
+                            <span class="wrap">
+                                <label class="game_name" for="sp" >Superpotten</label>
+                                <p class="info">Spelas den <input type="date" id="date" class="game" placeholder="2025-01-01"></p>
+                            </span><br>
+                                <div class="space2"></div>
+                                <span class="wrapper">
+                                    <span class="row" id="row1">Rad 1 -</span><input type="text" class="game" id="sp1" placeholder="10000" maxlength="6">
+                                </span>
+                                <span class="wrapper">
+                                    <span class="row">Rad 2 -</span><input type="text" class="game" id="sp2" placeholder="20000" maxlength="6">
+                                </span>
+                                <span class="wrapper">
+                                    <span class="row">Rad 3 -</span><input type="text" class="game" id="sp3" placeholder="30000" maxlength="6">
+                                </span><br>
 
-                    <span class="wrap"><label for="dp">Drömpotten</label>
-                        <input type="text" id="dp" placeholder="1000000" maxlength="7"><br>
-                        <p class="info">Spelas på Bingons Dag, den 9 september</p></span><br>           
+                            <label class="container">
+                                <input type="checkbox" id="cb_dp">
+                                <span class="checkmark" id="tog_dp"></span>
+                            </label>
+
+                            <span class="wrap">
+                                <label class="game_name" for="dp" id="drompotten">Drömpotten</label>
+                                <input type="text" class="game" id="dp" placeholder="1000000" maxlength="7">
+                            </span><br>
+
+                            <div class="space"></div>
+                        
+                    <span class="wrap">
+                        <label class="game_name" for="tb">Turbollen</label>
+                        <input type="text" class="game" id="tb" placeholder="3000" maxlength="5">
+                        <input type="text" class="game" id="tb_nr" placeholder="0" maxlength="2">
+                        
+                    </span>
                 </div>
             </form>
             <div id="bottom">

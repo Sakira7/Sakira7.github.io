@@ -14,13 +14,29 @@
 
         window.addEventListener("load", ()=>{            
 
-            let col = document.getElementsByTagName("input");
+            let col = document.querySelectorAll(".game");
             let val = col.length;
-            console.log(window.innerWidth);
+            console.log(col);
  
             document.querySelector("#info-output").innerHTML = localStorage.getItem("info");
             document.querySelector("#info-box-txt1").innerHTML = localStorage.getItem("info-txt");
             document.querySelector("#time1").innerHTML = localStorage.getItem("time");
+
+            let at_toggle = document.querySelector("#at_toggle");
+            let dp_toggle = document.querySelector("#dp_toggle");
+
+
+            if(localStorage.getItem("cb_at") === "false"){
+                at_toggle.setAttribute("hidden", "");
+            }else if(localStorage.getItem("cb_at") === "true"){
+                at_toggle.removeAttribute("hidden", "");
+            };
+
+            if(localStorage.getItem("cb_dp") === "false"){
+                dp_toggle.setAttribute("hidden", "");
+            }else if(localStorage.getItem("cb_dp") === "true"){
+                dp_toggle.removeAttribute("hidden");
+            };
 
             let clock = document.querySelector("#clock1");
             let info_box = document.querySelector("#info-box1");
@@ -28,6 +44,7 @@
             if(localStorage.getItem("widget") === "klocka"){
                 clock.style.display = "block";
                 info_box.style.display = "none";
+
             }else if(localStorage.getItem("widget") === "info-box"){
                 clock.style.display = "none";
                 info_box.style.display = "block";
@@ -44,7 +61,9 @@
             month = date.slice(5,7);
             date = date.slice(8);
 
-            
+
+
+
             let jr = col[5];
             let eldorado = col[8];
             let atlantis = col[9];
@@ -53,6 +72,7 @@
             let sp2 = col[12];
             let sp3 = col[13];
             let dp = col[14];
+            let tb = col[15];
             
             let months = ["januari", "februari", "mars", "april", "maj", "juni", "juli", "augusti", "september", "oktober", "november", "december"];
             sp_date.value = date + " " +months[month -1];
@@ -154,11 +174,31 @@
                     let end = dp.value.slice(4);
                     dp.value = start + " " + middle + " " + end;
                 }
+                //Turbollen
+                if(tb.value.length == 4){
+                    let start = tb.value.slice(0,1);
+                    let end = tb.value.slice(1);
+                    tb.value = start + " " + end;
+                }else if(tb.value.length == 5){
+                    let start = tb.value.slice(0,2);
+                    let end = tb.value.slice(2);
+                    tb.value = start + " " + end;
+                }else if(tb.value.length == 6){
+                    let start = tb.value.slice(0,3);
+                    let end = tb.value.slice(3);
+                    tb.value = start + " " + end;
+                }else if(tb.value.length == 7){
+                    let start = tb.value.slice(0,1);
+                    let middle = tb.value.slice(1,4);
+                    let end = tb.value.slice(4);
+                    tb.value = start + " " + middle + " " + end;
+                }
         });
 
         window.addEventListener("storage", ()=>{
             location.reload();
-        })
+        });
+
 
         </script>
         <div class="content">
@@ -168,29 +208,32 @@
                 <div id="left-row1">
                     <p id="rubrik1">Lokala spel</p>
 
-                    <span class="wrap"><label for="zata">Zäta</label>
-                        <input type="text" id="zata1" disabled><span class="after">drag</span></span>
+                    <span class="wrap"><label class="game_name" for="zata">Zäta</label>
+                        <input type="text" class="game" id="zata1" disabled><span class="after">drag</span></span>
 
-                    <span class="wrap"><label for="fc">Färgchansen</label>
-                        <input type="text" id="fc1" disabled><span class="after">drag</span></span>
+                    <span class="wrap"><label class="game_name" for="fc">Färgchansen</label>
+                        <input type="text" class="game" id="fc1" disabled><span class="after">drag</span></span>
 
-                    <span class="wrap"><label for="ss1" class="ss">Sjöstjärnan</label>
-                        <input type="text" id="ss11" disabled><span class="after">,</span>
-                        <input type="text" id="ss21" disabled><span class="after">,</span>
-                        <input type="text" id="ss31" disabled><span class="after">drag</span></span>
+                    <span class="wrap"><label class="game_name" for="ss1" class="ss">Sjöstjärnan</label>
+                        <span class="row_nr">&#10112;</span>
+                        <input type="text" class="game" id="ss11" disabled><span class="row_nr">&#160;&#160;&#10114;</span>
+                        <input type="text" class="game" id="ss21" disabled><span class="row_nr">&#160;&#160;&#10116;</span>
+                        <input type="text" class="game" id="ss31" disabled><span class="after">drag</span></span>
 
-                    <span class="wrap"><label for="jr">Jackpottresan</label>
-                        <input type="text" id="jr1" disabled><span class="after">kr</span></span>
+                    <span class="wrap"><label class="game_name" for="jr">Jackpottresan</label>
+                        <input type="text" class="game" id="jr1" disabled><span class="after">kr</span></span>
 
-                    <label for="sb">SingelBygg</label>
+                    <label class="game_name" for="sb">SingelBygg</label>
                     <span class="sb1">
                         <span class="sb160">
                             <span class="before">60 drag:</span>
-                            <input type="text" id="sb1160" disabled><span class="after">kr</span>
+                            <input type="text" class="game" id="sb1160" disabled><span class="after">kr</span>
                             <span class="in-between"> / </span>
-                            <input type="text" id="sb1260" disabled><span class="after">kr</span>
+                            <input type="text" class="game" id="sb1260" disabled><span class="after">kr</span>
                         </span><br>
                     </span>
+
+                    
 
                        
                        <div id="extras1">
@@ -200,36 +243,75 @@
                                     <p id="info-output"></p>
                                 </div>
                             </div>
-                            <div id="clock1" hidden>
-                                <div id="time1"></div>
-                            </div>
+
+                                <div id="clock1" hidden>
+                                    <div id="time1"></div>
+                                </div>
+
+
                         </div>
                 </div>
 
 
                 <div id="right-row">
                     <p id="rubrik2">Centrala spel</p>
-                    <span class="wrap"><label for="eldo">Eldorado</label>
-                        <input type="text" id="eldo1" disabled><span class="after">kr</span>
+                    <span class="wrap"><label class="game_name" for="eldo">Eldorado</label>
+                        <input type="text" class="game" id="eldo1" disabled><span class="after">kr</span>
                         <p class="info">Spelas kl 14.00 och 19.00</p></span><br>
                         <div class="space"></div>
 
-                    <span class="wrap"><label for="at">Atlantis</label>
-                        <input type="text" id="at1" disabled><span class="after">kr</span>
+                    
+                    <span id="at_toggle">    
+                        <span class="wrap"><label class="game_name" for="at">Atlantis</label>
+                        <input type="text" class="game" id="at1" disabled><span class="after">kr</span>
                         <p class="info">Spelas efter Eldorado</p></span><br>
+
                         <div class="space"></div>
+                    </span>
     
-                    <span class="wrap1"><label for="sp" >Superpotten</label>
-                    <p class="info">Spelas den <input type="text" id="date1" disabled></p></span><br>
-                        <span class="wrapper"><span class="row" id="row1">Första raden:</span><input type="text" id="sp11" disabled><span class="after" id="after-sp11">kr</span></span>
-                        <span class="wrapper"><span class="row">Andra raden:</span><input type="text" id="sp21" disabled><span class="after">kr</span></span>
-                        <span class="wrapper"><span class="row">Full bricka:</span><input type="text" id="sp31" disabled><span class="after">kr</span></span><br>
+                    <span class="wrap1"><label class="game_name" for="sp" >Superpotten</label>
+                    <p class="info">Spelas den <input type="text" class="game" id="date1" disabled></p></span><br>
+                        <span class="wrapper"><span class="row" id="row1">Första raden:</span><input type="text" class="game" id="sp11" disabled><span class="after" id="after-sp11">kr</span></span>
+                        <span class="wrapper"><span class="row">Andra raden:</span><input type="text" class="game" id="sp21" disabled><span class="after">kr</span></span>
+                        <span class="wrapper"><span class="row">Full bricka:</span><input type="text" class="game" id="sp31" disabled><span class="after">kr</span></span><br>
                         
                         <div class="space"></div>
 
-                    <span class="wrap"><label for="dp">Drömpotten</label>
-                        <input type="text" id="dp1" disabled><span class="after" id="after-dp">kr</span><br>
-                        <p class="info">Spelas på Bingons Dag, den 9 september</p></span><br>     
+                    <span id="dp_toggle">
+                        <span class="wrap"><label class="game_name" for="dp">Drömpotten</label>
+                        <input type="text" class="game" id="dp1" disabled><span class="after" id="after-dp">kr</span></span><br>
+                        
+                        <div class="space"></div>
+                    </span>
+
+                                <div id="storbingo1">
+                                    <span id="tb_head">
+                                        <p id="rubrik3">Storbingo</p>
+                                        <p class="info">Varje Söndag med start kl. 15:00</p>
+                                        
+                                    </span>
+
+                                    <span id="sb_content">
+                                        <span id="tb_wrap">
+                                            <input type="text" class="game" id="tb_value">
+                                            <span class="after_tb">&#160;kr</span>
+                                        </span>
+
+                                    <span id="ball_wrap">    
+                                        <span id="bingo_ball">
+                                            <figure class="ball"><span class="shadow"></span>
+                                                <span id="inner_circle">
+                                                <input type="text" class="game" id="tb_nr1" disabled>
+                                                </span>      
+                                            </figure>
+                                        </span>
+                                    </span>
+                                    </span>
+
+                                   
+
+                                </div>
+                           
                 </div>
                 </div>
                 </div>

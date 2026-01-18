@@ -38,7 +38,7 @@ html, body{
     display: flex;
     margin-bottom: 2%;
 }
-label{
+.game_name{
     font-size:2em;
     margin-left:0;
     margin-right:auto;
@@ -59,23 +59,23 @@ label{
 .sb{
     display: flex;
 }
-input{
+.game{
     font-size:2em;
     text-align: center;
     field-sizing: content;
     max-width: max-content;
     caret-color: #5e1246;
 }
-input:disabled{
+.game:disabled{
     color:#000;
 }
-input::placeholder{
+.game::placeholder{
     color:#ccc9e7;
 }
 #eldo, #at, #eldo1, #at1{
     margin-right:0.03em;
 }
-#rubrik1, #rubrik2{
+#rubrik1, #rubrik2, #rubrik3{
     font-size:3em;
     padding-bottom:1em;
     font-family: 'Tahoma', Arial, Sans-serif;
@@ -95,10 +95,90 @@ input::placeholder{
     margin-left:0;
 }
 .space{
-    height:2em;
+    height:1em;
 }
 .space2{
     height:1em;
+}
+/* Customize the label (the container) */
+.container {
+  display: block;
+  position: relative;
+  margin-bottom:-5px;
+  margin-left:-25px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #fff;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #ad3f8b;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 8px;
+  top: 3px;
+  width: 9px;
+  height: 14px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+#atlantis{
+    color:grey;
+}
+#at{
+    color:grey;
+}
+#drompotten{
+    color:grey;
+}
+#dp{
+    color:grey;
 }
 #left-row, #left-row1{
     width:50%;
@@ -211,6 +291,122 @@ input::placeholder{
     height:100%;
     font-size:1.3em;
     padding:10px 20px;
+}
+#storbingo1{
+    height:29vh;
+    width:40vw;
+    border-top:1px solid black;
+    display: flex;
+
+}
+#tb_head{
+    width:40vw;
+    align-self: baseline;
+    position: absolute;
+}
+#tb_head .info{
+    margin-top:-2em !important;
+    
+}
+#sb_content{
+    height:19vh;
+    width:40vw;
+    margin-top:3vh;
+}
+#tb_wrap{
+    height:21vh;
+    width:20vw;
+    position:absolute;
+    align-content: end;
+    margin-bottom:5vh;
+}
+#tb_nr{
+    border-radius: 50%;
+    width:10vw;
+}
+#tb_value{
+    font-size:4em !important;
+    font-weight: bold;
+    color:#222;
+    font-family: "Tahoma", sans-serif;
+}
+.after_tb{
+    font-size:4em;
+    color:#222;
+}
+#ball_wrap{
+    height:21vh;
+    width:20vw;
+    margin-left:24vw;
+    position: absolute;
+    align-content: center;
+}
+#bingo_ball{
+    height:20vmin;
+    width:20vmin;
+    background-color: #000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    
+}
+.ball{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border-radius: 50%;
+    position: relative;
+    background: radial-gradient(circle at 50% 120%, #7b0455, #520239 10%, #832064 80%, #5e1246 100%);
+    align-content: center;
+
+}
+.ball .shadow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0) 50%);
+    -webkit-transform: rotateX(90deg) translateZ(-150px);
+    -moz-transform: rotateX(90deg) translateZ(-150px);
+    -ms-transform: rotateX(90deg) translateZ(-150px);
+    -o-transform: rotateX(90deg) translateZ(-150px);
+    transform: rotateX(90deg) translateZ(-150px);
+    z-index: -1;
+}
+.ball:before {
+ content: "";
+  position: absolute;
+  top: 2%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 0px, #ffffff, rgba(255, 255, 255, 0) 58%);
+  -webkit-filter: blur(2px);
+  z-index: 2;
+}
+#inner_circle{
+    height:12vmin;
+    width:12vmin;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    box-shadow: inset 1px 1px 10px rgb(211, 211, 211), 
+    inset -1px -1px 10px rgb(211, 211, 211), 
+    inset 1px -1px 10px rgb(211, 211, 211), 
+    inset -1px 1px 10px rgb(211, 211, 211);
+}
+#tb_nr1{
+    background-color:transparent ;   
+    border:none;
+    font-weight: bold;
+    font-size: 6em;
+    color:#222;
 }
 #clock, #clock1{
     background-color:#333;
@@ -350,7 +546,7 @@ input::placeholder{
 /**************************
         show.html
 ***************************/
-#zata1, #fc1, #ss11, #ss21, #ss31, #jr1, #sb1160, #sb1260, #sb1162, #sb1262, #eldo1, #at1, #sp11, #sp21, #sp31, #dp1{
+#zata1, #fc1, #ss11, #ss21, #ss31, #jr1, #sb1160, #sb1260, #sb1162, #sb1262, #eldo1, #at1, #sp11, #sp21, #sp31, #dp1, #tb1, #tb_value{
     border:none;
     background-color: #ccc9e7;
     cursor:default;
@@ -393,6 +589,11 @@ input::placeholder{
     padding-left:0.2em;
     text-align: end;
     caret-color: transparent;
+}
+.row_nr{
+    font-size:2em;
+    margin-right:-15px;
+    margin-top:-4px;
 }
 .outer-border{
     border:thick solid black;
@@ -477,14 +678,19 @@ input::placeholder{
     }
 
 
+
 }
 @media only screen and (max-width:1379px){
     .after, .before,#row1,.row, #zata1, #fc1, #ss11, #ss21, #ss31, #jr1, 
-    #sb1160, #sb1260, #eldo1, #at1, #sp11, #sp21, #sp31, #dp1, label{
+    #sb1160, #sb1260, #eldo1, #at1, #sp11, #sp21, #sp31, #dp1, #tb1,label{
         font-size:1.5em;
     }
     .info{
         font-size: 1.2em;
+    }
+    .row_nr{
+        font-size:1.7em;
+        margin-right:-12px;
     }
 
 }
