@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>salu</title>
+        <link href="stylesheet.css" rel="stylesheet">
+    </head>
+    <body>
+
+           <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon"></div>
+                    <span class="logo-text">salu</span>
+                </div>
+
+                <div class="search-container">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="searchInput" class="search-input" placeholder="Vad letar du efter?">
+                </div>
+
+                <!-- Auth Buttons (logged out) -->
+                <div id="authButtons">
+                    <button class="btn btn-outline" onclick="openLoginModal()">Logga in</button>
+                    <button class="btn btn-primary" onclick="openSignupModal()">Skapa konto</button>
+                </div>
+
+                <!-- User Menu (logged in) -->
+                <div id="userMenu" class="user-menu hidden">
+                    <button class="btn btn-primary" onclick="openCreateListingModal()">
+                        <span>➕</span>
+                        <span class="btn-sell-text">Sälj</span>
+                    </button>
+
+                    <button class="btn btn-outline cart-btn" onclick="openCart()">
+                        <span>🛒</span>
+                        <span id="cartBadge" class="cart-badge hidden">0</span>
+                    </button>
+
+                    <img id="userAvatar" src="" alt="User" class="user-avatar" onclick="toggleUserDropdown()">
+                    
+                    <div id="userDropdown" class="user-dropdown">
+                        <div class="user-dropdown-header">
+                            <div class="user-dropdown-name" id="dropdownName"></div>
+                            <div class="user-dropdown-email" id="dropdownEmail"></div>
+                        </div>
+                        <div class="user-dropdown-item" onclick="showMyListings()">
+                            📦 Mina aktiva annonser
+                        </div>
+                        <div class="user-dropdown-item" onclick="logout()">
+                            🚪 Logga ut
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="filter-section">
+                    <h3>Kategorier</h3>
+                    <div class="filter-option">
+                        <input type="radio" name="category" value="all" id="cat-all" checked onchange="filterProducts()">
+                        <label for="cat-all">Alla produkter</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="category" value="home" id="cat-home" onchange="filterProducts()">
+                        <label for="cat-home">Hem</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="category" value="electronics" id="cat-electronics" onchange="filterProducts()">
+                        <label for="cat-electronics">Elektronik</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="category" value="fashion" id="cat-fashion" onchange="filterProducts()">
+                        <label for="cat-fashion">Mode</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="category" value="hobby" id="cat-hobby" onchange="filterProducts()">
+                        <label for="cat-hobby">Hobby</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="category" value="media" id="cat-media" onchange="filterProducts()">
+                        <label for="cat-media">Media</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="radio" name="category" value="crafts" id="cat-crafts" onchange="filterProducts()">
+                        <label for="cat-crafts">Hantverk</label>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Pris</h3>
+                    <div class="price-range">
+                        <input type="range" id="priceMax" class="price-slider" min="0" max="2000" value="2000" oninput="filterProducts()">
+                        <div class="price-values">
+                            <span>0kr</span>
+                            <span id="maxPriceLabel">2000kr</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Product Grid -->
+            <main class="content">
+                <div class="content-header">
+                    <h1 id="categoryTitle">Alla produkter</h1>
+                    <p class="product-count" id="productCount">visar 8 produkter</p>
+                </div>
+                <div class="product-grid" id="productGrid"></div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content small">
+            <div class="modal-header">
+                <h2 class="modal-title">Logga in</h2>
+                <button class="close-btn" onclick="closeLoginModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label class="form-label" for="loginEmail">Mail</label>
+                        <input type="email" id="loginEmail" class="form-input" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="loginPassword">Lösenord</label>
+                        <input type="password" id="loginPassword" class="form-input" placeholder="Enter your password" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Logga in</button>
+                    
+                    <div class="auth-link">
+                        Ny på salu? <a onclick="closeLoginModal(); openSignupModal()">Skapa konto</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal" id="signupModal">
+        <div class="modal-content small">
+            <div class="modal-header">
+                <h2 class="modal-title">Skapa konto</h2>
+                <button class="close-btn" onclick="closeSignupModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="signupForm" onsubmit="handleSignup(event)">
+                    <div class="form-group">
+                        <label class="form-label" for="signupName">Namn</label>
+                        <input type="text" id="signupName" class="form-input" placeholder="Namn" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="signupEmail">Mail</label>
+                        <input type="email" id="signupEmail" class="form-input" placeholder="mail@mail.se" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="signupPassword">Lösenord</label>
+                        <input type="password" id="signupPassword" class="form-input" placeholder="Skapa lösenord" required minlength="6">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Skapa konto</button>
+                    
+                    <div class="auth-link">
+                        Har du redan ett konto? <a onclick="closeSignupModal(); openLoginModal()">Logga in</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div class="modal" id="productDetailModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Info om produkt</h2>
+                <button class="close-btn" onclick="closeProductDetail()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="product-detail-grid" id="productDetailContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Listing Modal -->
+    <div class="modal" id="createListingModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Skapa din annons</h2>
+                <button class="close-btn" onclick="closeCreateListingModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="createListingForm" onsubmit="handleCreateListing(event)">
+                    <div class="form-group">
+                        <label class="form-label">Bild</label>
+                        <div id="imageUploadArea" class="image-upload" onclick="document.getElementById('imageInput').click()">
+                            <div>📷</div>
+                            <p>Ladda up bild</p>
+                        </div>
+                        <input type="file" id="imageInput" accept="image/*" style="display: none;" onchange="handleImageUpload(event)">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="productName">Namn *</label>
+                        <input type="text" id="productName" class="form-input" placeholder="e.g., Vintage Camera" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="productCategory">Kategori *</label>
+                        <select id="productCategory" class="form-select" required>
+                            <option value="">Välj katergori</option>
+                            <option value="audio">Audio</option>
+                            <option value="computers">Computers</option>
+                            <option value="wearables">Wearables</option>
+                            <option value="cameras">Cameras</option>
+                            <option value="phones">Phones</option>
+                            <option value="gaming">Gaming</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="productPrice">Pris *</label>
+                        <input type="number" id="productPrice" class="form-input" placeholder="0.00" step="0.01" min="0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="productDescription">Beskrivning *</label>
+                        <textarea id="productDescription" class="form-textarea" placeholder="Beskriv din produkt.." required></textarea>
+                    </div>
+
+                    <div style="display: flex; gap: 0.75rem;">
+                        <button type="button" class="btn btn-outline" style="flex: 1;" onclick="closeCreateListingModal()">Cancel</button>
+                        <button type="submit" class="btn btn-primary" style="flex: 1;">
+                            <span>📤</span>
+                            <span>Ladda up annons</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Drawer -->
+    <div class="drawer" id="cartDrawer">
+        <div class="drawer-backdrop" onclick="closeCart()"></div>
+        <div class="drawer-content">
+            <div class="drawer-header">
+                <h2 class="modal-title">Kundvagn</h2>
+                <button class="close-btn" onclick="closeCart()">×</button>
+            </div>
+            <div class="drawer-body" id="cartItems"></div>
+            <div class="drawer-footer" id="cartFooter"></div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toastContainer"></div>
+        <div id="content">
+
+        </div>
+
+
+        <script src="script.js"></script>
+    </body>
+</html>
