@@ -12,19 +12,48 @@
     </head>
     <body>
         <script>
+            window.addEventListener("load", ()=>{
+                console.log(window.innerWidth)
+            })
         
                 async function central(){
 
                     const base = `https://proxy-9x3u.onrender.com/api`;
-                    const target = `https://connect.idpit.se/jpinfo.php?format=json`;
+                    //const target = `https://connect.idpit.se/jpinfo.php?format=json`;
+                    const target = `https://bingoringen.se/jackpott`;
                     fetch(`${base}?url=${encodeURIComponent(target)}&t=${Date.now()}`)
-                    .then(res => res.json())
+                    .then(res => res.text())
                     .then(data => {
-                        const eldo = data[0].eldorado;
-                        const drom = data[0].drom;
-                        const sp1 = data[0].rad1;
-                        const sp2 = data[0].rad2;
-                        const sp3 = data[0].rad3;
+                        let eldo_start = data.match("eldorado_red:").index;
+                        let eldo_end = data.match("eldorado_green:").index;
+                        let eldo_value = data.substring(eldo_start + 14, eldo_end -7);
+
+                        const eldo = eldo_value;
+
+                        let drom_start = data.match("drom:").index;
+                        let drom_end = data.match("eldorado:").index;
+                        let drom_value = data.substring(drom_start + 6, drom_end - 7);
+                        
+                        const drom = drom_value;
+
+                        let sp1_start = data.match("rad1:").index;
+                        let sp1_end = data.match("rad2:").index;
+                        let sp1_value = data.substring(sp1_start + 6, sp1_end - 7);
+                        
+                        const sp1 = sp1_value;
+
+                        let sp2_start = data.match("rad2:").index;
+                        let sp2_end = data.match("rad3:").index;
+                        let sp2_value = data.substring(sp2_start + 6, sp2_end - 7);
+                        
+                        const sp2 = sp2_value;
+
+                        let sp3_start = data.match("rad3:").index;
+                        let sp3_end = data.match("atlantis:").index;
+                        let sp3_value = data.substring(sp3_start + 6, sp3_end - 7);
+                        
+                        const sp3 = sp3_value;
+
                         document.getElementById("eldo").value = eldo;
                         document.getElementById("sp1").value = sp1;
                         document.getElementById("sp2").value = sp2;
@@ -153,6 +182,7 @@
                 <div id="right-row">
                     <p id="rubrik2">Centrala spel</p>
                     <span class="wrap"><label class="game_name" for="eldo">Eldorado</label>
+                        <img src="https://bingoringen.se/images/smaragd_rod.png" class="ruby">
                         <input type="text" class="game" id="eldo" placeholder="30000" maxlength="6">
                     </span><br>
 

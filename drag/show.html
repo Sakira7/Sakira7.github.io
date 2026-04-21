@@ -54,6 +54,7 @@
             }
             for(var i = 0; i < val; i++){
                 col[i].value = localStorage.getItem("value"+i);
+                console.log(col[i]);
                 
             }
             let date =  document.getElementById("date1").value;
@@ -65,7 +66,9 @@
 
 
             let jr = col[5];
-            let eldorado = col[8];
+            let sb1 = col[6];
+            let sb2 = col[7];
+            let eldo = col[8];
             let atlantis = col[9];
             let sp_date = col[10];
             let sp1 = col[11];
@@ -88,16 +91,39 @@
                 jr.value = start + " " + end;
                 
             }
-            //Eldorado
-            if(eldorado.value.length == 5){
-                let start = eldorado.value.slice(0,2);
-                let end = eldorado.value.slice(2);
-                eldorado.value = start + " " + end;
-            }else if(eldorado.value.length == 6){
-                let start = eldorado.value.slice(0,3);
-                let end = eldorado.value.slice(3);
-                eldorado.value = start + " " + end;
+            //Singelbygg10
+            if(sb1.value.length == 4){
+                let start = sb1.value.slice(0,1);
+                let end = sb1.value.slice(1);
+                sb1.value = start + " " + end;
+            }else if(sb1.value.length == 5){
+                let start = sb1.value.slice(0,2);
+                let end = sb1.value.slice(2);
+                sb1.value = start + " " + end;
+                
             }
+            //Singelbygg20
+            if(sb2.value.length == 4){
+                let start = sb2.value.slice(0,1);
+                let end = sb2.value.slice(1);
+                sb2.value = start + " " + end;
+            }else if(sb2.value.length == 5){
+                let start = sb2.value.slice(0,2);
+                let end = sb2.value.slice(2);
+                sb2.value = start + " " + end;
+                
+            }
+            //Eldorado
+            if(eldo.value.length == 5){
+                let start = eldo.value.slice(0,2);
+                let end = eldo.value.slice(2);
+                eldo.value = start + " " + end;
+            }else if(eldo.value.length == 6){
+                let start = eldo.value.slice(0,3);
+                let end = eldo.value.slice(3);
+                eldo.value = start + " " + end;
+                
+            }            
             //Atlantis
             if(atlantis.value.length == 4){
                 let start = atlantis.value.slice(0,1);
@@ -215,9 +241,9 @@
                         <input type="text" class="game" id="fc1" disabled><span class="after">drag</span></span>
 
                     <span class="wrap"><label class="game_name" for="ss1" class="ss">Sjöstjärnan</label>
-                        <span class="row_nr">&#10112;</span>
-                        <input type="text" class="game" id="ss11" disabled><span class="row_nr">&#160;&#160;&#10114;</span>
-                        <input type="text" class="game" id="ss21" disabled><span class="row_nr">&#160;&#160;&#10116;</span>
+                        <span class="row_nr">&#185;</span>
+                        <input type="text" class="game" id="ss11" disabled><span class="row_nr">&#160;&#160;&#179;</span>
+                        <input type="text" class="game" id="ss21" disabled><span class="row_nr">&#160;&#160;&#8309;</span>
                         <input type="text" class="game" id="ss31" disabled><span class="after">drag</span></span>
 
                     <span class="wrap"><label class="game_name" for="jr">Jackpottresan</label>
@@ -255,9 +281,18 @@
 
                 <div id="right-row">
                     <p id="rubrik2">Centrala spel</p>
-                    <span class="wrap"><label class="game_name" for="eldo">Eldorado</label>
-                        <input type="text" class="game" id="eldo1" disabled><span class="after">kr</span>
-                        <p class="info">Spelas kl 14.00 och 19.00</p></span><br>
+                        <span class="wrap" id="eldorado_wrapper">
+                            <span class="eldo_head">
+                                <label class="game_name" for="eldo">Eldorado</label>
+                                <p class="info" id="eldo_info">Spelas kl 14.00 och 19.00</p>
+                            </span>
+                            <span class="eldo_wrap">
+                                <img src="https://bingoringen.se/images/smaragd_rod.png" class="ruby">
+                                <input type="text" class="game" id="eldo_red" disabled><span class="after">kr</span>
+
+                            </span>
+                        </span>
+                        
                         <div class="space"></div>
 
                     
@@ -287,7 +322,7 @@
                                 <div id="storbingo1">
                                     <span id="tb_head">
                                         <p id="rubrik3">Storbingo</p>
-                                        <p class="info">Varje Söndag med start kl. 15:00</p>
+                                        <p class="info" id="sb_info">Varje Söndag med start kl. 15:00</p>
                                         
                                     </span>
 

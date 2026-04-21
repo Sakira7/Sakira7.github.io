@@ -293,11 +293,11 @@ html, body{
     padding:10px 20px;
 }
 #storbingo1{
-    height:29vh;
+    height:20vh;
     width:40vw;
     border-top:1px solid black;
     display: flex;
-
+    margin-top:5vh;
 }
 #tb_head{
     width:40vw;
@@ -306,20 +306,19 @@ html, body{
 }
 #tb_head .info{
     margin-top:-2em !important;
-    font-size:0.8em;
+    font-size:1em;
     
 }
 #sb_content{
-    height:19vh;
     width:40vw;
     margin-top:3vh;
 }
 #tb_wrap{
-    height:21vh;
+    height:20vh;
     width:40vw;
     position:absolute;
-    align-content: end;
-    margin-bottom:5vh;
+    margin-top:7vh;
+
 }
 #tb_wrap_edit{
     display:flex;
@@ -338,21 +337,25 @@ html, body{
     margin-right:3vw;
 }
 #tb_value{
-    font-size:3.5em !important;
+    font-size:4em !important;
     font-weight: bold;
     color:#222;
     font-family: "Tahoma", sans-serif;
 }
 .after_tb{
-    font-size:3.5em;
+    font-size:4em;
     color:#222;
 }
 #ball_wrap{
-    height:21vh;
+    height:20vh;
     width:20vw;
     margin-left:24vw;
+    bottom:0.2vh;    
     position: absolute;
     align-content: center;
+}
+#sb_info{
+    top:10vh;
 }
 #bingo_ball{
     height:20vmin;
@@ -418,7 +421,7 @@ html, body{
     background-color:transparent ;   
     border:none;
     font-weight: bold;
-    font-size: 6em;
+    font-size: 4em;
     color:#222;
 }
 #clock, #clock1{
@@ -556,10 +559,35 @@ html, body{
     color: #eeeeee91;
     text-shadow: none;
 }
+
+.ruby{
+    width:4vmin;
+    height: 4vmin;
+    margin-right:1vw;
+
+}
+#eldorado_wrapper{
+    width:100%;}
+.eldo_head{
+    width:20vw;
+    height: 10vh;
+
+}
+#eldo_info{
+    margin-top:0;
+}
+.eldo_wrap{
+    width:100%;
+    height:4vmin;
+    display: flex;
+    justify-content: end;
+
+}
+
 /**************************
         show.html
 ***************************/
-#zata1, #fc1, #ss11, #ss21, #ss31, #jr1, #sb1160, #sb1260, #sb1162, #sb1262, #eldo1, #at1, #sp11, #sp21, #sp31, #dp1, #tb1, #tb_value{
+#zata1, #fc1, #ss11, #ss21, #ss31, #jr1, #sb1160, #sb1260, #sb1162, #sb1262, #eldo_red, #at1, #sp11, #sp21, #sp31, #dp1, #tb1, #tb_value{
     border:none;
     background-color: #ccc9e7;
     cursor:default;
